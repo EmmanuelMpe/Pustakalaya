@@ -26,7 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('homestead'),
+    //return $_SERVER['MY_LARAVEL_ENV'];
+	'local' => array('host-name'),
 
 ));
 
