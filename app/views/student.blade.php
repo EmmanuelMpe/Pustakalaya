@@ -56,31 +56,6 @@
   </div>
 </div>
 
-<div id="pagination-block">
-  <div class="row">
-    <div class="col-lg-12">
-      <ul class="pagination">
-        <li class="disabled"><a href="#">«</a>
-        </li>
-        <li class="active"><a href="#">1</a>
-        </li>
-        <li><a href="#">2</a>
-        </li>
-        <li><a href="#">3</a>
-        </li>
-        <li><a href="#">4</a>
-        </li>
-        <li><a href="#">5</a>
-        </li>
-        <li><a href="#">»</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<hr>
-
 <div class="recomendation-table">
   <div class="row">
     <div class="col-lg-12">
@@ -117,7 +92,7 @@
             <td>3/3</td>
             <td>058-27*</td>
           </tr>
-          <tr class="danger">
+          <tr>
             <td>100/31</td>
             <td>Set The History</td>
             <td>ABdV</td>
@@ -132,6 +107,27 @@
   </div>
 </div>
 
-
+<div id="pagination-block">
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <li class="disabled"><a href="#">«</a>
+        </li>
+        <li class="active"><a href="#">1</a>
+        </li>
+        <li><a href="#">2</a>
+        </li>
+        <li><a href="#">3</a>
+        </li>
+        <li><a href="#">4</a>
+        </li>
+        <li><a href="#">5</a>
+        </li>
+        <li><a href="#">»</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 @stop
