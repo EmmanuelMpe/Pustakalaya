@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-7 col-sm-6">
       <h2>Student</h2>
+      <p class="lead">Puspe</p>
     </div>
   </div>
 
@@ -34,16 +35,16 @@
             </tr>
             <tr>
               <td>1038</td>
-              <td>Into the wild</td>
-              <td>Me</td>
+              <td>Back to the jungle</td>
+              <td>She</td>
               <td>2010</td>
               <td>2014-12-25</td>
               <td>2015-02-25</td>
             </tr>
             <tr class="danger">
               <td>1038</td>
-              <td>Into the wild</td>
-              <td>Me</td>
+              <td>Into the city</td>
+              <td>He</td>
               <td>2010</td>
               <td>2014-12-25</td>
               <td>2015-02-25</td>
@@ -55,6 +56,30 @@
     </div>
   </div>
 
+  <div id="pagination-block">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="pagination">
+          <li class="disabled"><a href="#">«</a>
+          </li>
+          <li class="active"><a href="#">1</a>
+          </li>
+          <li><a href="#">2</a>
+          </li>
+          <li><a href="#">3</a>
+          </li>
+          <li><a href="#">4</a>
+          </li>
+          <li><a href="#">5</a>
+          </li>
+          <li><a href="#">»</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
   <hr>
 
 
@@ -62,7 +87,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-7 col-sm-6">
       <h2>Librarian</h2>
-      <!-- <p class="lead">hehe</p> -->
+      <p class="lead">Harikala</p>
     </div>
   </div>
 
@@ -113,12 +138,12 @@
     </div>
   </div>
 
-    <hr>
+  <hr>
 
   <div class="row">
     <div class="col-lg-8 col-md-7 col-sm-6">
       <h2>Verifier</h2>
-      <!-- <p class="lead">hehe</p> -->
+      <p class="lead">Rambahadur</p>
     </div>
   </div>
 
@@ -142,7 +167,7 @@
               </div>
             </div>
 
-           <div class="form-group">
+            <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <button type="submit" class="btn btn-primary">Verify</button>
                 <button class="btn btn-default pull-right">Cancel</button>
