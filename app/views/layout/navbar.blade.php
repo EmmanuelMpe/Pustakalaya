@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <a href="#" class="navbar-brand"> Pustakalaya </a>
@@ -39,4 +39,4 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
