@@ -57,6 +57,60 @@
 
   <hr>
 
+  <div class="recomendation-table">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table table-striped table-hover ">
+          <legend>Recomended Books</legend>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Book</th>
+              <th>Author</th>
+              <th>Edition</th>
+              <th>Type</th>
+              <th>Available</th>
+              <th>Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- tr class="info | success | danger | warning | active" -->
+            <tr>
+              <td>100/31</td>
+              <td>Set The History</td>
+              <td>ABdV</td>
+              <td>2015</td>
+              <td>Reference</td>
+              <td>3/3</td>
+              <td>058-27*</td>
+            </tr>
+            <tr>
+              <td>100/31</td>
+              <td>Set The History</td>
+              <td>ABdV</td>
+              <td>2015</td>
+              <td>Reference</td>
+              <td>3/3</td>
+              <td>058-27*</td>
+            </tr>
+            <tr class="danger">
+              <td>100/31</td>
+              <td>Set The History</td>
+              <td>ABdV</td>
+              <td>2015</td>
+              <td>Reference</td>
+              <td>3/3</td>
+              <td>058-27*</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
 
 
   <div class="row">
