@@ -2,8 +2,7 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Forgot Password</h2>
-    <p class="lead">Fill in the form to retrive your password.</p>
+    <h2>Forgot Password ?</h2>
   </div>
 </div>
 

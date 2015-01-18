@@ -14,11 +14,12 @@
   @include('layout.navbar')
   <div class="container">
     @yield('content')
-    @include('layout.footer')
   </div>
+  @include('layout.footer')
 
   {{ HTML::script('bootstrap/jquery-1.js') }}
   {{ HTML::script('bootstrap/bootstrap.js') }}
   {{ HTML::script('bootstrap/bootswatch.js') }}
 </body>
+
 <html>
