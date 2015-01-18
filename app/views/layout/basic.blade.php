@@ -12,7 +12,13 @@
 </head>
 
 <body>
-  @yield('content')
+  @include('layout.navbar')
+
+  <div class="container">
+    @yield('content')
+    @include('layout.footer')
+  </div>
+
   <script src="bootstrap/jquery-1.js"></script>
   <script src="bootstrap/bootstrap.js"></script>
   <script src="bootstrap/bootswatch.js"></script>
