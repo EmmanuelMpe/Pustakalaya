@@ -1,4 +1,7 @@
-@extends('layout.basic') @section('content') @include('layout.navbar')
+@extends('layout.basic')
+
+@section('content')
+@include('layout.navbar')
 <div class="container">
 
   <div class="row">
@@ -304,12 +307,6 @@
       </div>
     </div>
   </div>
-
-  <hr>
-
-
-
-
 
 </div>
 
