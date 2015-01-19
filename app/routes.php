@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/studenthistory', function()
+Route::get('/history', function()
 {
 	return View::make('studentHistory');
 });
@@ -57,7 +57,7 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
-Route::get('/forgot', function()
+Route::get('/forget', function()
 {
 	return View::make('forgot');
 });
@@ -70,6 +70,16 @@ Route::get('/contact', function()
 Route::get('/search', function()
 {
 	return View::make('search');
+});
+
+Route::get('/addbooks', function()
+{
+	return View::make('addBooks');
+});
+
+Route::get('/booklist', function()
+{
+	return View::make('booklist');
 });
 
 App::missing(function($exception) {
