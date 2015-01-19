@@ -3,10 +3,10 @@
 @section('content')
 
 <div class="row">
-  <div class="col-lg-8 col-md-7 col-sm-6">
+    <div class="col-lg-6 col-md-6 col-sx-6">
     <h2>Student</h2>
     <p class="lead">Puspe</p>
-  </div>
+    </div>
 </div>
 
 <div class="lend-table">

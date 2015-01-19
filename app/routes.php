@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/studenthistory', function()
+{
+	return View::make('studentHistory');
+});
 
 Route::get('/student', function()
 {
