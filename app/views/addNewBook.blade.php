@@ -24,7 +24,7 @@
     <div class="col-lg-7">
       <form class="form-horizontal">
         <fieldset>
-          <legend>Add Books</legend>
+          <legend>Add New Book</legend>
           <div class="form-group">
             <label for="inputISBN" class="col-lg-2 control-label">ISBN</label>
             <div class="col-lg-10">
@@ -56,11 +56,10 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="inputBookIDs" class="col-lg-2 control-label">Books IDs</label>
+            <label for="inputQty" class="col-lg-2 control-label">Quantity</label>
             <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="inputBookIDs" placeholder="Place book IDs here..."></textarea>
-              <span class="help-block">Enter book ids seperated by a semicolon.</span>
-            </div>
+              <input class="form-control" id="inputQty" placeholder="Quantity" type="text">
+              </div>
           </div>
 
           <div class="form-group">
