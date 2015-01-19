@@ -30,18 +30,18 @@
             <th>Author</th>
             <th>Edition</th>
             <th>Type</th>
-            <th>Quantity</th>
+            <th>Available</th>
             <th>Range</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="info">
+          <tr>
             <td>123-45-6-7890</td>
             <td>Into the wild</td>
             <td>Me</td>
             <td>2010</td>
             <td>Lending</td>
-            <td>25</td>
+            <td>17/25</td>
             <td>523/207 - 523/231</td>
           </tr>
           <tr>
@@ -50,7 +50,7 @@
             <td>Me</td>
             <td>2012</td>
             <td>Not to Issue</td>
-            <td>15</td>
+            <td>11/15</td>
             <td>523/256 - 523/270</td>
           </tr>
           <tr class="danger">
@@ -59,7 +59,7 @@
             <td>ABdV</td>
             <td>2015</td>
             <td>Reference</td>
-            <td>31</td>
+            <td>2/31</td>
             <td>523/308 - 523/339</td>
           </tr>
         </tbody>

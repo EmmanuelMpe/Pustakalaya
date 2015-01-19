@@ -82,6 +82,11 @@ Route::get('/booklist', function()
 	return View::make('booklist');
 });
 
+Route::get('/bookinfo', function()
+{
+	return View::make('bookinfo');
+});
+
 App::missing(function($exception) {
     return Response::view('404', array(), 404);
 });
