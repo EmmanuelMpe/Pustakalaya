@@ -5,7 +5,6 @@
 <div class="row">
   <div class="col-lg-6">
     <h2>Change Password</h2>
-    <!-- <p class="lead">hehe</p> -->
   </div>
 </div>
 
