@@ -4,14 +4,21 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Student History</h2>
+    <h2>Student</h2>
     <p class="lead">Puspe</p>
   </div>
 </div>
 
-<div class="history-table">
-  <div class="row">
-    <div class="col-lg-12">
+<div class="row">
+  <div class="col-md-2">
+    <ul class="nav nav-pills nav-stacked">
+    <li><a href="/student">Home</a></li>
+    <li class="active"><a href="/history">History</a></li>
+    </ul>
+  </div>
+
+  <div class="history-table">
+    <div class="col-lg-10">
       <table class="table table-striped table-hover ">
         <legend>Books Log</legend>
           <tr>
@@ -30,27 +37,27 @@
       </table>
     </div>
   </div>
-</div>
 
-<div id="pagination-block">
-  <div class="row">
-    <div class="col-lg-12">
-      <ul class="pagination">
-        <li class="disabled"><a href="#">«</a>
-        </li>
-        <li class="active"><a href="#">1</a>
-        </li>
-        <li><a href="#">2</a>
-        </li>
-        <li><a href="#">3</a>
-        </li>
-        <li><a href="#">4</a>
-        </li>
-        <li><a href="#">5</a>
-        </li>
-        <li><a href="#">»</a>
-        </li>
-      </ul>
+  <div id="pagination-block">
+    <div class="row pull-right">
+      <div class="col-lg-12">
+        <ul class="pagination">
+          <li class="disabled"><a href="#">«</a>
+          </li>
+          <li class="active"><a href="#">1</a>
+          </li>
+          <li><a href="#">2</a>
+          </li>
+          <li><a href="#">3</a>
+          </li>
+          <li><a href="#">4</a>
+          </li>
+          <li><a href="#">5</a>
+          </li>
+          <li><a href="#">»</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

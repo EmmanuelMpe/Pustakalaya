@@ -9,8 +9,8 @@
       </button>
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
-      <form class="navbar-form navbar-left">
-        <input class="form-control col-lg-8" placeholder="Search" type="text">
+      <form class="navbar-form navbar-left col-lg-12">
+        <input class="form-control" placeholder="Search" type="text">
       </form>
       <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -73,6 +73,20 @@
         </li>
         <li>
           <a href="{{{ URL::to('/login') }}}"> Log in </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Puspe <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="themes">
+            <li><a href="#">Fine  <span class="badge"><b>NRS. 44/-</b></span></a>
+            </li>
+            <li><a href="/edit"> Edit Profile </a>
+            </li>
+            <li><a href="/password"> Change Password</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#"> Log Out </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

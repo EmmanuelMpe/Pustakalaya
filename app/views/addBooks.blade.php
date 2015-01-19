@@ -20,7 +20,7 @@
   </div>
 
   <div class="bookaddition-form">
-    <div class="col-lg-7 pull-right">
+    <div class="col-lg-7">
       <form class="form-horizontal">
         <fieldset>
           <legend>Add Books</legend>
