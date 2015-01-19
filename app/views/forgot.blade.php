@@ -2,13 +2,14 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Forgot Password ?</h2>
+    <h2>Reset Password</h2>
   </div>
 </div>
 
 <div class="contact-form">
   <div class="row">
-
+    <div class="col-lg-1">
+    </div>
     <div class="col-lg-6">
       <form class="form-horizontal">
         <fieldset>

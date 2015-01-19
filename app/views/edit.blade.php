@@ -17,31 +17,31 @@
           <div class="form-group">
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputUsername" placeholder="Username" type="text" readonly="readonly">
+              <input class="form-control" id="inputUsername" value="Username" type="text" readonly="readonly">
             </div>
           </div>
           <div class="form-group">
             <label for="inputName" class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputName" placeholder="Name" type="text">
+              <input class="form-control" id="inputName" value="Name" type="text">
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputEmail" placeholder="Email" type="text">
+              <input class="form-control" id="inputEmail" value="Email" type="text">
             </div>
           </div>
           <div class="form-group">
             <label for="inputAddress" class="col-lg-2 control-label">Address</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputAddress" placeholder="Address" type="text">
+              <input class="form-control" id="inputAddress" value="Address" type="text">
             </div>
           </div>
           <div class="form-group">
             <label for="inputContact" class="col-lg-2 control-label">Contact</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputContact" placeholder="Contact" type="text">
+              <input class="form-control" id="inputContact" value="Contact" type="text">
             </div>
           </div>
 
@@ -59,6 +59,11 @@
       <div class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>Profile</strong> successfully updated.</a>
+      </div>
+
+      <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        New email must be <strong>verified</strong>. Check your inbox.</a>
       </div>
 
       <div class="alert alert-dismissable alert-danger">

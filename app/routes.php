@@ -57,7 +57,7 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
-Route::get('/forget', function()
+Route::get('/reset', function()
 {
 	return View::make('forgot');
 });

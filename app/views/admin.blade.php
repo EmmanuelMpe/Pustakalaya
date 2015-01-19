@@ -12,10 +12,10 @@
 <div class="row">
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
-    <li class="active"><a href="/admin">Home</a></li>
-    <li><a href="/addbooks">Add Books</a></li>
-    <li><a href="/booklist">Book List</a></li>
-    <li><a href="/bookinfo">Book Info</a></li>
+    <li class="active"><a href="{{{ URL::to('/admin') }}}">Home</a></li>
+    <li><a href="{{{ URL::to('/addbooks') }}}">Add Books</a></li>
+    <li><a href="{{{ URL::to('/booklist') }}}">Book List</a></li>
+    <li><a href="{{{ URL::to('/bookinfo') }}}">Book Info</a></li>
     </ul>
   </div>
 
