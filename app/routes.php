@@ -21,6 +21,11 @@ Route::get('/student', function()
 	return View::make('student');
 });
 
+Route::get('/admin', function()
+{
+	return View::make('admin');
+});
+
 Route::get('/librarian', function()
 {
 	return View::make('librarian');
@@ -60,6 +65,11 @@ Route::get('/forgot', function()
 Route::get('/contact', function()
 {
 	return View::make('contact');
+});
+
+Route::get('/search', function()
+{
+	return View::make('search');
 });
 
 App::missing(function($exception) {
