@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="lend-table">
+<div class="history-table">
   <div class="row">
     <div class="col-lg-12">
       <table class="table table-striped table-hover ">
