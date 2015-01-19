@@ -77,6 +77,11 @@ Route::get('/addbooks', function()
 	return View::make('addBooks');
 });
 
+Route::get('/addnewbook', function()
+{
+	return View::make('addNewBook');
+});
+
 Route::get('/booklist', function()
 {
 	return View::make('booklist');

@@ -13,8 +13,8 @@
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
     <li><a href="{{{ URL::to('/admin') }}}">Home</a></li>
-    <li><a href="{{{ URL::to('/addnewbook') }}}">Add New Book</a></li>
-    <li class="active"><a href="{{{ URL::to('/addbooks') }}}">Add Books</a></li>
+    <li class="active"><a href="{{{ URL::to('/addnewbook') }}}">Add New Book</a></li>
+    <li><a href="{{{ URL::to('/addbooks') }}}">Add Books</a></li>
     <li><a href="{{{ URL::to('/booklist') }}}">Book List</a></li>
     <li><a href="{{{ URL::to('/bookinfo') }}}">Book Info</a></li>
     </ul>
@@ -29,6 +29,30 @@
             <label for="inputISBN" class="col-lg-2 control-label">ISBN</label>
             <div class="col-lg-10">
               <input class="form-control" id="inputISBN" placeholder="ISBN" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputTitle" placeholder="Book Title" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAuthor" class="col-lg-2 control-label">Author</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputAuthor" placeholder="Author" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEdition" class="col-lg-2 control-label">Edition</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputEdition" placeholder="Edition" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputType" class="col-lg-2 control-label">Type</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputType" placeholder="Type" type="text">
             </div>
           </div>
           <div class="form-group">
