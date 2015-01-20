@@ -11,11 +11,12 @@
 <div class="row">
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
-    <li><a href="{{{ URL::to('/admin') }}}">Home</a></li>
-    <li class="active"><a href="{{{ URL::to('/recommended') }}}">Recommended Books</a></li>
-    <li><a href="{{{ URL::to('/trending') }}}">Trending</a></li>
-    <li><a href="{{{ URL::to('/add') }}}"> Add</a></li>
-    <li><a href="{{{ URL::to('/remove') }}}"> Remove</a></li>
+      <li><a href="{{{ URL::to('/admin') }}}">Home</a></li>
+      <li class="active"><a href="{{{ URL::to('/recommended') }}}">Recommended Books</a></li>
+      <li><a href="{{{ URL::to('/trending') }}}">Trending</a></li>
+      <li><a href="{{{ URL::to('/add') }}}"> Add</a></li>
+      <li><a href="{{{ URL::to('/remove') }}}"> Remove</a></li>
+      <li><a href="{{{ URL::to('/userlist') }}}">User List</a></li>
     </ul>
   </div>
 

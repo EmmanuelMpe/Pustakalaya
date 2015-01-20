@@ -20,11 +20,11 @@
   </form>
 </div>
 <div class="col-lg-4">
-  <div class="alert alert-dismissable alert-success"><a>
+  <div class="alert alert-dismissable alert-success">
     <button type="button" class="close" data-dismiss="alert">×</button>        
     <span class="badge"><b>12</b></span> books were removed.</a>
   </div>
-  <div class="alert alert-dismissable alert-danger"><a>
+  <div class="alert alert-dismissable alert-danger">
     <button type="button" class="close" data-dismiss="alert">×</button>
     Unable to remove. Try again.</a>
   </div>
