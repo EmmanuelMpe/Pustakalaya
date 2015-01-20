@@ -102,9 +102,14 @@ Route::get('/booklog', function()
 	return View::make('booklog');
 });
 
-Route::get('/advance', function()
+Route::get('/add', function()
 {
-	return View::make('advance');
+	return View::make('add');
+});
+
+Route::get('/remove', function()
+{
+	return View::make('remove');
 });
 
 App::missing(function($exception) {

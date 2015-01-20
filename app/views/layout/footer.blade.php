@@ -10,7 +10,7 @@
         <li><a href="#">Support</a>
         </li>
       </ul>
-      <p>Made by <a href="#" rel="nofollow">GoodGuys</a>. Contact us at <a href="mailto:hehe@hehe.com">hehe@hehe.com</a>.</p>
-      <p>Copyright 2015-2099. All rights reserved.</p>
+      <p>Contact us at <a href="mailto:hehe@hehe.com">hehe@hehe.com</a>.</p>
+      <p>&copy <a href="#" rel="nofollow">GoodGuys</a>. 2015-2099. All rights reserved.</p>
   </div>
 </footer>

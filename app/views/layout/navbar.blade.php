@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -10,7 +11,7 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
       <form class="navbar-form navbar-left col-lg-12">
-        <input class="form-control" placeholder="Search" type="text">
+        <input class="form-control glyphicon glyphicon-search" placeholder="Search" type="text">
       </form>
       <ul class="nav navbar-nav">
         <li class="dropdown">
