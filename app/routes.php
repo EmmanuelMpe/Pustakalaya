@@ -82,14 +82,29 @@ Route::get('/addnewbook', function()
 	return View::make('addNewBook');
 });
 
+Route::get('/recommended', function()
+{
+	return View::make('recommended');
+});
+
+Route::get('/trending', function()
+{
+	return View::make('trending');
+});
+
 Route::get('/booklist', function()
 {
 	return View::make('booklist');
 });
 
-Route::get('/bookinfo', function()
+Route::get('/booklog', function()
 {
-	return View::make('bookinfo');
+	return View::make('booklog');
+});
+
+Route::get('/advance', function()
+{
+	return View::make('advance');
 });
 
 App::missing(function($exception) {

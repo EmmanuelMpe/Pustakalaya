@@ -4,8 +4,7 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Admin</h2>
-    <p class="lead">Puspe</p>
+    <h2>Admin/<span class="lead">Puspe</span></h2>
   </div>
 </div>
 
@@ -13,10 +12,10 @@
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
     <li><a href="{{{ URL::to('/admin') }}}">Home</a></li>
+    <li><a href="{{{ URL::to('/recommended') }}}">Recommended Books</a></li>
+    <li><a href="{{{ URL::to('/trending') }}}">Trending</a></li>
     <li><a href="{{{ URL::to('/addnewbook') }}}">Add New Book</a></li>
     <li class="active"><a href="{{{ URL::to('/addbooks') }}}">Add Books</a></li>
-    <li><a href="{{{ URL::to('/booklist') }}}">Book List</a></li>
-    <li><a href="{{{ URL::to('/bookinfo') }}}">Book Info</a></li>
     </ul>
   </div>
 

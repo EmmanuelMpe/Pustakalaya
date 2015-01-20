@@ -4,8 +4,7 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Admin</h2>
-    <p class="lead">Puspe</p>
+    <h2>Admin/<span class="lead">Puspe</span></h2>
   </div>
 </div>
 
@@ -13,20 +12,20 @@
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
     <li class="active"><a href="{{{ URL::to('/admin') }}}">Home</a></li>
+    <li><a href="{{{ URL::to('/recommended') }}}">Recommended Books</a></li>
+    <li><a href="{{{ URL::to('/trending') }}}">Trending</a></li>
     <li><a href="{{{ URL::to('/addnewbook') }}}">Add New Book</a></li>
     <li><a href="{{{ URL::to('/addbooks') }}}">Add Books</a></li>
-    <li><a href="{{{ URL::to('/booklist') }}}">Book List</a></li>
-    <li><a href="{{{ URL::to('/bookinfo') }}}">Book Info</a></li>
     </ul>
   </div>
 
-  <div class="recomendation-table ">
+  <div class="recommendation-table ">
     <div class="col-lg-10 pull-right">
       <table class="table table-striped table-hover pull-right">
-        <legend>Recomended Books</legend>
+        <legend>Recommended Books</legend>
         <thead>
           <tr>
-            <th>Id</th>
+            <th>ISBN</th>
             <th>Book</th>
             <th>Author</th>
             <th>Edition</th>
@@ -83,16 +82,21 @@
           </tr>
         </tbody>
       </table>
+      <div class="col-lg-6 pull-right">
+        <div class="help-block pull-right">
+          <a href="{{{ URL::to('/recommended') }}}">See More...</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="topBooks-table">
+  <div class="trending-table">
     <div class="col-lg-10 pull-right">
       <table class="table table-striped table-hover pull-right">
-        <legend>Top Books</legend>
+        <legend>Trending</legend>
         <thead>
           <tr>
-            <th>Id</th>
+            <th>ISBN</th>
             <th>Book</th>
             <th>Author</th>
             <th>Edition</th>
@@ -149,6 +153,11 @@
           </tr>
         </tbody>
       </table>
+      <div class="col-lg-6 pull-right">
+        <div class="help-block pull-right">
+          <a href="{{{ URL::to('/trending') }}}">See More...</a>
+        </div>
+      </div>
     </div>
   </div>
 
