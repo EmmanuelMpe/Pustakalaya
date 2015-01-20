@@ -4,8 +4,7 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Student</h2>
-    <p class="lead">Puspe</p>
+    <h2>Student<span class="lead">/Puspe</span></h2>
   </div>
 </div>
 
@@ -22,12 +21,40 @@
       <table class="table table-striped table-hover ">
         <legend>Books Log</legend>
           <tr>
+            <td>2015-01-19 10:45:09</td>
+            <td><strong>Set The History</strong> was issued.</td>
+          </tr>
+          <tr>
             <td>2015-01-13 14:23:45</td>
             <td><strong>Back to the Jungle</strong> was returned.</td>
           </tr>
           <tr>
             <td>2014-11-07 15:57:31</td>
             <td><strong>Back to the Jungle</strong> was renewed.</td>
+          </tr>
+          <tr>
+            <td>2014-08-17 11:43:37</td>
+            <td><strong>Kingdom of Fire</strong> was issued.</td>
+          </tr>
+          <tr>
+            <td>2014-08-17 11:43:09</td>
+            <td><strong>Back to the Jungle</strong> was issued.</td>
+          </tr>
+          <tr>
+            <td>2015-01-19 10:45:09</td>
+            <td><strong>Set The History</strong> was issued.</td>
+          </tr>
+          <tr>
+            <td>2015-01-13 14:23:45</td>
+            <td><strong>Back to the Jungle</strong> was returned.</td>
+          </tr>
+          <tr>
+            <td>2014-11-07 15:57:31</td>
+            <td><strong>Back to the Jungle</strong> was renewed.</td>
+          </tr>
+          <tr>
+            <td>2014-08-17 11:43:37</td>
+            <td><strong>Kingdom of Fire</strong> was issued.</td>
           </tr>
           <tr>
             <td>2014-08-17 11:43:09</td>

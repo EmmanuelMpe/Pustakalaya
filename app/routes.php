@@ -72,16 +72,6 @@ Route::get('/search', function()
 	return View::make('search');
 });
 
-Route::get('/addbooks', function()
-{
-	return View::make('addBooks');
-});
-
-Route::get('/addnewbook', function()
-{
-	return View::make('addNewBook');
-});
-
 Route::get('/recommended', function()
 {
 	return View::make('recommended');
@@ -110,6 +100,11 @@ Route::get('/add', function()
 Route::get('/remove', function()
 {
 	return View::make('remove');
+});
+
+Route::get('/userlist', function()
+{
+	return View::make('userlist');
 });
 
 App::missing(function($exception) {

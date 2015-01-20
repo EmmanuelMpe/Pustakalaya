@@ -10,7 +10,7 @@
       </button>
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
-      <form class="navbar-form navbar-left col-lg-12">
+      <form class="navbar-form navbar-left col-lg-12" action="search" method="GET">
         <input class="form-control glyphicon glyphicon-search" placeholder="Search" type="text">
       </form>
       <ul class="nav navbar-nav">
@@ -35,13 +35,9 @@
           <ul class="dropdown-menu" aria-labelledby="themes">
             <li><a href="{{{ URL::to('/admin') }}}"> Admin </a>
             </li>
-            <li><a href="{{{ URL::to('/reset') }}}"> Forgot Password? </a>
-            </li>
             <li><a href="{{{ URL::to('/librarian') }}}"> Librarian </a>
             </li>
             <li><a href="{{{ URL::to('/login') }}}"> Login </a>
-            </li>
-            <li><a href="{{{ URL::to('/search') }}}"> Search </a>
             </li>
             <li><a href="{{{ URL::to('/student') }}}"> Student </a>
             </li>

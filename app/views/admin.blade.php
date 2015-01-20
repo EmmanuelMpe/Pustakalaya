@@ -16,6 +16,7 @@
     <li><a href="{{{ URL::to('/trending') }}}">Trending</a></li>
     <li><a href="{{{ URL::to('/add') }}}"> Add</a></li>
     <li><a href="{{{ URL::to('/remove') }}}"> Remove</a></li>
+    <li><a href="{{{ URL::to('/userlist') }}}"> User List</a></li>
     </ul>
   </div>
 

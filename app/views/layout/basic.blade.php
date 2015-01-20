@@ -6,6 +6,7 @@
   <title>Pustakalaya</title>
   <meta name="description" content="Pustakalaya, Library Management System." />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="4.png" type="image/x-icon" />
   {{ HTML::style('bootstrap/bootstrap.css') }}
   {{ HTML::style('bootstrap/bootswatch.css') }}
 </head>

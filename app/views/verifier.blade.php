@@ -4,8 +4,7 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Verifier</h2>
-    <p class="lead">Rambahadur</p>
+    <h2>Verifier<span class="lead">/Ram Bahadur</span></h2>
   </div>
 </div>
 
@@ -24,7 +23,7 @@
           <div class="form-group">
             <label for="textArea" class="col-lg-2 control-label">Books</label>
             <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="inputBook"></textarea>
+              <textarea class="form-control" rows="3" id="inputBook" placeholder="Place book IDs here..."></textarea>
               <span class="help-block">Enter book ids seperated by a semicolon.</span>
             </div>
           </div>
