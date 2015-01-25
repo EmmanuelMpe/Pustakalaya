@@ -26,8 +26,10 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-    //return $_SERVER['MY_LARAVEL_ENV'];
-	'local' => array('host-name'),
+  //return $_SERVER['MY_LARAVEL_ENV'];
+  // Get hostname and make it the local environment, so that we can
+  // work on local and not production
+  'local' => array(gethostname()),
 
 ));
 
