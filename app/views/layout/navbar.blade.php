@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -52,8 +51,13 @@
         <li>
           <a href="{{{ URL::to('/contact') }}}"> Contact Us </a>
         </li>
+        @if (!Auth::check())
+        <li><a href="{{URL::to('/login')}}">Login</a></li>
+        @else
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Puspe <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown"
+            href="#" id="themes">{{{Auth::user()->name}}}
+            <span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="themes">
             <li><a href="#">Fine  <span class="badge"><b>NRS. 44/-</b></span></a>
             </li>
@@ -62,10 +66,14 @@
             <li><a href="{{{ URL::to('/password') }}}"> Change Password</a>
             </li>
             <li class="divider"></li>
-            <li><a href="#"> Log Out </a>
-            </li>
+            <li><form action="{{URL::to('/logout')}}" method="POST"
+              name="logoutForm">
+              <input type="hidden" name="really" value="yes"></form>
+            <a href="#" onClick="document.logoutForm.submit()">Log Out
+            </a></li>
           </ul>
         </li>
+        @endif
       </ul>
     </div>
   </div>

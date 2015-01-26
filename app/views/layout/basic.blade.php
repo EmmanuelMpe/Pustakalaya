@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>Pustakalaya</title>
+  <title>{{ $title or "Pustakalaya" }}</title>
   <meta name="description" content="Pustakalaya, Library Management System." />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="4.png" type="image/x-icon" />

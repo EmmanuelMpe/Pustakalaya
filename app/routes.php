@@ -57,11 +57,9 @@ Route::get('/edit', function()
 	return View::make('edit');
 });
 
-
-Route::get('/login', function()
-{
-	return View::make('login');
-});
+Route::get('/login', 'LoginController@showLogin');
+Route::post('/login', 'LoginController@doLogin');
+Route::post('/logout', 'LoginController@doLogout');
 
 Route::get('/reset', function()
 {
