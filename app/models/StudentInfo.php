@@ -7,6 +7,6 @@ class StudentInfo extends Eloquent {
   protected $table='studentinfo';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }

@@ -10,6 +10,6 @@ class BookInfo extends Eloquent {
   protected $primaryKey = 'isbn';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }

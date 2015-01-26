@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration {
         // User id
         $table->increments('id');
         // Role Id, selects user role
-        $table->integer('role_id')->unsigned();
+        $table->string('role_name',16);
         // Full name
         $table->string('name',64);
         // Laravel requires the field for storing the password to be
@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration {
 
         // Key constraints for the fields
         $table->unique('email');
-        $table->foreign('role_id')->references('id')->on('roles');
+        $table->foreign('role_name')->references('name')->on('roles');
       });
     }
   }

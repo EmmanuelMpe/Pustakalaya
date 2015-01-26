@@ -16,16 +16,17 @@ class CreateBookinfoTable extends Migration {
       Schema::create('bookinfo', function(Blueprint $table) {
         // The isbn, which is the primary key. It may have significant
         // leading zeroes, so a string format is used.
-        $table->string('isbn',16);
+        $table->string('isbn',32);
         // These three fields have a max.length of 256 because name,
         // author(s)name and publisher-name may be very long.
         $table->string('name',256);
         $table->string('author',256);
         $table->string('publisher',256);
-        $table->integer('type_id')->unsigned();
+        $table->string('type_name',32);
         // Set the key constraints
         $table->primary('isbn');
-        $table->foreign('type_id')->references('id')->on('booktypes');
+        $table->foreign('type_name')->references('name')->
+          on('booktypes');
       });
     }
   }

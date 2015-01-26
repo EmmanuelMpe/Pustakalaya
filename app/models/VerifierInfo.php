@@ -7,6 +7,6 @@ class VerifierInfo extends Eloquent {
   protected $table='verifierinfo';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }

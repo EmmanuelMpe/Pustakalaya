@@ -16,7 +16,7 @@ class CreateBooksTable extends Migration {
       Schema::create('books', function(Blueprint $table) {
         $table->increments('id');
         // Selector for bookinfo
-        $table->string('info_isbn',16);
+        $table->string('info_isbn',32);
         // Edition of the book
         $table->string('edition',16);
         // The user the book has been lent to and the lend date

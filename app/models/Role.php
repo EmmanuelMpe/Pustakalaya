@@ -7,6 +7,6 @@ class Role extends Eloquent {
   protected $table='roles';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }

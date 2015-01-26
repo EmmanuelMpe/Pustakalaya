@@ -7,6 +7,6 @@ class LibrarianInfo extends Eloquent {
   protected $table='librarianinfo';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }

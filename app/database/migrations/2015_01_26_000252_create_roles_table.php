@@ -14,10 +14,11 @@ class CreateRolesTable extends Migration {
   {
     if (!Schema::hasTable('roles')) {
       Schema::create('roles', function(Blueprint $table) {
-        $table->increments('id');
         // Name of the role. One of Student, Verifier, Librarian or
         // Admin
         $table->string('name',16);
+        // The name is the primary key
+        $table->primary('name');
       });
     }
   }

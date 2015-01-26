@@ -25,6 +25,6 @@ class User extends Eloquent
   protected $hidden = array('password', 'remember_token');
 
   // We don't need the default timestamps
-  protected $timestamps = false;
+  public $timestamps = false;
 
 }

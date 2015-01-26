@@ -14,11 +14,12 @@ class CreateBooktypesTable extends Migration {
   {
     if (!Schema::hasTable('booktypes')) {
       Schema::create('booktypes', function(Blueprint $table) {
-        $table->increments('id');
         // Name of the type, for example Reference
         $table->string('name',32);
         // Number of days in which the book loan will expire
         $table->smallInteger('expiry')->unsigned();
+        // Set the primary key to the name
+        $table->primary('name');
       });
     }
   }

@@ -7,6 +7,6 @@ class Department extends Eloquent {
   protected $table='departments';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }

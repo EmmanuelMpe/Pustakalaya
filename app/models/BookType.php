@@ -7,6 +7,6 @@ class BookType extends Eloquent {
   protected $table='booktypes';
 
   // We don't need the default timestamps
-  protected $timestamps=false;
+  public $timestamps=false;
 
 }
