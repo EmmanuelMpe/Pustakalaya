@@ -14,4 +14,9 @@ class StudentInfo extends Eloquent {
     return $this->belongsTo('Department','department_sname',
       'shortname');
   }
+
+  // return the user associated with this studentInfo
+  public function user() {
+    return $this->belongsTo('User','user_id','id');
+  }
 }

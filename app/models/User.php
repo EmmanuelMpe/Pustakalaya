@@ -36,4 +36,19 @@ class User extends Eloquent
   public function books() {
     return $this->hasMany('Book','assigned_to','id');
   }
+
+  // Get the *Info object associated to this User
+  // The schemas need extensive modification to implement this in
+  // terms of ORM Relations.
+  public function info() {
+    if ($this->role_name=='Student') {
+      return StudentInfo::where('user_id','=',$this->id)>firstOrFail();
+    } else if ($this->role_name=='Librarian') {
+      return LibrarianInfo::where('user_id','=',$this->id)>firstOrFail();
+    } else if ($this->role_name=='Admin') {
+      return AdminInfo::where('user_id','=',$this->id)>firstOrFail();
+    } else {
+      return VerifierInfo::where('user_id','=',$this->id)>firstOrFail();
+    }
+  }
 }

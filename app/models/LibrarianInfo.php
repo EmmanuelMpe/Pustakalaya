@@ -9,4 +9,8 @@ class LibrarianInfo extends Eloquent {
   // We don't need the default timestamps
   public $timestamps=false;
 
+  // return the user associated with this LibrarianInfo
+  public function user() {
+    return $this->belongsTo('User','user_id','id');
+  }
 }
