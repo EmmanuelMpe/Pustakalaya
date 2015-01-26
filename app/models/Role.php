@@ -9,4 +9,8 @@ class Role extends Eloquent {
   // We don't need the default timestamps
   public $timestamps=false;
 
+  // Get the users for this role
+  public function users() {
+    return $this->hasMany('User','role_name','name');
+  }
 }

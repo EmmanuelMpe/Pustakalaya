@@ -9,4 +9,9 @@ class Department extends Eloquent {
   // We don't need the default timestamps
   public $timestamps=false;
 
+  // Get the students of this department
+  public function studentInfos() {
+    return $this->hasMany('StudentInfo','department_sname',
+      'shortname');
+  }
 }

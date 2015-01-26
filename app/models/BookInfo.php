@@ -12,4 +12,13 @@ class BookInfo extends Eloquent {
   // We don't need the default timestamps
   public $timestamps=false;
 
+  // Get all the Books for this BookInfo
+  public function books() {
+    return $this->hasMany('Book','info_isbn','isbn');
+  }
+
+  // Get the BookType for this BookInfo
+  public function bookType() {
+    return $this->belongsTo('BookType','type_name','name');
+  }
 }

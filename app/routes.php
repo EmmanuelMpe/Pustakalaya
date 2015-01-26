@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/tesst', function () {
+  //$bt = Book::where('type_name','=','Lendable')->firstOrFail();
+  $b = Book::find(1)->firstOrFail();
+  return $b->bookInfo;
+});
+
 Route::get('/history', function()
 {
 	return View::make('studentHistory');

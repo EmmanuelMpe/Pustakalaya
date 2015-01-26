@@ -27,4 +27,13 @@ class User extends Eloquent
   // We don't need the default timestamps
   public $timestamps = false;
 
+  // Get the role of this user
+  public function role() {
+    return $this->belongsTo('Role','role_name','name');
+  }
+
+  // Get the books of this user
+  public function books() {
+    return $this->hasMany('Book','assigned_to','id');
+  }
 }
