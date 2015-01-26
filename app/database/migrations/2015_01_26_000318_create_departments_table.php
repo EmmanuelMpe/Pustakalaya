@@ -14,11 +14,12 @@ class CreateDepartmentsTable extends Migration {
   {
     if (!Schema::hasTable('departments')) {
       Schema::create('departments', function(Blueprint $table) {
-        $table->increments('id');
         // Short name of the department, eg. BCT, BAE
         $table->string('shortname',3);
         // Full name of the department
         $table->string('name',64);
+        // The shortname is the primary key
+        $table->primary('shortname');
       });
     }
   }
