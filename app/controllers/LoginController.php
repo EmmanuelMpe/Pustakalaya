@@ -20,17 +20,23 @@ class LoginController extends BaseController {
     if (Auth::attempt(array('email'=>$email,'password'=>$passwd))) {
       return Redirect::intended('/');
     } else {
+        // you could send message why it failed
+        // in $message or something, that could be
+        // a standard for our system
+        // $message { "error" => { "one" , "two" , "three" },
+        //            "notification" => { "things weren't clear"},
+        //            "warning" => { "things weren't clear"},
+        //            "success" => { "login successful sathi"} }
       return View::make('login')->withFail(true);
     }
   }
 
   public function doLogout() {
-    // Perform logout only if currently logged in
-    if (Auth::check()) {
-      $really = Input::get('really');
-      if ($really=='yes')
-        Auth::logout();
-    }
-    return Redirect::to('/');
+      if (Auth::check()) {
+          $really = Input::get('really');
+          if ($really=='yes')
+              Auth::logout();
+      }
+      return Redirect::to('/');
   }
 }

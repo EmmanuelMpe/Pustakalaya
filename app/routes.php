@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::get('/login', 'LoginController@showLogin');
+Route::post('/login', 'LoginController@doLogin');
+Route::post('/logout', 'LoginController@doLogout');
+
 Route::get('/tesst', function () {
   //$bt = Book::where('type_name','=','Lendable')->firstOrFail();
   $b = Book::find(1)->firstOrFail();
@@ -42,10 +47,10 @@ Route::get('/verifier', function()
 	return View::make('verifier');
 });
 
-Route::get('/', function()
+Route::get('/', array('before'=>'auth', function()
 {
 	return View::make('home');
-});
+}));
 
 Route::get('/password', function()
 {
@@ -56,10 +61,6 @@ Route::get('/edit', function()
 {
 	return View::make('edit');
 });
-
-Route::get('/login', 'LoginController@showLogin');
-Route::post('/login', 'LoginController@doLogin');
-Route::post('/logout', 'LoginController@doLogout');
 
 Route::get('/reset', function()
 {
@@ -111,6 +112,44 @@ Route::get('/userlist', function()
 	return View::make('userlist');
 });
 
+
+Event::listen('500', function()
+{
+    return Response::error('500');
+});
+
+
+Event::listen('404', function()
+{
+    return Response::error('404');
+});
+
 App::missing(function($exception) {
     return Response::view('404', array(), 404);
+});
+
+
+/*
+ *  Some Route filters
+ */
+
+Route::filter('before', function()
+{
+    // Do stuff before every request to your application
+});
+
+
+Route::filter('after', function()
+{
+    // Do stuff before every request to your application
+});
+
+Route::filter('auth', function()
+{
+        if (Auth::guest()) return Redirect::to('login');
+});
+
+Route::filter('csrf', function()
+{
+    if (Request::forged()) return Response::error('500');
 });
