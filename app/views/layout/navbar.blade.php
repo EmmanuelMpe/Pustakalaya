@@ -13,7 +13,7 @@
     <div class="navbar-collapse collapse" id="navbar-main">
 
       <!-- Search Bar -->
-      <form class="navbar-form navbar-left col-lg-12" action="search" method="GET">
+      <form class="navbar-form navbar-left col-lg-12" action="search" method="POST">
         <input class="form-control" placeholder="Search" type="text">
           <!--
           <select class="selectpicker" data-width="auto" id="inputAccess">
@@ -25,13 +25,9 @@
 
       <ul class="nav navbar-nav">
         <!-- Links to particular book-->
-        <li>
-          <a href="#"> Particular Book </a>
-        </li>
-        <!-- Links to books (the parameters will do a advance listing) -->
-        <li class="dropdown">
+  <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-            Books <span class="caret"></span>
+            Particular Book <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="themes">
             <li><a href="#"> Course </a>
@@ -41,14 +37,34 @@
             <li><a href="#"> NonLendable </a>
             </li>
             <li class="divider"></li>
-            <li><a href="#"> All </a>
+            <li><a href="{{URL::to('particularbook')}}"> All </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+        <!-- Links to books (the parameters will do a advance listing) -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+            Book <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="themes">
+            <li><a href="#"> Course </a>
+            </li>
+            <li><a href="#"> Reference </a>
+            </li>
+            <li><a href="#"> NonLendable </a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="{{URL::to('book')}}"> All </a>
             </li>
           </ul>
         </li>
         <!-- Links to users (the parameters will do a advance listing) -->
          <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-            Users <span class="caret"></span>
+            User <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="themes">
             <li><a href="#"> Admin </a>
@@ -60,7 +76,7 @@
             <li><a href="#"> Students </a>
             </li>
             <li class="divider"></li>
-            <li><a href="#"> All </a>
+            <li><a href="{{URL::to('user')}}"> All </a>
             </li>
           </ul>
         </li>

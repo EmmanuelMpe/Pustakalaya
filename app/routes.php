@@ -13,10 +13,12 @@
 
 // TODO make automatic message passing for displaying errors
 // Ex: in login page
-
-
+//
 // Admin have functions like adding a users, books, bookinfos
-//    that can be done in the main page.
+//    that can be done in admin home page.
+//
+// A view similar to user can be made for book info
+// containing details, similar books, it's instances and notificaitons
 
 
 Route::get('/book/create', function()
@@ -113,9 +115,10 @@ Route::post('/login', 'LoginController@doLogin');
 
 Route::post('/logout', 'LoginController@doLogout');
 
-Route::get('/search', function()
+// Search is a post request to book info list
+Route::post('/search', function()
 {
-	return View::make('action.search');
+	return View::make('resource.bookinfo.list');
 });
 
 Route::get('/advance', function()

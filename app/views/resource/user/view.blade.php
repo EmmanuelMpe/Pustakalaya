@@ -15,7 +15,7 @@
       <ul class="list-group">
         <li class="list-group-item lead">
           {{{$user->name}}}
-          <span class="badge"><b> रु 123 </b></span>
+          <span class="badge"><b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b></span>
         </li>
         <li class="list-group-item">
           {{{$user->email}}}
