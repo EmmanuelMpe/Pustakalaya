@@ -29,7 +29,11 @@
   {{ HTML::script('bootstrap-select/bootstrap-select.js') }}
 
 
+<!--
+<script>
  $('.selectpicker').selectpicker();
+</script>
+-->
 
 </body>
 

@@ -19,7 +19,6 @@
 //    that can be done in the main page.
 
 
-
 Route::get('/book/create', function()
 {
 	return View::make('resource.bookinfo.create');
@@ -41,6 +40,7 @@ Route::get('/particularbook', function()
 	return View::make('resource.book.list');
 });
 
+/*
 Route::get('/user/create/',function()
 {
 	return View::make('resource.user.create');
@@ -50,7 +50,10 @@ Route::get('/user/',function()
 {
 	return View::make('resource.user.list');
 });
+ */
 
+Route::resource('user','UserController');
+Route::get('/users','UserController@index');
 
 Route::get('/contact', function()
 {
@@ -109,13 +112,6 @@ Route::get('/login', 'LoginController@showLogin');
 Route::post('/login', 'LoginController@doLogin');
 
 Route::post('/logout', 'LoginController@doLogout');
-
-
-Route::get('/tesst', function () {
-  //$bt = Book::where('type_name','=','Lendable')->firstOrFail();
-  $b = Book::find(1)->firstOrFail();
-  return $b->bookInfo;
-});
 
 Route::get('/search', function()
 {
