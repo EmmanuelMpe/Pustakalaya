@@ -14,6 +14,44 @@
 // TODO make automatic message passing for displaying errors
 // Ex: in login page
 
+
+// Admin have functions like adding a users, books, bookinfos
+//    that can be done in the main page.
+
+
+
+Route::get('/book/create', function()
+{
+	return View::make('resource.bookinfo.create');
+});
+
+Route::get('/particularbook/create', function()
+{
+	return View::make('resource.book.create');
+});
+
+Route::get('/book', function()
+{
+	return View::make('resource.bookinfo.list');
+});
+
+
+Route::get('/particularbook', function()
+{
+	return View::make('resource.book.list');
+});
+
+Route::get('/user/create/',function()
+{
+	return View::make('resource.user.create');
+});
+
+Route::get('/user/',function()
+{
+	return View::make('resource.user.list');
+});
+
+
 Route::get('/contact', function()
 {
 	return View::make('action.contact');
@@ -49,7 +87,7 @@ Route::get('/verifier', function()
 	return View::make('action.user.verifier.home');
 });
 
-Route::get('/edit', function()
+Route::get('/user/edit', function()
 {
 	return View::make('resource.user.edit');
 });
@@ -72,6 +110,7 @@ Route::post('/login', 'LoginController@doLogin');
 
 Route::post('/logout', 'LoginController@doLogout');
 
+
 Route::get('/tesst', function () {
   //$bt = Book::where('type_name','=','Lendable')->firstOrFail();
   $b = Book::find(1)->firstOrFail();
@@ -86,11 +125,6 @@ Route::get('/search', function()
 Route::get('/advance', function()
 {
 	return View::make('advance');
-});
-
-Route::get('/booklist', function()
-{
-	return View::make('booklist');
 });
 
 Route::get('/booklog', function()
@@ -108,11 +142,6 @@ Route::get('/remove', function()
 	return View::make('remove');
 });
 
-Route::get('/userlist', function()
-{
-	return View::make('userlist');
-});
-
 
 
 Event::listen('500', function()
@@ -127,5 +156,5 @@ Event::listen('404', function()
 });
 
 App::missing(function($exception) {
-    return Response::view('404', array(), 404);
+    return Response::view('action.404', array(), 404);
 });

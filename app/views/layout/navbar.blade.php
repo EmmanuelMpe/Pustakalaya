@@ -15,6 +15,12 @@
       <!-- Search Bar -->
       <form class="navbar-form navbar-left col-lg-12" action="search" method="GET">
         <input class="form-control" placeholder="Search" type="text">
+          <!--
+          <select class="selectpicker" data-width="auto" id="inputAccess">
+            <option>Book</option>
+            <option>User</option>
+          </select>
+          -->
       </form>
 
       <ul class="nav navbar-nav">

@@ -9,6 +9,9 @@
   <!-- <link rel="icon" href="4.png" type="image/x-icon" /> -->
   {{ HTML::style('bootstrap/bootstrap.css') }}
   {{ HTML::style('bootstrap/bootswatch.css') }}
+  {{ HTML::style('bootstrap-select/bootstrap-select.css') }}
+
+
 </head>
 <body>
 
@@ -18,9 +21,16 @@
   </div>
   @include('layout.footer')
 
+
+
   {{ HTML::script('bootstrap/jquery-1.js') }}
   {{ HTML::script('bootstrap/bootstrap.js') }}
   {{ HTML::script('bootstrap/bootswatch.js') }}
+  {{ HTML::script('bootstrap-select/bootstrap-select.js') }}
+
+
+ $('.selectpicker').selectpicker();
+
 </body>
 
 <html>

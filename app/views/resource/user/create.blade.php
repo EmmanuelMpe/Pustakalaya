@@ -1,15 +1,17 @@
-@extends('layout.basic')
-
-@section('content')
+@extends('layout.basic') @section('content')
 
 <div class="row">
   <div class="col-lg-6">
-    <h2>Change profile</h2>
+    <h2>Add a User</h2>
   </div>
 </div>
 
+<!-- Type of user must be inferred by the link or something and additional
+information should be passed for creating users like student -->
+
 <hr>
-re
+
+
 <div class="contact-form">
   <div class="row">
     <div class="col-lg-8">
@@ -18,7 +20,7 @@ re
           <div class="form-group">
             <label for="inputUsername" class="col-lg-4 control-label">Username</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputUsername" value="Username" type="text" readonly="readonly">
+              <input class="form-control" id="inputUsername" value="Username" type="text">
             </div>
           </div>
           <div class="form-group">
@@ -57,8 +59,9 @@ re
       </form>
     </div>
 
-  @include('layout.alertbox')
+    @include('layout.alertbox')
 
   </div>
 </div>
+
 @stop
