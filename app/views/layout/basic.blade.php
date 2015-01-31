@@ -16,18 +16,17 @@
 <body>
 
   @include('layout.navbar')
-  <div class="container">
+  <div class="container" id="wrap">
     @yield('content')
+    <div id="push"></div>
   </div>
+
   @include('layout.footer')
-
-
 
   {{ HTML::script('bootstrap/jquery-1.js') }}
   {{ HTML::script('bootstrap/bootstrap.js') }}
   {{ HTML::script('bootstrap/bootswatch.js') }}
   {{ HTML::script('bootstrap-select/bootstrap-select.js') }}
-
 
 <!--
 <script>
