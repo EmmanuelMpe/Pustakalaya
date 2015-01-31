@@ -94,188 +94,36 @@
       </div>
     </div>
     <div class="recommendation-table ">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th>CRN</th>
+              <th>Id</th>
               <th>Name</th>
-              <th>Issued</th>
-              <th>Fine</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Phone</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($users as $user)
             <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
+              <td>{{$user->id}}</td>
+              <td><a href="{{URL::to('user').'/'.$user->id}}">
+                  {{$user->name}}</a></td>
+              <td>{{$user->role_name}}</td>
+              <td>{{$user->email}}</td>
+              <td>{{$user->phone}}</td>
             </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-            <tr>
-              <td>501</td>
-              <td>Abinash Manandher</td>
-              <td>6/7</td>
-              <td>NRs. 45</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-lg-6">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>CRN</th>
-              <th>Name</th>
-              <th>Issued</th>
-              <th>Fine</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-            <tr>
-              <td>502</td>
-              <td>Anish Shrestha</td>
-              <td>4/7</td>
-              <td>NRs. 18</td>
-            </tr>
-          </tbody>
+            @endforeach
+         </tbody>
         </table>
       </div>
     </div>
     <div id="pagination-block">
       <div class="row pull-right col-lg-2">
         <div class="col-lg-10 pull-right">
-          <ul class="pagination">
-            <li class="active"><a href="#A">A</a>
-            </li>
-            <li><a href="#B">B</a>
-            </li>
-          </ul>
+          {{$users->links()}}
         </div>
       </div>
     </div>

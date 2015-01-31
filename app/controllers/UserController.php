@@ -9,7 +9,7 @@ class UserController extends \BaseController {
    */
   public function index()
   {
-    $userlist = User::paginate(4);
+    $userlist = User::paginate(3);
     return View::make('userlist')->withUsers($userlist);
   }
 
