@@ -4,22 +4,28 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Student<span class="lead">/Puspe</span></h2>
+    <h2>Student</h2>
+    <span class="lead"> Puspe </span>
+    <span class="badge"><b> -123 </b></span>
   </div>
 </div>
 
+
 <div class="row">
+
+  <!--
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
     <li class="active"><a href="/student">Home</a></li>
     <li><a href="/history">History</a></li>
     </ul>
   </div>
+  -->
 
   <div class="lend-table">
-    <div class="col-lg-10">
+    <div class="col-lg-12">
       <table class="table table-striped table-hover ">
-        <legend>Lent Books <span class="badge"><b>3 / 7</b></span></legend>
+        <legend>Lent Books <b>3/7</b></legend>
         <thead>
           <tr>
             <th>Id</th>
@@ -65,8 +71,9 @@
     </div>
   </div>
 
+  <!--
   <div class="recomendation-table">
-    <div class="col-lg-10 pull-right">
+    <div class="col-lg-10">
       <table class="table table-striped table-hover ">
         <legend>Recomended Books</legend>
         <thead>
@@ -121,9 +128,10 @@
       </table>
     </div>
   </div>
+  -->
 
   <div id="pagination-block">
-    <div class="row pull-right">
+    <div class="row">
       <div class="col-lg-12">
         <ul class="pagination">
           <li class="disabled"><a href="#">«</a>

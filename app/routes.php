@@ -12,8 +12,62 @@
 */
 
 
+Route::get('/contact', function()
+{
+	return View::make('contact');
+});
+
+Route::get('/', array('before'=>'auth', function()
+{
+	return View::make('home');
+}));
+
+Route::get('/student', function()
+{
+	return View::make('user.view');
+});
+
+Route::get('/history', function()
+{
+	return View::make('user.student.history');
+});
+
+Route::get('/admin', function()
+{
+	return View::make('user.admin.home');
+});
+
+Route::get('/librarian', function()
+{
+	return View::make('user.librarian.home');
+});
+
+Route::get('/verifier', function()
+{
+	return View::make('user.verifier.home');
+});
+
+Route::get('/edit', function()
+{
+	return View::make('user.edit');
+});
+
+Route::get('/password', function()
+{
+	return View::make('user.password');
+});
+
+Route::get('/reset', function()
+{
+	return View::make('user.forgot');
+});
+
+
+
 Route::get('/login', 'LoginController@showLogin');
+
 Route::post('/login', 'LoginController@doLogin');
+
 Route::post('/logout', 'LoginController@doLogout');
 
 Route::get('/tesst', function () {
@@ -22,77 +76,14 @@ Route::get('/tesst', function () {
   return $b->bookInfo;
 });
 
-Route::get('/history', function()
-{
-	return View::make('studentHistory');
-});
-
-
-Route::get('/advance', function()
-{
-	return View::make('advance');
-});
-
-
-
-Route::get('/student', function()
-{
-	return View::make('student');
-});
-
-Route::get('/admin', function()
-{
-	return View::make('admin');
-});
-
-Route::get('/librarian', function()
-{
-	return View::make('librarian');
-});
-
-Route::get('/verifier', function()
-{
-	return View::make('verifier');
-});
-
-Route::get('/', array('before'=>'auth', function()
-{
-	return View::make('home');
-}));
-
-Route::get('/password', function()
-{
-	return View::make('password');
-});
-
-Route::get('/edit', function()
-{
-	return View::make('edit');
-});
-
-Route::get('/reset', function()
-{
-	return View::make('forgot');
-});
-
-Route::get('/contact', function()
-{
-	return View::make('contact');
-});
-
 Route::get('/search', function()
 {
 	return View::make('search');
 });
 
-Route::get('/recommended', function()
+Route::get('/advance', function()
 {
-	return View::make('recommended');
-});
-
-Route::get('/trending', function()
-{
-	return View::make('trending');
+	return View::make('advance');
 });
 
 Route::get('/booklist', function()
@@ -119,6 +110,7 @@ Route::get('/userlist', function()
 {
 	return View::make('userlist');
 });
+
 
 
 Event::listen('500', function()
