@@ -14,6 +14,9 @@
 // TODO make automatic message passing for displaying errors
 // Ex: in login page
 
+Route::resource('user','UserController');
+Route::get('/users','UserController@index');
+
 Route::get('/contact', function()
 {
 	return View::make('action.contact');
@@ -71,12 +74,6 @@ Route::get('/login', 'LoginController@showLogin');
 Route::post('/login', 'LoginController@doLogin');
 
 Route::post('/logout', 'LoginController@doLogout');
-
-Route::get('/tesst', function () {
-  //$bt = Book::where('type_name','=','Lendable')->firstOrFail();
-  $b = Book::find(1)->firstOrFail();
-  return $b->bookInfo;
-});
 
 Route::get('/search', function()
 {

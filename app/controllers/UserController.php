@@ -13,7 +13,6 @@ class UserController extends \BaseController {
     return View::make('userlist')->withUsers($userlist);
   }
 
-
   /**
    * Show the form for creating a new resource.
    *
@@ -45,9 +44,14 @@ class UserController extends \BaseController {
   public function show($id)
   {
     $user = User::find($id);
-    return View::make('student')->withUser($user);
+    if ($user->role->name=='Student') {
+      $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
+      return View::make('resource.user.view')->withUser($user)->
+        withBooks($user->books)->withStdinfo($stdinfo);
+    } else {
+      return View::make('resource.user.view')->withUser($user);
+    }
   }
-
 
   /**
    * Show the form for editing the specified resource.

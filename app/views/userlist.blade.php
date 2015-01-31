@@ -48,7 +48,7 @@
               </div>
             </div>
             <!-- Authority will be visible and batch and programs will be hidden when staff is selected.
-	      		The view will be reversed for the selection of student. -->
+            The view will be reversed for the selection of student. -->
             <div class="form-group">
               <label for="inputAuthority" class="col-lg-2 control-label">Authority:</label>
               <div class="col-lg-3">
