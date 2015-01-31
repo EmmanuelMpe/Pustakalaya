@@ -4,16 +4,19 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Verifier<span class="lead">/Ram Bahadur</span></h2>
+    <h2>Verify Books
+    </h2>
   </div>
 </div>
+
+<hr>
 
 <div class="transaction-form">
   <div class="row">
     <div class="col-lg-8">
       <form class="form-horizontal">
         <fieldset>
-          <legend>Verify books</legend>
+          <!--<legend>Verify books</legend> -->
           <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
@@ -40,7 +43,6 @@
     </div>
 
     @include('layout.alertbox')
-
   </div>
 </div>
 

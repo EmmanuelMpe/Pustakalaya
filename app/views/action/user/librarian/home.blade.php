@@ -4,16 +4,19 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Librarian<span class="lead">/Harikala</span></h2>
+    <h2>Issue, Return or Renew Books
+    </h2>
   </div>
 </div>
+
+<hr>
 
 <div class="transaction-form">
   <div class="row">
     <div class="col-lg-8">
       <form class="form-horizontal">
         <fieldset>
-          <legend>Issue, Renew or Return books</legend>
+          <!--<legend>Issue, Renew or Return books</legend> -->
 
           <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Username</label>

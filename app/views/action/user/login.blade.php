@@ -40,7 +40,7 @@
 
               <div class="col-lg-6">
                 <div class="help-block pull-right">
-                  <a href="{{{ URL::to('/reset') }}}">Forgot Password?</a>
+                  <a href="{{{ URL::to('/resetpassword') }}}">Forgot Password?</a>
                 </div>
               </div>
             </div>

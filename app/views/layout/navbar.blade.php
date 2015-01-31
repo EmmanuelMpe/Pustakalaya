@@ -72,10 +72,12 @@
             <span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="themes">
             <li>
+              <a href="#"> Profile </a>
+            <li>
               <a href="{{{ URL::to('/edit') }}}"> Edit Profile </a>
             </li>
             <li>
-              <a href="{{{ URL::to('/password') }}}"> Change Password</a>
+              <a href="{{{ URL::to('/changepassword') }}}"> Change Password</a>
             </li>
             <li class="divider">
             </li>

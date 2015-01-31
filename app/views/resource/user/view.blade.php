@@ -1,15 +1,29 @@
 @extends('layout.basic')
-
 @section('content')
 
 <div class="row">
-  <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Student</h2>
-    <span class="lead"> Puspe </span>
-    <span class="badge"><b> -123 </b></span>
+  <div class="col-lg-4 col-md-4 col-sm-4">
+
+    <h2>069.BCT.532</h2>
+
+    <ul class="list-group">
+      <li class="list-group-item lead">
+        Puspe
+        <span class="badge"><b> रु 123 </b></span>
+      </li>
+      <li class="list-group-item">
+        overall@gmail.com
+      </li>
+      <li class="list-group-item">
+        Somewhere near Bhaktapur
+      </li>
+    </ul>
+
   </div>
 </div>
 
+
+<hr>
 
 <div class="row">
 
@@ -25,7 +39,8 @@
   <div class="lend-table">
     <div class="col-lg-12">
       <table class="table table-striped table-hover ">
-        <legend>Lent Books <b>3/7</b></legend>
+        <legend>Lent Books <b>3/7</b>
+        </legend>
         <thead>
           <tr>
             <th>Id</th>
@@ -57,7 +72,7 @@
             <td>2015-02-25</td>
             <td>NRs. 0</td>
           </tr>
-          <tr class="danger">
+          <tr>
             <td>1038</td>
             <td>Into the city</td>
             <td>He</td>

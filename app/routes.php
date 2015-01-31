@@ -11,55 +11,57 @@
 |
 */
 
+// TODO make automatic message passing for displaying errors
+// Ex: in login page
 
 Route::get('/contact', function()
 {
-	return View::make('contact');
+	return View::make('action.contact');
 });
 
 Route::get('/', array('before'=>'auth', function()
 {
-	return View::make('home');
+	return View::make('action.home');
 }));
 
 Route::get('/student', function()
 {
-	return View::make('user.view');
+	return View::make('resource.user.view');
 });
 
 Route::get('/history', function()
 {
-	return View::make('user.student.history');
+	return View::make('resource.user.history');
 });
 
 Route::get('/admin', function()
 {
-	return View::make('user.admin.home');
+	return View::make('action.user.admin.home');
 });
 
 Route::get('/librarian', function()
 {
-	return View::make('user.librarian.home');
+	return View::make('action.user.librarian.home');
 });
 
 Route::get('/verifier', function()
 {
-	return View::make('user.verifier.home');
+	return View::make('action.user.verifier.home');
 });
 
 Route::get('/edit', function()
 {
-	return View::make('user.edit');
+	return View::make('resource.user.edit');
 });
 
-Route::get('/password', function()
+Route::get('/changepassword', function()
 {
-	return View::make('user.password');
+	return View::make('action.user.change-password');
 });
 
-Route::get('/reset', function()
+Route::get('/resetpassword', function()
 {
-	return View::make('user.forgot');
+	return View::make('action.user.reset-password');
 });
 
 
@@ -78,7 +80,7 @@ Route::get('/tesst', function () {
 
 Route::get('/search', function()
 {
-	return View::make('search');
+	return View::make('action.search');
 });
 
 Route::get('/advance', function()
