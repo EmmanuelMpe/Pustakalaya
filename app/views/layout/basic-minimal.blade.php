@@ -10,13 +10,12 @@
   {{ HTML::style('bootstrap/bootstrap.css') }}
   {{ HTML::style('bootstrap/bootswatch.css') }}
 </head>
+
 <body>
 
-  @include('layout.navbar')
   <div class="container">
     @yield('content')
   </div>
-  @include('layout.footer')
 
   {{ HTML::script('bootstrap/jquery-1.js') }}
   {{ HTML::script('bootstrap/bootstrap.js') }}

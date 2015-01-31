@@ -27,6 +27,14 @@ Route::get('/history', function()
 	return View::make('studentHistory');
 });
 
+
+Route::get('/advance', function()
+{
+	return View::make('advance');
+});
+
+
+
 Route::get('/student', function()
 {
 	return View::make('student');
@@ -126,30 +134,4 @@ Event::listen('404', function()
 
 App::missing(function($exception) {
     return Response::view('404', array(), 404);
-});
-
-
-/*
- *  Some Route filters
- */
-
-Route::filter('before', function()
-{
-    // Do stuff before every request to your application
-});
-
-
-Route::filter('after', function()
-{
-    // Do stuff before every request to your application
-});
-
-Route::filter('auth', function()
-{
-        if (Auth::guest()) return Redirect::to('login');
-});
-
-Route::filter('csrf', function()
-{
-    if (Request::forged()) return Response::error('500');
 });

@@ -14,12 +14,14 @@
       <form class="form-horizontal">
         <fieldset>
           <legend>Issue, Renew or Return books</legend>
+
           <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
               <input class="form-control" id="inputEmail" placeholder="Username" type="text">
             </div>
           </div>
+
           <div class="form-group">
             <label for="textArea" class="col-lg-2 control-label">Books</label>
             <div class="col-lg-10">
