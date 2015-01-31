@@ -4,10 +4,14 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Admin<span class="lead">/Puspe</span></h2>
+    <h2>Admin Panel</h2>
   </div>
 </div>
 
+
+<hr>
+
+<!--
 <div class="row">
   <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked">
@@ -19,10 +23,11 @@
     <li><a href="{{{ URL::to('/userlist') }}}"> User List</a></li>
     </ul>
   </div>
+-->
 
   <div class="recommendation-table ">
-    <div class="col-lg-10 pull-right">
-      <table class="table table-striped table-hover pull-right">
+    <div class="col-lg-12">
+      <table class="table table-striped table-hover">
         <legend>Recommended Books</legend>
         <thead>
           <tr>
@@ -83,17 +88,17 @@
           </tr>
         </tbody>
       </table>
-      <div class="col-lg-6 pull-right">
+      <div class="col-lg-12">
         <div class="help-block pull-right">
-          <a href="{{{ URL::to('/recommended') }}}">See More...</a>
+          <a href="{{{ URL::to('/recommended') }}}">See More ...</a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="trending-table">
-    <div class="col-lg-10 pull-right">
-      <table class="table table-striped table-hover pull-right">
+    <div class="col-lg-12">
+      <table class="table table-striped table-hover">
         <legend>Trending</legend>
         <thead>
           <tr>
@@ -154,9 +159,9 @@
           </tr>
         </tbody>
       </table>
-      <div class="col-lg-6 pull-right">
+      <div class="col-lg-12">
         <div class="help-block pull-right">
-          <a href="{{{ URL::to('/trending') }}}">See More...</a>
+          <a href="{{{ URL::to('/trending') }}}">See More ...</a>
         </div>
       </div>
     </div>

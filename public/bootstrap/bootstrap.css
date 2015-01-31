@@ -6527,14 +6527,14 @@ input[type="checkbox"] {
   text-transform: uppercase;
 }
 .pagination {
-  font-size: 12px;
-  font-weight: 300;
-  color: #999999;
+  font-size: 14px;
+  font-weight: 450;
+  color: #777777;
 }
 .pagination > li > a,
 .pagination > li > span {
   margin-left: 4px;
-  color: #999999;
+  color: #777777;
 }
 .pagination > .active > a,
 .pagination > .active > span {

@@ -1,20 +1,20 @@
 @extends('layout.basic-minimal') @section('content')
 
 <div class="row">
-  <div class="col-lg-6 col-md-7 col-sm-6 col-lg-offset-3">
+  <div class="col-lg-6 col-md-7 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
     <h1>Pustakalaya <i class="glyphicon glyphicon-book"></i></h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-6 col-md-7 col-sm-6 col-lg-offset-3">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
     <h2>Log in</h2>
   </div>
 </div>
 
 <div class="contact-form">
   <div class="row">
-    <div class="col-lg-6 col-md-7 col-sm-6 col-lg-offset-3">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
 
       <form class="form-horizontal" action="{{URL::to('/login')}}" method="POST">
         <fieldset>
@@ -40,7 +40,7 @@
 
               <div class="col-lg-6">
                 <div class="help-block pull-right">
-                  <a href="{{{ URL::to('/reset') }}}">Forgot Password?</a>
+                  <a href="{{{ URL::to('/resetpassword') }}}">Forgot Password?</a>
                 </div>
               </div>
             </div>
