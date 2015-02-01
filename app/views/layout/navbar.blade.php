@@ -23,6 +23,7 @@
           -->
       </form>
 
+      @if (Auth::check())
       <ul class="nav navbar-nav">
         <!-- Links to particular book-->
   <li class="dropdown">
@@ -81,6 +82,7 @@
           </ul>
         </li>
       </ul>
+      @endif
 
       <ul class="nav navbar-nav navbar-right">
 

@@ -7,8 +7,10 @@ class UserController extends \BaseController {
    *
    * @return Response
    */
-  public function index($action=NULL)
+  public function index()
   {
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
     $userlist = User::paginate(10);
     return View::make('resource.user.list')->withUsers($userlist)->withIndex(true);
   }
@@ -20,7 +22,18 @@ class UserController extends \BaseController {
    */
   public function create()
   {
-    return View::make('resource.user.create');
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
+    $usertype = 'Student';
+    if (Input::has('type')) {
+      if (Input::get('type')=='admin')
+        $usertype = 'Admin';
+      elseif (Input::get('type')=='librarian')
+        $usertype = 'Librarian';
+      elseif (Input::get('type')=='verifier')
+        $usertype = 'Verifier';
+    }
+    return View::make('resource.user.create')->withType($usertype);
   }
 
   /**
@@ -30,8 +43,39 @@ class UserController extends \BaseController {
    */
   public function store()
   {
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
+    $user = new User;
+    $user->name = Input::get('name');
+    $user->role_name = Input::get('role');
+    $user->email = Input::get('email');
+    $user->phone = Input::get('phone');
+    $user->address = Input::get('address');
+    $user->password = Hash::make('default');
+    $user->save();
+    if ($user->isStudent()) {
+      $stdinfo = new StudentInfo;
+      $stdinfo->rollnumber = Input::get('roll');
+      $stdinfo->user_id = $user->id;
+      $stdinfo->department_sname = Input::get('depart');
+      $stdinfo->fineacc = 0.0;
+      $stdinfo->finepaid = 0.0;
+      $stdinfo->save();
+    } else if ($user->isAdmin()) {
+      $adminfo = new AdminInfo;
+      $adminfo->user_id = $user->id;
+      $adminfo->save();
+    } else if ($user->isLibrarian()) {
+      $librinfo = new LibrarianInfo;
+      $librinfo->user_id = $user->id;
+      $librinfo->save();
+    } else if ($user->isVerifier()) {
+      $verinfo = new VerifierInfo;
+      $verinfo->user_id = $user->id;
+      $verinfo->save();
+    }
+    return Redirect::to('/users');
   }
-
 
   /**
    * Display the specified resource.

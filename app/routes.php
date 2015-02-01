@@ -144,3 +144,8 @@ Route::get('/remove', function()
 App::missing(function($exception) {
     return Response::view('action.404', array(), 404);
 });
+
+App::error(function(Exception $exception, $code) {
+  if ($code==403)
+    return 'Not allowed';
+});
