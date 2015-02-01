@@ -42,13 +42,33 @@ class User extends Eloquent
   // terms of ORM Relations.
   public function info() {
     if ($this->role_name=='Student') {
-      return StudentInfo::where('user_id','=',$this->id)>firstOrFail();
+      return StudentInfo::where('user_id','=',$this->id)
+        ->firstOrFail();
     } else if ($this->role_name=='Librarian') {
-      return LibrarianInfo::where('user_id','=',$this->id)>firstOrFail();
+      return LibrarianInfo::where('user_id','=',$this->id)
+        ->firstOrFail();
     } else if ($this->role_name=='Admin') {
-      return AdminInfo::where('user_id','=',$this->id)>firstOrFail();
+      return AdminInfo::where('user_id','=',$this->id)
+        ->firstOrFail();
     } else {
-      return VerifierInfo::where('user_id','=',$this->id)>firstOrFail();
+      return VerifierInfo::where('user_id','=',$this->id)
+        ->firstOrFail();
     }
+  }
+
+  public function isStudent() {
+    return ($this->role->name=="Student");
+  }
+
+  public function isAdmin() {
+    return ($this->role->name=="Admin");
+  }
+
+  public function isLibrarian() {
+    return ($this->role->name=="Librarian");
+  }
+
+  public function isVerifier() {
+    return ($this->role->name=="Verifier");
   }
 }

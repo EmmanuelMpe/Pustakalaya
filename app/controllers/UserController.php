@@ -7,10 +7,10 @@ class UserController extends \BaseController {
    *
    * @return Response
    */
-  public function index()
+  public function index($action=NULL)
   {
-    $userlist = User::paginate(3);
-    return View::make('resource.user.list')->withUsers($userlist);
+    $userlist = User::paginate(10);
+    return View::make('resource.user.list')->withUsers($userlist)->withIndex(true);
   }
 
   /**
@@ -20,9 +20,8 @@ class UserController extends \BaseController {
    */
   public function create()
   {
-    //
+    return View::make('resource.user.create');
   }
-
 
   /**
    * Store a newly created resource in storage.
@@ -31,7 +30,6 @@ class UserController extends \BaseController {
    */
   public function store()
   {
-    //
   }
 
 
@@ -44,10 +42,14 @@ class UserController extends \BaseController {
   public function show($id)
   {
     $user = User::find($id);
+    if ($user==NULL) {
+      App::abort(404);
+    }
     if ($user->role->name=='Student') {
       $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
       return View::make('resource.user.view')->withUser($user)->
-        withBooks($user->books)->withStdinfo($stdinfo);
+        withBooks($user->books)->withStdinfo($stdinfo)->
+        withStudent(true);
     } else {
       return View::make('resource.user.view')->withUser($user);
     }
@@ -60,10 +62,7 @@ class UserController extends \BaseController {
    * @return Response
    */
   public function edit($id)
-  {
-    //
-  }
-
+  { }
 
   /**
    * Update the specified resource in storage.
@@ -72,10 +71,7 @@ class UserController extends \BaseController {
    * @return Response
    */
   public function update($id)
-  {
-    //
-  }
-
+  { }
 
   /**
    * Remove the specified resource from storage.
@@ -84,9 +80,5 @@ class UserController extends \BaseController {
    * @return Response
    */
   public function destroy($id)
-  {
-    //
-  }
-
-
+  { }
 }

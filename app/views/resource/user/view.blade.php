@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
-    @if ($user->role->name=="Student")
+    @if ($user->isStudent())
     <h2>{{$stdinfo->rollnumber}}</h2>
     @endif
   </div>
@@ -15,7 +15,9 @@
       <ul class="list-group">
         <li class="list-group-item lead">
           {{{$user->name}}}
-          <span class="badge"><b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b></span>
+          @if ($user->isStudent())
+          <span class="badge"><b> रु {{--$stdinfo->fineacc - $stdinfo->finepaid--}} </b></span>
+          @endif
         </li>
         <li class="list-group-item">
           {{{$user->email}}}
@@ -26,6 +28,7 @@
       </ul>
     </div>
 
+    @if ($user->isAdmin() || $user->isStudent())
     <div class="panel panel-default">
       <div class="panel-heading">Notifications</div>
       <ul class="list-group">
@@ -43,9 +46,11 @@
         </li>
       </ul>
     </div>
+    @endif
   </div>
 
   <div class="col-lg-8">
+    @if ($user->isStudent())
     <div class="lend-table">
       <div class="panel panel-default">
         <div class="panel-heading">Books lent <span class="badge">
@@ -90,7 +95,7 @@
       </div>
     </div>
 
-    <div class="lend-table">
+    <div class="recommendation-table">
       <div class="panel panel-default">
         <div class="panel-heading">Recommendations</span>
         </div>
@@ -142,6 +147,7 @@
         </table>
       </div>
     </div>
+    @endif
   </div>
 </div>
 @stop

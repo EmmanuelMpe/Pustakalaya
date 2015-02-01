@@ -141,19 +141,6 @@ Route::get('/remove', function()
 	return View::make('remove');
 });
 
-
-
-Event::listen('500', function()
-{
-    return Response::error('500');
-});
-
-
-Event::listen('404', function()
-{
-    return Response::error('404');
-});
-
 App::missing(function($exception) {
     return Response::view('action.404', array(), 404);
 });
