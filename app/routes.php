@@ -21,6 +21,12 @@
 // containing details, similar books, it's instances and notificaitons
 
 
+Route::get('/somebook', function()
+{
+	return View::make('resource.bookinfo.view');
+});
+
+
 Route::get('/book/create', function()
 {
 	return View::make('resource.bookinfo.create');
