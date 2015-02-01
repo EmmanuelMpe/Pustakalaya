@@ -58,13 +58,16 @@
         </fieldset>
       </form>
 
-      @if (isset($fail))
-      <div class="col-lg-10">
+      @if (isset($messages))
+        @foreach ($messages as $msg)
+        <div class="col-lg-10">
+        @if ($msg['type']=='error')
         <div class="alert alert-dismissable alert-danger">
           <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>Username</strong> and/or <strong>password</strong> didn't match.
-        </div>
+          {{$msg['body']}}
       </div>
+        @endif
+        @endforeach
       @endif
 
     </div>

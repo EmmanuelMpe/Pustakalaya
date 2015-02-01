@@ -63,6 +63,9 @@ Route::get('/user/',function()
 Route::resource('user','UserController');
 Route::get('/users','UserController@index');
 
+Route::resource('book','BookController');
+Route::get('/books','BookController@index');
+
 Route::get('/contact', function()
 {
 	return View::make('action.contact');

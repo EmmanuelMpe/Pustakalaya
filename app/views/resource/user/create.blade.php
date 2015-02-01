@@ -26,9 +26,9 @@ student -->
             </div>
           </div>
           <div class="form-group">
-            <label for="inputEmail" class="col-lg-4 control-label">Email</label>
+          <label for="inputEmail" class="col-lg-4 control-label">Email</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputEmail" name="email" type="text">
+              <input class="form-control" id="inputEmail" name="email" type="email">
             </div>
           </div>
           <div class="form-group">

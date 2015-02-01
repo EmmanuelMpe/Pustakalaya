@@ -27,7 +27,9 @@ class LoginController extends BaseController {
         //            "notification" => { "things weren't clear"},
         //            "warning" => { "things weren't clear"},
         //            "success" => { "login successful sathi"} }
-      return View::make('action.user.login')->withFail(true);
+      return View::make('action.user.login')->withMessages(array(
+        array('type'=>'error', 'body'=> '<strong>Username</strong>
+        and/or <strong>password</strong> incorrect.')));
     }
   }
 

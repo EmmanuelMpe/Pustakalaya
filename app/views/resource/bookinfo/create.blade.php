@@ -11,50 +11,79 @@
 <div class="create-form">
   <div class="row">
     <div class="col-lg-8">
-      <form class="form-horizontal">
+      <form class="form-horizontal" method="POST"
+        action="{{URL::to('/book')}}">
         <fieldset>
           <!--<legend>Add New Book</legend> -->
           <div class="form-group">
-            <label for="inputISBN" class="col-lg-4 control-label">ISBN</label>
+            <label for="inputISBN" class="col-lg-4 control-label">
+              ISBN</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputISBN" placeholder="ISBN" type="text">
+              <input class="form-control" id="inputISBN"
+              name="isbn" type="text">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputTitle" class="col-lg-4 control-label">Title</label>
+            <label for="inputTitle" class="col-lg-4 control-label">
+              Title</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputTitle" placeholder="Book Title" type="text">
+              <input class="form-control" id="inputTitle"
+              name="title" type="text">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputAuthor" class="col-lg-4 control-label">Author</label>
+            <label for="inputAuthor" class="col-lg-4 control-label">
+              Author</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputAuthor" placeholder="Author" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputEdition" class="col-lg-4 control-label">Edition</label>
-            <div class="col-lg-8">
-              <input class="form-control" id="inputEdition" placeholder="Edition" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputType" class="col-lg-4 control-label">Type</label>
-            <div class="col-lg-8">
-              <input class="form-control" id="inputType" placeholder="Type" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputQty" class="col-lg-4 control-label">Quantity</label>
-            <div class="col-lg-8">
-              <input class="form-control" id="inputQty" placeholder="Quantity" type="text">
+              <input class="form-control" id="inputAuthor"
+              name="author" type="text">
             </div>
           </div>
 
           <div class="form-group">
+            <label for="inputPublisher" class="col-lg-4 control-label">
+              Publisher</label>
+            <div class="col-lg-8">
+              <input class="form-control" id="inputPublisher"
+              name="publisher" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputEdition" class="col-lg-4 control-label">
+              Edition</label>
+            <div class="col-lg-8">
+              <input class="form-control" id="inputEdition"
+              name="edition" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputQty" class="col-lg-4 control-label">
+              Quantity</label>
+            <div class="col-lg-8">
+              <input class="form-control" id="inputQty"
+              name="quantity" type="number">
+            </div>
+          </div>
+
+          <div class="form-group">
+          <label for="inputType" class="col-lg-4 control-label">
+              Type</label>
+          <div class="col-lg-8">
+          <select class="selectpicker" data-width="auto"
+              id="inputType" name="type">
+              <option>Lendable</option>
+              <option>Reference</option>
+              <option>NonLendable</option>
+          </select>
+          </div>
+          </div>
+
+          <div class="form-group">
             <div class="col-lg-8 col-lg-offset-4">
-              <button type="submit" class="btn btn-primary">Add</button>
-              <button class="btn btn-default pull-right">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+            <button class="btn btn-default pull-right">Cancel</button>
             </div>
           </div>
 
