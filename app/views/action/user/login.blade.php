@@ -58,17 +58,7 @@
         </fieldset>
       </form>
 
-      @if (isset($messages))
-        @foreach ($messages as $msg)
-        <div class="col-lg-10">
-        @if ($msg['type']=='error')
-        <div class="alert alert-dismissable alert-danger">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          {{$msg['body']}}
-      </div>
-        @endif
-        @endforeach
-      @endif
+    @include('layout.alertbox')
 
     </div>
   </div>

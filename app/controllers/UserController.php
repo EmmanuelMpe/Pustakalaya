@@ -12,7 +12,8 @@ class UserController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
     $userlist = User::paginate(10);
-    return View::make('resource.user.list')->withUsers($userlist)->withIndex(true);
+    return View::make('resource.user.list')->withUsers($userlist)->
+      withIndex(true);
   }
 
   /**
@@ -46,8 +47,28 @@ class UserController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
     $user = new User;
+    $fail = false;
+    $messages = array();
+
+    // Check if name is empty
+    if (empty(Input::get('name'))) {
+      $messages[] = array('error', 'Name cannot be empty');
+      Input::flashExcept('name');
+      $fail = false;
+    }
     $user->name = Input::get('name');
+
+    // Check validity of role name
+    if (empty(Input::get('role')) ||
+      Role::where('name','=',Input:get('role'))->count()==0) {
+      $messages[] = array('error','Role should be valid');
+      Input::flashExcept('role');
+      $fail = true;
+    }
     $user->role_name = Input::get('role');
+
+    // Check validity of email
+    if (empty(Input::get('role')) 
     $user->email = Input::get('email');
     $user->phone = Input::get('phone');
     $user->address = Input::get('address');

@@ -28,8 +28,8 @@ class LoginController extends BaseController {
         //            "warning" => { "things weren't clear"},
         //            "success" => { "login successful sathi"} }
       return View::make('action.user.login')->withMessages(array(
-        array('type'=>'error', 'body'=> '<strong>Username</strong>
-        and/or <strong>password</strong> incorrect.')));
+        array('error', '<strong>Username</strong> and/or
+        <strong>password</strong> incorrect.')));
     }
   }
 

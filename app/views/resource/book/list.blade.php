@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
-    <h2>Particular Book list</h2>
+    <h2>Book Items List</h2>
   </div>
 </div>
 
@@ -12,7 +12,8 @@
       <form class="form">
         <fieldset>
           <div class="form-group">
-            <select class="selectpicker" data-width="auto" id="inputAccess">
+            <select class="selectpicker" data-width="auto"
+              id="inputAccess">
               <option>NonLendable</option>
               <option>Course</option>
               <option>Reference</option>
