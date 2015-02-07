@@ -1,9 +1,39 @@
 @extends('layout.basic') @section('content')
+
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
     <h2>User list</h2>
   </div>
 </div>
+
+<!--
+    <span class="btn btn-default btn-file">
+    Browse <input type="file">
+    </span>
+-->
+
+
+<!--
+<form action="/output/" name="InputCacheCheck" method="post">
+    <div class="input-prepend input-append">
+        <div class="btn-group">
+
+            <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+            Record
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                  <li><a href="#">Hari</a></li>
+                  <li><a href="#">Shyam</a></li>
+                  <li><a href="#">Kiran</a></li>
+                  <li><a href="#">Chor</a></li>
+            </ul>
+        <input class=".input-large" name="hostnameinput" id="appendedInputButton" type="text">
+        <button class="btn" type="submit">Lookup</button>
+        </div>
+    </div>
+</form>
+-->
 
 <div class="select-form">
   <div class="row">
@@ -11,6 +41,7 @@
       <form class="form">
         <fieldset>
           <div class="form-group">
+
             <select class="selectpicker" data-width="auto" id="inputAccess">
               <option>Student</option>
               <option>Employee</option>
@@ -34,6 +65,7 @@
             </select>
 
             <button type="submit" class="btn btn-primary">List</button>
+
           </div>
         </fieldset>
       </form>
@@ -51,7 +83,7 @@
 
         @if (count($users)==0)
         <div class="panel-body text-center">
-        None
+          None
         </div>
         @else
         <table class="table table-striped table-hover">
