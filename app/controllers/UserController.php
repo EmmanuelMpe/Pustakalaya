@@ -34,6 +34,8 @@ class UserController extends \BaseController {
       elseif (Input::get('type')=='verifier')
         $usertype = 'Verifier';
     }
+
+    Session::flash('usertype',$usertype);
     return View::make('resource.user.create')->withType($usertype);
   }
 
@@ -46,34 +48,44 @@ class UserController extends \BaseController {
   {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    $user = new User;
-    $fail = false;
     $messages = array();
+    $usertype = Session::get('usertype');
 
-    // Check if name is empty
-    if (empty(Input::get('name'))) {
-      $messages[] = array('error', 'Name cannot be empty');
-      Input::flashExcept('name');
-      $fail = false;
+    // Validation rules for input data
+    $rules = array('name'=>'required',
+      'role'=>'required|exists:roles,name',
+      'email'=>'required|email|unique:users',
+      'phone'=>'required|numeric', 'address'=>'required');
+
+    if ($usertype=='Student') {
+      $rules['roll'] = 'required';
+      $rules['depart'] = 'required|exists:departments,shortname';
     }
+
+    $validator = Validator::make(Input::all(),$rules);
+
+    // If fails, construct messagebag and redirect
+    if ($validator->fails()) {
+      foreach ($validator->messages()->all() as $mesg) {
+        $messages[] = array('error',$mesg);
+      }
+      /*foreach ($validator->failed() as $failure=>$type) {
+        Input::flash($failure);
+      }
+      //Session::flash('messages',$messages);*/
+      return Redirect::to('/user/create?type='.$usertype)->
+        withMessages($messages)->withInput();
+    }
+
+    $user = new User;
     $user->name = Input::get('name');
-
-    // Check validity of role name
-    if (empty(Input::get('role')) ||
-      Role::where('name','=',Input:get('role'))->count()==0) {
-      $messages[] = array('error','Role should be valid');
-      Input::flashExcept('role');
-      $fail = true;
-    }
-    $user->role_name = Input::get('role');
-
-    // Check validity of email
-    if (empty(Input::get('role')) 
+    $user->role = Input::get('role');
     $user->email = Input::get('email');
     $user->phone = Input::get('phone');
     $user->address = Input::get('address');
     $user->password = Hash::make('default');
     $user->save();
+
     if ($user->isStudent()) {
       $stdinfo = new StudentInfo;
       $stdinfo->rollnumber = Input::get('roll');
@@ -110,6 +122,7 @@ class UserController extends \BaseController {
     if ($user==NULL) {
       App::abort(404);
     }
+
     if ($user->role->name=='Student') {
       $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
       return View::make('resource.user.view')->withUser($user)->
@@ -125,9 +138,18 @@ class UserController extends \BaseController {
    *
    * @param  int  $id
    * @return Response
-   */
   public function edit($id)
-  { }
+  {
+    // Authorization check
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
+
+    $user = User::find($id);
+    // 404 if not found
+    if ($user==NULL)
+      App::abort(404);
+  }
+   */
 
   /**
    * Update the specified resource in storage.

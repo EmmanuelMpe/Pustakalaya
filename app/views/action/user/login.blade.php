@@ -57,9 +57,7 @@
 
         </fieldset>
       </form>
-
-    @include('layout.alertbox')
-
+      @include('layout.alertbox')
     </div>
   </div>
 </div>

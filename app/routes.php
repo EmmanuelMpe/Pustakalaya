@@ -160,7 +160,7 @@ App::missing(function($exception) {
 
 // Handler for the 'model not found' exception
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-App::error(function(ModelNotFoundException $e)) {
+App::error(function(ModelNotFoundException $e) {
     return Response::view('action.404', array(), 404);
 });
 
@@ -168,4 +168,16 @@ App::error(function(ModelNotFoundException $e)) {
 App::error(function(Exception $exception, $code) {
   if ($code==403)
     return 'Not allowed';
+});
+
+// Test route
+Route::get('/test', function() {
+  $validator = Validator::make(
+    array('name'=>'Day3'),
+    array('name'=>'alpha|min:5'));
+  if ($validator->fails()) {
+    return $validator->messages()->all();
+  }
+  else
+    return 'notfails';
 });

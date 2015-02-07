@@ -1,3 +1,7 @@
+<?php if (Session::has('messages'))
+  $messages = Session::get('messages');
+?>
+
 @if (isset($messages))
 <div class="col-lg-8">
   @foreach ($messages as $msg)
