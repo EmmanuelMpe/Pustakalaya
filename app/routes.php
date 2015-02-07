@@ -11,9 +11,7 @@
 |
 */
 
-// TODO make automatic message passing for displaying errors
-// Ex: in login page
-//
+// TODO
 // Admin have functions like adding a users, books, bookinfos
 //    that can be done in admin home page.
 //
@@ -65,6 +63,9 @@ Route::get('/users','UserController@index');
 
 Route::resource('book','BookController');
 Route::get('/books','BookController@index');
+
+Route::resource('bookitem','BookItemController');
+Route::get('/bookitems','BookItemController@index');
 
 Route::get('/contact', function()
 {
@@ -150,11 +151,31 @@ Route::get('/remove', function()
 	return View::make('remove');
 });
 
+// Handler for 404 errors
 App::missing(function($exception) {
     return Response::view('action.404', array(), 404);
 });
 
+// Handler for the 'model not found' exception
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+App::error(function(ModelNotFoundException $e) {
+    return Response::view('action.404', array(), 404);
+});
+
+// Handler for general http errors
 App::error(function(Exception $exception, $code) {
   if ($code==403)
     return 'Not allowed';
+});
+
+// Test route
+Route::get('/test', function() {
+  $validator = Validator::make(
+    array('name'=>'Day3'),
+    array('name'=>'alpha|min:5'));
+  if ($validator->fails()) {
+    return $validator->messages()->all();
+  }
+  else
+    return 'notfails';
 });

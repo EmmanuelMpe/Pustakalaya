@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <h2>Add a Particular Book</h2>
+    <h2>Add a Book Item</h2>
   </div>
 </div>
 
@@ -12,37 +12,41 @@
   <div class="row">
 
     <div class="col-lg-8">
-      <form class="form-horizontal">
+      <form class="form-horizontal" method="POST"
+        action="{{URL::to('bookitem')}}">
         <fieldset>
           <!-- <legend>Add Books</legend> -->
           <div class="form-group">
-            <label for="inputISBN" class="col-lg-4 control-label">ISBN</label>
+            <label for="inputISBN" class="col-lg-4 control-label">
+              ISBN</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputISBN" placeholder="ISBN" type="text">
+              <input class="form-control" id="inputISBN"
+              name="isbn" type="text">
             </div>
           </div>
 
-        <!--
           <div class="form-group">
-            <label for="inputBookIDs" class="col-lg-4 control-label">Books IDs</label>
+            <label for="inputEdition" class="col-lg-4 control-label">
+              Edition</label>
             <div class="col-lg-8">
-              <textarea class="form-control" rows="3" id="inputBookIDs" placeholder="Place book IDs here..."></textarea>
-              <span class="help-block">Enter book ids seperated by a semicolon.</span>
+              <input class="form-control" id="inputEdition"
+              name="edition" type="text">
             </div>
           </div>
-        -->
 
           <div class="form-group">
-            <label for="inputQty" class="col-lg-4 control-label">Quantity</label>
+            <label for="inputQty" class="col-lg-4 control-label">
+              Quantity</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputQty" placeholder="Quantity" type="text">
+              <input class="form-control" id="inputQty"
+              name="quantity" type="number">
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-lg-8 col-lg-offset-4">
-              <button type="submit" class="btn btn-primary">Add</button>
-              <button class="btn btn-default pull-right">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+            <button class="btn btn-default pull-right">Cancel</button>
             </div>
           </div>
 

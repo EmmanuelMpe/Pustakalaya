@@ -38,8 +38,8 @@ class User extends Eloquent
   }
 
   // Get the *Info object associated to this User
-  // The schemas need extensive modification to implement this in
-  // terms of ORM Relations.
+  // The schemas need extensive modification to implement this
+  // in terms of ORM Relations.
   public function info() {
     if ($this->role_name=='Student') {
       return StudentInfo::where('user_id','=',$this->id)
@@ -71,4 +71,26 @@ class User extends Eloquent
   public function isVerifier() {
     return ($this->role->name=="Verifier");
   }
+
+  // Populate the User model from input data
+  public function populateFromInput() {
+    if (Input::has('role_name'))
+      $this->role_name = Input::get('role_name');
+
+    if (Input::has('name'))
+      $this->name = Input::get('name');
+
+    if (Input::has('password'))
+      $this->password = Input::get('password');
+
+    if (Input::has('email'))
+      $this->email = Input::get('email');
+
+    if (Input::has('phone'))
+      $this->phone = Input::get('phone');
+
+    if (Input::has('address'))
+      $this->address = Input::get('address');
+  }
+
 }
