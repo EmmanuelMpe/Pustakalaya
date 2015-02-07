@@ -11,9 +11,7 @@
 |
 */
 
-// TODO make automatic message passing for displaying errors
-// Ex: in login page
-//
+// TODO
 // Admin have functions like adding a users, books, bookinfos
 //    that can be done in admin home page.
 //
