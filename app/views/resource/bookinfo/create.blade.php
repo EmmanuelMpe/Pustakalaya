@@ -2,65 +2,77 @@
 
 <div class="row">
   <div class="col-lg-6">
+    @if ($forupdate)
+    <h2>Edit book</h2>
+    @else
     <h2>Add a Book</h2>
+    @endif
   </div>
 </div>
 
 <hr>
-
 <div class="create-form">
   <div class="row">
     <div class="col-lg-8">
       <form class="form-horizontal" method="POST"
-        action="{{URL::to('/book')}}">
+        @if ($forupdate)
+        action="{{URL::to('/book').'/'.$bookinfo->id}}"
+        @else
+        action="{{URL::to('/book')}}"
+        @endif
+        >
         <fieldset>
           <!--<legend>Add New Book</legend> -->
           <div class="form-group">
-            <label for="inputISBN" class="col-lg-4 control-label">
-              ISBN</label>
+            <label for="inputISBN"
+              class="col-lg-4 control-label">ISBN</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputISBN"
-              name="isbn" type="text">
+              name="isbn" type="text" required
+              value="{{$bookinfo->isbn}}">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputTitle" class="col-lg-4 control-label">
-              Title</label>
+            <label for="inputTitle"
+              class="col-lg-4 control-label">Title</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputTitle"
-              name="title" type="text">
+              name="title" type="text" required
+              value="{{$bookinfo->isbn}}">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputAuthor" class="col-lg-4 control-label">
-              Author</label>
+            <label for="inputAuthor"
+              class="col-lg-4 control-label">Author</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputAuthor"
-              name="author" type="text">
+              name="author" type="text" required
+              value="{{$bookinfo->author}}">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputPublisher" class="col-lg-4 control-label">
-              Publisher</label>
+            <label for="inputPublisher"
+              class="col-lg-4 control-label">Publisher</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputPublisher"
-              name="publisher" type="text">
+              name="publisher" type="text" required
+              value="{{$bookinfo->publisher}}">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputEdition" class="col-lg-4 control-label">
-              Edition</label>
+            <label for="inputEdition"
+              class="col-lg-4 control-label">Edition</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputEdition"
-              name="edition" type="text">
+              name="edition" type="text" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputQty" class="col-lg-4 control-label">
-              Quantity</label>
+            <label for="inputQty"
+              class="col-lg-4 control-label">Quantity</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputQty"
               name="quantity" type="number">
@@ -82,8 +94,10 @@
 
           <div class="form-group">
             <div class="col-lg-8 col-lg-offset-4">
-            <button type="submit" class="btn btn-primary">Add</button>
-            <button class="btn btn-default pull-right">Cancel</button>
+              <button type="submit" class="btn btn-primary">Add
+              </button>
+              <button class="btn btn-default pull-right">Cancel
+              </button>
             </div>
           </div>
 

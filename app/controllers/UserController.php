@@ -29,10 +29,11 @@ class UserController extends \BaseController {
 
     Session::flash('usertype',$usertype);
     if (Session::has('user'))
-      return View::make('resource.user.create')->withType($usertype)->
-        withForupdate(false)->withUser(Session::get('user'));
+      $user = Session::get('user');
+    else
+      $user = new User;
     return View::make('resource.user.create')->withType($usertype)->
-      withForupdate(false);
+      withForupdate(false)->withUser($user);
   }
 
   // Store a newly created resource in storage.

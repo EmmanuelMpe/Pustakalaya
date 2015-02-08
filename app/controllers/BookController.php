@@ -23,22 +23,19 @@ class BookController extends \BaseController {
     return View::make('resource.bookinfo.list')->withBooks($books);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
+  // Show the form for creating a new resource.
   public function create() {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    return View::make('resource.bookinfo.create');
+    if (Session::has('book'))
+      $book = Session::get('book');
+    else
+      $book = new Book;
+    return View::make('resource.bookinfo.create')->withForupdate(false)->
+      withBook($book);
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
+  // Store a newly created resource in storage.
   public function store()
   {
     if (!Auth::check() || !Auth::user()->isAdmin())
