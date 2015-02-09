@@ -117,7 +117,8 @@ class UserController extends \BaseController {
     }
 
     if ($user->role->name=='Student') {
-      $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
+      $stdinfo = StudentInfo::where('user_id','=',$id)->
+        firstOrFail();
       return View::make('resource.user.view')->withUser($user)->
         withBooks($user->books)->withStdinfo($stdinfo)->
         withStudent(true);
@@ -167,7 +168,8 @@ class UserController extends \BaseController {
 
     if ($usertype=='Student') {
       $rules['roll'] = 'required';
-      $rules['depart'] = 'required|exists:departments,shortname';
+      $rules['depart'] =
+        'required|exists:departments,shortname';
     }
 
     $validator = Validator::make(Input::all(),$rules);
@@ -187,7 +189,8 @@ class UserController extends \BaseController {
     if ($user->isStudent()) {
       $stdinfo = $user->info();
       $stdinfo->rollnumber = Input::get('rollnumber');
-      $stdinfo->department_sname = Input::get('department_sname');
+      $stdinfo->department_sname = Input::get
+        ('department_sname');
     }
 
     $user->push();

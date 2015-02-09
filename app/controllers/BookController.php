@@ -37,66 +37,99 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
+    // Validation rules
+    $rules = array('isbn'=>'required','name'=>'required','author'=>'required',
+      'publisher'=>'required','type_name'=>'required|exists:booktypes,name');
+
+    // Validate
+    $validator = Validator::make(Input::all(), $rules);
+    // Create bookinfo and populate
     $bookinfo = new BookInfo;
-    $bookinfo->isbn = Input::get('isbn');
-    $bookinfo->name = Input::get('title');
-    $bookinfo->author = Input::get('author');
-    $bookinfo->publisher = Input::get('publisher');
-    $bookinfo->type_name = Input::get('type');
+    // TODO dont do this here; may try to load data of bad type
+    $bookinfo->populateFromInput();
+
+    $messages = array();
+
+    // If fails, construct messagebag and redirect
+    if ($validator->fails()) {
+      foreach ($validator->messages()->all() as $mesg) {
+        $messages[] = array('error',$mesg);
+      }
+      // TODO load into bookinfo only data where validation failed
+      //
+
+      return Redirect::to('/book/create')->withMessages($messages)->
+        withBookinfo($bookinfo);
+    }
+
+    // All is good. Save bookinfo
     $bookinfo->save();
 
-    if ((int)Input::get('quantity')!=0) {
-      for ($i=0; $i<(int)Input::get('quantity'); $i++) {
-        $bookitem = new Book;
-        $bookitem->info_isbn = Input::get('isbn');
-        $bookitem->edition = Input::get('edition');
-        $bookitem->save();
-      }
-    }
     return Redirect::to('/books');
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
+  // Display the specified resource.
   public function show($id)
   {
-    //
+    if (!Auth::check())
+      App::abort(403);
+
+    $bookinfo = Bookinfo::find($id);
+    return View::make('resource.bookinfo.view')->withBookinfo($bookinfo);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
+
+  // Show the form for editing the specified resource.
   public function edit($id)
   {
-    //
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
+
+    $bookinfo = BookInfo::find($id);
+
+    return View::make('resource.bookinfo.create')->withBookInfo($bookinfo)->
+      withForudpate(true);
   }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
+  // Update the specified resource in storage.
   public function update($id)
   {
-    //
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
+
+    $bookinfo = BookInfo::find($id);
+    $bookinfo->populateFromInput();
+    $messages = array();
+
+    // Validation rules
+    $rules = array('isbn'=>'required','name'=>'required','author'=>'required',
+      'publisher'=>'required','type_name'=>'required|exists:booktypes,name');
+
+    // Validate
+    $validator = Validator::make(Input::all(), $rules);
+
+    // If fails, construct messagebag and redirect
+    if ($validator->fails()) {
+      foreach ($validator->messages()->all() as $mesg) {
+        $messages[] = array('error',$mesg);
+      }
+      return Redirect::to('/book/create')->withMessages($messages)->
+        withBookinfo($bookinfo)->withForupdate(true);
+    }
+
+    // All is good. Save bookinfo
+    $bookinfo->save();
+
+    return Redirect::to('books');
   }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
+  // Remove the specified resource from storage.
   public function destroy($id)
   {
-    //
+    if (!Auth::check() || !Auth::user()->isAdmin())
+      App::abort(403);
+    BookInfo::find($id)->delete();
+    return Redirect::to('books');
   }
+
 }
