@@ -109,9 +109,7 @@ student -->
         </fieldset>
       </form>
     </div>
-
     @include('layout.alertbox')
-
   </div>
 </div>
 

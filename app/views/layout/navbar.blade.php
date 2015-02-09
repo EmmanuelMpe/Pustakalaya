@@ -49,11 +49,16 @@
       <!-- Get data from hidden fields -->
       <form class="navbar-form col-lg-12 navbar-left" action="search" method="POST">
         <input class="form-control" placeholder="Search" type="text">
-        <input class="form-control" name="type-select-topic" id="type-select-topic" type="hidden">
-        <input class="form-control" name="book-select-topic" id="book-select-topic" type="hidden">
-        <input class="form-control" name="user-select-topic" id="user-select-topic" type="hidden">
-        <input class="form-control" name="depart-select-topic" id="depart-select-topic" type="hidden">
-        <input class="form-control" name="year-select-topic" id="year-select-topic" type="hidden">
+        <input class="form-control" name="type-select-topic"
+        id="type-select-topic" type="hidden">
+        <input class="form-control" name="book-select-topic"
+        id="book-select-topic" type="hidden">
+        <input class="form-control" name="user-select-topic"
+        id="user-select-topic" type="hidden">
+        <input class="form-control" name="depart-select-topic"
+        id="depart-select-topic" type="hidden">
+        <input class="form-control" name="year-select-topic"
+        id="year-select-topic" type="hidden">
         <button class="btn-primary form-control" type="submit">Go</button>
       </form>
 
@@ -61,7 +66,8 @@
       <div class="select-sub" id="type-select-sub">
         <ul class="nav navbar-nav">
           <li class="dropdown interchange">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle"
+            data-toggle="dropdown">Select<b class="caret"></b></a>
             <ul class="dropdown-menu" id="type-select">
               <li><a href="#" id="book-select">Book</a>
               </li>

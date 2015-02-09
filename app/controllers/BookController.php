@@ -2,11 +2,7 @@
 
 class BookController extends \BaseController {
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
+  // Display a listing of the resource.
   public function index() {
     if (!Auth::check())
       App::abort(403);
@@ -28,11 +24,11 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
     if (Session::has('book'))
-      $book = Session::get('book');
+      $bookinfo = Session::get('bookinfo');
     else
-      $book = new Book;
+      $bookinfo = new BookInfo;
     return View::make('resource.bookinfo.create')->withForupdate(false)->
-      withBook($book);
+      withBookinfo($bookinfo);
   }
 
   // Store a newly created resource in storage.
