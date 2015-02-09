@@ -1,76 +1,14 @@
 @extends('layout.basic') @section('content')
 
-<div class="row">
-  <div class="col-lg-6 col-md-7 col-sm-6">
-    <h2>User list</h2>
-  </div>
-</div>
-
 <!--
     <span class="btn btn-default btn-file">
     Browse <input type="file">
     </span>
 -->
 
-
-<!--
-<form action="/output/" name="InputCacheCheck" method="post">
-    <div class="input-prepend input-append">
-        <div class="btn-group">
-
-            <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
-            Record
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                  <li><a href="#">Hari</a></li>
-                  <li><a href="#">Shyam</a></li>
-                  <li><a href="#">Kiran</a></li>
-                  <li><a href="#">Chor</a></li>
-            </ul>
-        <input class=".input-large" name="hostnameinput" id="appendedInputButton" type="text">
-        <button class="btn" type="submit">Lookup</button>
-        </div>
-    </div>
-</form>
--->
-
-<div class="select-form">
-  <div class="row">
-    <div class="col-lg-6 col-md-7 col-sm-6">
-      <form class="form">
-        <fieldset>
-          <div class="form-group">
-
-            <select class="selectpicker" data-width="auto" id="inputAccess">
-              <option>Student</option>
-              <option>Employee</option>
-              <option>Verifier</option>
-              <option>Admin</option>
-            </select>
-
-            <select class="selectpicker" data-width="auto" id="inputBatch">
-              <option>2067</option>
-              <option>2068</option>
-              <option>2069</option>
-            </select>
-
-            <select class="selectpicker" data-width="auto" id="inputProgram">
-              <option>BAE</option>
-              <option>BCE</option>
-              <option>BCT</option>
-              <option>BEL</option>
-              <option>BEX</option>
-              <option>BME</option>
-            </select>
-
-            <button type="submit" class="btn btn-primary">List</button>
-
-          </div>
-        </fieldset>
-      </form>
-
-    </div>
+<div class="row">
+  <div class="col-lg-6 col-md-7 col-sm-6">
+    <h2>List</h2>
   </div>
 </div>
 
@@ -79,7 +17,7 @@
     <div class="col-lg-12">
 
       <div class="panel panel-default">
-        <div class="panel-heading">Users</div>
+        <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Users</div>
 
         @if (count($users)==0)
         <div class="panel-body text-center">
@@ -101,8 +39,10 @@
             @foreach ($users as $user)
             <tr>
               <td>{{$user->id}}</td>
-              <td><a href="{{URL::to('user').'/'.$user->id}}">
-                  {{$user->name}}</a>
+              <td>
+                <a href="{{URL::to('user').'/'.$user->id}}">
+                {{$user->name}}
+                </a>
               </td>
               <td>{{$user->role_name}}</td>
               <td>{{$user->email}}</td>
@@ -125,7 +65,5 @@
     </div>
 
   </div>
-
 </div>
-
 @stop

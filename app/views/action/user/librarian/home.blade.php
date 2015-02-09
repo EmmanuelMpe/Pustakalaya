@@ -1,6 +1,4 @@
-@extends('layout.basic')
-
-@section('content')
+@extends('layout.basic') @section('content')
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
@@ -35,9 +33,11 @@
 
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              <button type="submit" class="btn btn-primary">Renew</button>
-              <button type="submit" class="btn btn-success">Issue</button>
-              <button type="submit" class="btn btn-warning">Return</button>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Renew</button>
+                <button type="submit" class="btn btn-warning">Issue</button>
+              </div>
+              <button type="submit" class="btn btn-success">Return</button>
               <button class="btn btn-default pull-right">Cancel</button>
             </div>
           </div>

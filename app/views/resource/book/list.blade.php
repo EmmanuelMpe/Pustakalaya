@@ -6,28 +6,6 @@
   </div>
 </div>
 
-<div class="select-form">
-  <div class="row">
-    <div class="col-lg- col-md-7 col-sm-6">
-      <form class="form">
-        <fieldset>
-          <div class="form-group">
-            <select class="selectpicker" data-width="auto"
-              id="inputAccess">
-              <option>NonLendable</option>
-              <option>Course</option>
-              <option>Reference</option>
-            </select>
-
-            <button type="submit" class="btn btn-primary">List</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</div>
-
-
 <div class="list-table ">
   <div class="row">
     <div class="col-lg-12">
