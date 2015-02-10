@@ -11,7 +11,7 @@ class BookItemController extends \BaseController {
   {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    return View::make('resource.book.create');
+    return View::make('book.create');
   }
 
 

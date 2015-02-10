@@ -8,7 +8,7 @@ class LoginController extends BaseController {
     if (Auth::check())
       return Redirect::to('/');
     // Otherwise return the login view
-		return View::make('action.user.login');
+		return View::make('login');
 	}
 
   public function doLogin() {
@@ -27,7 +27,7 @@ class LoginController extends BaseController {
         //            "notification" => { "things weren't clear"},
         //            "warning" => { "things weren't clear"},
         //            "success" => { "login successful sathi"} }
-      return View::make('action.user.login')->withMessages(array(
+      return View::make('login')->withMessages(array(
         array('error', '<strong>Username</strong> and/or
         <strong>password</strong> incorrect.')));
     }

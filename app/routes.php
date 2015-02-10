@@ -21,29 +21,29 @@
 
 Route::get('/somebook', function()
 {
-	return View::make('resource.bookinfo.view');
+	return View::make('bookinfo.view');
 });
 
 
 Route::get('/book/create', function()
 {
-	return View::make('resource.bookinfo.create');
+	return View::make('bookinfo.create');
 });
 
 Route::get('/particularbook/create', function()
 {
-	return View::make('resource.book.create');
+	return View::make('book.create');
 });
 
 Route::get('/book', function()
 {
-	return View::make('resource.bookinfo.list');
+	return View::make('bookinfo.list');
 });
 
 
 Route::get('/particularbook', function()
 {
-	return View::make('resource.book.list');
+	return View::make('book.list');
 });
 
 /*
@@ -69,52 +69,52 @@ Route::get('/bookitems','BookItemController@index');
 
 Route::get('/contact', function()
 {
-	return View::make('action.contact');
+	return View::make('contact');
 });
 
 Route::get('/', array('before'=>'auth', function()
 {
-	return View::make('action.home');
+	return View::make('home');
 }));
 
 Route::get('/student', function()
 {
-	return View::make('resource.user.view');
+	return View::make('user.view');
 });
 
 Route::get('/history', function()
 {
-	return View::make('resource.user.history');
+	return View::make('user.history');
 });
 
 Route::get('/admin', function()
 {
-	return View::make('action.user.admin.home');
+	return View::make('user.admin.home');
 });
 
 Route::get('/librarian', function()
 {
-	return View::make('action.user.librarian.home');
+	return View::make('user.librarian.home');
 });
 
 Route::get('/verifier', function()
 {
-	return View::make('action.user.verifier.home');
+	return View::make('user.verifier.home');
 });
 
 Route::get('/user/edit', function()
 {
-	return View::make('resource.user.edit');
+	return View::make('user.edit');
 });
 
 Route::get('/changepassword', function()
 {
-	return View::make('action.user.change-password');
+	return View::make('change-password');
 });
 
 Route::get('/resetpassword', function()
 {
-	return View::make('action.user.reset-password');
+	return View::make('reset-password');
 });
 
 
@@ -128,7 +128,7 @@ Route::post('/logout', 'LoginController@doLogout');
 // Search is a post request to book info list
 Route::post('/search', function()
 {
-	return View::make('resource.bookinfo.list');
+	return View::make('bookinfo.list');
 });
 
 Route::get('/advance', function()
@@ -153,13 +153,13 @@ Route::get('/remove', function()
 
 // Handler for 404 errors
 App::missing(function($exception) {
-    return Response::view('action.404', array(), 404);
+    return Response::view('404', array(), 404);
 });
 
 // Handler for the 'model not found' exception
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 App::error(function(ModelNotFoundException $e) {
-    return Response::view('action.404', array(), 404);
+    return Response::view('404', array(), 404);
 });
 
 // Handler for general http errors

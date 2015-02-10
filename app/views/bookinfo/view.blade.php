@@ -1,5 +1,6 @@
 @extends('layout.basic') @section('content')
 
+
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
     <h2>{{ $bookinfo->type_name }}</h2>
@@ -86,38 +87,6 @@
       </table>
     </div>
   </div>
-
-
-  <div class="similar-table">
-    <div class="panel panel-default">
-      <div class="panel-heading">Similar Books</span>
-    </div>
-
-    <table class="table table-hover ">
-      <!-- <legend>Lent Books <b>3/7</b> -->
-      </legend>
-      <thead>
-        <tr>
-          <th>Book</th>
-          <th>Author</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- tr class="info | success | danger | warning | active" -->
-        <tr>
-          <td>Into the wild</td>
-          <td>Me</td>
-        </tr>
-        <tr>
-          <td>Back to the jungle</td>
-          <td>She</td>
-        </tr>
-        <tr>
-          <td>Into the city</td>
-          <td>He</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
 

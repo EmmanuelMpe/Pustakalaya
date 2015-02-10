@@ -16,7 +16,7 @@ class BookController extends \BaseController {
     else
       $books = BookInfo::paginate(10);
 
-    return View::make('resource.bookinfo.list')->withBooks($books);
+    return View::make('bookinfo.list')->withBooks($books);
   }
 
   // Show the form for creating a new resource.
@@ -27,7 +27,7 @@ class BookController extends \BaseController {
       $bookinfo = Session::get('bookinfo');
     else
       $bookinfo = new BookInfo;
-    return View::make('resource.bookinfo.create')->withForupdate(false)->
+    return View::make('bookinfo.create')->withForupdate(false)->
       withBookinfo($bookinfo);
   }
 
@@ -75,7 +75,7 @@ class BookController extends \BaseController {
       App::abort(403);
 
     $bookinfo = Bookinfo::find($id);
-    return View::make('resource.bookinfo.view')->withBookinfo($bookinfo);
+    return View::make('bookinfo.view')->withBookinfo($bookinfo);
   }
 
 
