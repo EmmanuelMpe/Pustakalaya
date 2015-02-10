@@ -1,4 +1,5 @@
-@extends('layout.basic') @section('content')
+@extends('layout.basic')
+@section('content')
 
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
@@ -16,15 +17,22 @@
       <div class="panel-heading">Basic information</div>
       <ul class="list-group">
         <li class="list-group-item lead">
-          {{{$user->name}}} @if ($user->isStudent() && $stdinfo->fineacc - $stdinfo->finepaid > 0)
-          <!-- If current user is librarian/admin so that fine can be cleared -->
-          <span class="badge"><b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b></span> @endif
+          {{{$user->name}}}
+          @if ($user->isStudent() && $stdinfo->fineacc - $stdinfo->finepaid > 0)
+          <span class="badge">
+            <b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b>
+            @if ( !Auth::user()->isStudent() )
+            <a href="#" class="badge">Clear</a>
+            @endif
+         </span>
+        @endif
         </li>
         @if ($user->email != "")
         <li class="list-group-item">
           {{{$user->email}}}
         </li>
-        @endif @if ($user->address != "")
+        @endif
+        @if ($user->address != "")
         <li class="list-group-item">
           {{{$user->address}}}
         </li>
@@ -68,8 +76,6 @@
         </div>
         @else
         <table class="table table-hover ">
-          <!-- <legend>Lent Books <b>3/7</b> -->
-          </legend>
           <thead>
             <tr>
               <th>Id</th>

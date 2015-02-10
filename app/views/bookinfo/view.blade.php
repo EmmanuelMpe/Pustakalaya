@@ -16,6 +16,9 @@
           {{ $books->name }}
         </li>
         <li class="list-group-item">
+          {{ $books->isbn }}
+        </li>
+        <li class="list-group-item">
           {{ $books->author }}
         </li>
         <li class="list-group-item">
