@@ -1,8 +1,9 @@
 @extends('layout.basic') @section('content')
 
+
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
-    <h2>Reference</h2>
+     <h2>{{ $books->type_name }}</h2>
   </div>
 </div>
 
@@ -12,13 +13,13 @@
       <div class="panel-heading">Basic information</div>
       <ul class="list-group">
         <li class="list-group-item lead">
-          Going through the woods on a rainy afternoon
+          {{ $books->name }}
         </li>
         <li class="list-group-item">
-          Rabindra Nath Adhikari
+          {{ $books->author }}
         </li>
         <li class="list-group-item">
-          The Nepali Times
+          {{ $books->publisher }}
         </li>
       </ul>
     </div>
@@ -118,10 +119,6 @@
         </table>
       </div>
     </div>
-
-
-
-
 
   </div>
 </div>

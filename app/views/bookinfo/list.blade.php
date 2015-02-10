@@ -13,9 +13,7 @@
       <div class="panel panel-default">
         <div class="panel-heading"><span class="glyphicon glyphicon-book"></span> Book Info</div>
 
-        @if (count($books)==0)
-          No Books to show
-        @else
+        @if (count($books)==0) No Books to show @else
         <table class="table table-striped table-hover ">
           <thead>
             <tr>
@@ -28,7 +26,7 @@
             </tr>
           </thead>
           <tbody>
-          @foreach ($books as $book)
+            @foreach ($books as $book)
             <tr>
               <td>{{{$book->isbn}}}</td>
               <td>
@@ -41,20 +39,20 @@
               <td>{{{$book->type_name}}}</td>
               <td>0</td>
             </tr>
-          @endforeach
-         </tbody>
+            @endforeach
+          </tbody>
         </table>
-      @endif
+        @endif
       </div>
     </div>
   </div>
 
 
-<div id="pagination-block">
-  <div class="row">
-    <div class="col-lg-12">{{$books->links()}}</div>
+  <div id="pagination-block">
+    <div class="row">
+      <div class="col-lg-12">{{$books->links()}}</div>
+    </div>
   </div>
-</div>
 
 </div>
 

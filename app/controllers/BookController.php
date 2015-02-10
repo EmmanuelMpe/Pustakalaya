@@ -20,7 +20,7 @@ class BookController extends \BaseController {
     else
       $books = BookInfo::paginate(10);
 
-    return View::make('resource.bookinfo.list')->withBooks($books);
+    return View::make('bookinfo.list')->withBooks($books);
   }
 
   /**
@@ -31,7 +31,7 @@ class BookController extends \BaseController {
   public function create() {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    return View::make('resource.bookinfo.create');
+    return View::make('bookinfo.create');
   }
 
   /**
@@ -72,6 +72,8 @@ class BookController extends \BaseController {
   public function show($id)
   {
     //
+      $books = BookInfo::find($id); //find($id)->get();
+    return View::make('bookinfo.view')->withBooks($books);
   }
 
   /**

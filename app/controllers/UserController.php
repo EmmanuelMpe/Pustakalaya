@@ -8,7 +8,7 @@ class UserController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
     $userlist = User::paginate(10);
-    return View::make('resource.user.list')->withUsers($userlist)->
+    return View::make('user.list')->withUsers($userlist)->
       withIndex(true);
   }
 
@@ -29,9 +29,9 @@ class UserController extends \BaseController {
 
     Session::flash('usertype',$usertype);
     if (Session::has('user'))
-      return View::make('resource.user.create')->withType($usertype)->
+      return View::make('user.create')->withType($usertype)->
         withForupdate(false)->withUser(Session::get('user'));
-    return View::make('resource.user.create')->withType($usertype)->
+    return View::make('user.create')->withType($usertype)->
       withForupdate(false);
   }
 
@@ -117,11 +117,11 @@ class UserController extends \BaseController {
 
     if ($user->role->name=='Student') {
       $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
-      return View::make('resource.user.view')->withUser($user)->
+      return View::make('user.view')->withUser($user)->
         withBooks($user->books)->withStdinfo($stdinfo)->
         withStudent(true);
     } else {
-      return View::make('resource.user.view')->withUser($user);
+      return View::make('user.view')->withUser($user);
     }
   }
 
@@ -139,7 +139,7 @@ class UserController extends \BaseController {
     $userinfo = $user->info();
 
     Session::flash('name',$user->name);
-    return View::make('resource.user.create')->withUser($user)->
+    return View::make('user.create')->withUser($user)->
       withType($user->role_name)->withUserinfo($userinfo)->
       withForupdate(true);
   }
