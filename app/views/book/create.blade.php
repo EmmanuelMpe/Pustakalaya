@@ -1,10 +1,15 @@
-@extends('layout.basic') @section('content')
+@extends('layout.basic')
+@section('content')
 
 <div class="row">
   <div class="col-lg-6">
+    <h2>
     @if ($forupdate)
-    <h2>Edit book</h2> @else
-    <h2>Add a Book</h2> @endif
+    Edit a book
+    @else
+    Add a Book
+    @endif
+    </h2>
   </div>
 </div>
 <hr>
@@ -12,9 +17,17 @@
 <div class="create-form">
   <div class="row">
     <div class="col-lg-8">
-      <form class="form-horizontal" method="POST" @if ($forupdate) action="{{URL::to('/book').'/'.$bookinfo->isbn}}" @else action="{{URL::to('/book')}}" @endif>
+      <form class="form-horizontal" method="POST"
         @if ($forupdate)
-        <input type="hidden" name="_method" value="put"> @endif
+            action="{{URL::to('/book').'/'.$bookinfo->isbn}}"
+        @else
+            action="{{URL::to('/book')}}"
+        @endif
+        >
+
+        @if ($forupdate)
+        <input type="hidden" name="_method" value="put">
+        @endif
 
         <fieldset>
           <!--<legend>Add New Book</legend> -->
@@ -44,6 +57,7 @@
             </div>
           </div>
 
+          @if (!$forupdate)
           <div class="form-group">
             <label for="inputEdition" class="col-lg-4 control-label">Edition</label>
             <div class="col-lg-8">
@@ -57,6 +71,7 @@
               <input class="form-control" id="inputQty" name="quantity" type="number">
             </div>
           </div>
+          @endif
 
           <div class="form-group">
             <label for="inputType" class="col-lg-4 control-label">
@@ -70,7 +85,7 @@
             </div>
           </div>
 
-         @include ('layout.submitbtn')
+          @include ('layout.submitbtn')
 
         </fieldset>
       </form>

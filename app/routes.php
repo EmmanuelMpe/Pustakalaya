@@ -11,6 +11,10 @@
 |
 */
 
+//TODO
+// should there quantity/edition in book(info) edit
+// Pagination in book/view
+
 Route::resource('user','UserController');
 
 Route::resource('book','BookController');

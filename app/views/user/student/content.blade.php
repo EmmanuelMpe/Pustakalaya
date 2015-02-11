@@ -17,7 +17,7 @@
                     <th>Book</th>
                     <th>Author</th>
                     <th>Edition</th>
-                    <th>Date Issued</th>
+                    <th>Issue Date</th>
                     <th>Expiry Date</th>
                     <th>Fine</th>
                 </tr>
@@ -31,8 +31,8 @@
                     <td>{{$book->bookInfo->author}}</td>
                     <td>{{$book->edition}}</td>
                     <td>{{$book->assigned_date}}</td>
-                    <td>Calculate the shit.</td>
-                    <td>Calculate this shit too.</td>
+                    <td>Calculate.</td>
+                    <td>Calculate.</td>
                 </tr>
                 @endforeach
             </tbody>

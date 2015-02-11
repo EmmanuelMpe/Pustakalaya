@@ -21,7 +21,7 @@
               ISBN</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputISBN"
-              name="isbn" type="text">
+              name="isbn" type="text"  value="{{Input::get('isbn')}}"    >
             </div>
           </div>
 

@@ -19,8 +19,8 @@
     @endif
     @if (Auth::user()->isAdmin() && Auth::user()->id!=$user->id)
     <div class="btn-group pull-right">
-    <a href="{{URL::to('/user/'.$user->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a>
-    <a href="{{URL::to('/user/'.$user->id.'/delete') }}" class="btn btn-sm btn-danger">Delete</a>
+    <a href="{{URL::to('/user/'.$user->id.'/edit') }}" class="btn btn-xs btn-warning">Edit</a>
+    <a href="{{URL::to('/user/'.$user->id.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>
     </div>
     @endif
     </h2>

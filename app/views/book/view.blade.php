@@ -7,8 +7,9 @@
     {{ $bookinfo->type_name }}
     @if (Auth::user()->isAdmin())
     <div class="btn-group pull-right">
-    <a href="{{URL::to('/book/'.$bookinfo->isbn.'/edit') }}" class="btn btn-sm btn-warning">Edit</a>
-    <a href="{{URL::to('/book/'.$bookinfo->isbn.'/delete') }}" class="btn btn-sm btn-danger">Delete</a>
+    <a href="{{URL::to('/bookitem/create?isbn='.$bookinfo->isbn) }}" class="btn btn-xs btn-primary">Add</a>
+    <a href="{{URL::to('/book/'.$bookinfo->isbn.'/edit') }}" class="btn btn-xs btn-warning">Edit</a>
+    <a href="{{URL::to('/book/'.$bookinfo->isbn.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>
     </div>
     @endif
     </h2>
@@ -41,6 +42,7 @@
   <div class="col-lg-8">
 
     @include ('book.content')
+    @include ('book.similar')
 
   </div>
 </div>

@@ -9,7 +9,9 @@
           <th>Id</th>
           <th>Edition</th>
           <th>Assigned To</th>
-          <th>Date Issued</th>
+          <th>Issue Date</th>
+          <th>Expiry Date</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +28,7 @@
               -
             @endif
           </td>
+
           <td>
              @if (isset($book->assigned_date))
                 {{$book->assigned_date}}
@@ -33,6 +36,13 @@
               -
             @endif
           </td>
+
+          <td>Calculate this shit</td>
+
+          <td>
+            <a href=#">Delete</a>
+          </td>
+
         </tr>
         @endforeach
       </tbody>
