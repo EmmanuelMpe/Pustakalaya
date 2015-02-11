@@ -20,13 +20,6 @@ class LoginController extends BaseController {
     if (Auth::attempt(array('email'=>$email,'password'=>$passwd))) {
       return Redirect::intended('/');
     } else {
-        // you could send message why it failed
-        // in $message or something, that could be
-        // a standard for our system
-        // $message { "error" => { "one" , "two" , "three" },
-        //            "notification" => { "things weren't clear"},
-        //            "warning" => { "things weren't clear"},
-        //            "success" => { "login successful sathi"} }
       return View::make('login')->withMessages(array(
         array('error', '<strong>Username</strong> and/or
         <strong>password</strong> incorrect.')));

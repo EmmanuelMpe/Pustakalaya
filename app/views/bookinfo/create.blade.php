@@ -16,11 +16,15 @@
     <div class="col-lg-8">
       <form class="form-horizontal" method="POST"
         @if ($forupdate)
-        action="{{URL::to('/book').'/'.$bookinfo->id}}"
+        action="{{URL::to('/book').'/'.$bookinfo->isbn}}"
         @else
         action="{{URL::to('/book')}}"
         @endif
         >
+        @if ($forupdate)
+        <input type="hidden" name="_method" value="put">
+        @endif
+
         <fieldset>
           <!--<legend>Add New Book</legend> -->
           <div class="form-group">
@@ -37,8 +41,8 @@
               class="col-lg-4 control-label">Title</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputTitle"
-              name="title" type="text" required
-              value="{{$bookinfo->isbn}}">
+              name="name" type="text" required
+              value="{{$bookinfo->name}}">
             </div>
           </div>
           <div class="form-group">
@@ -84,7 +88,7 @@
               Type</label>
           <div class="col-lg-8">
           <select class="selectpicker" data-width="auto"
-              id="inputType" name="type">
+              id="inputType" name="type_name">
               <option>Lendable</option>
               <option>Reference</option>
               <option>NonLendable</option>

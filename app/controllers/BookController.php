@@ -19,17 +19,19 @@ class BookController extends \BaseController {
     return View::make('bookinfo.list')->withBooks($books);
   }
 
+
   // Show the form for creating a new resource.
   public function create() {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    if (Session::has('book'))
-      $bookinfo = Session::get('bookinfo');
-    else
-      $bookinfo = new BookInfo;
+
+    $bookinfo = Session::get('bookinfo', new BookInfo);
+    $forupdate = Session::get('forupdate',false);
+
     return View::make('bookinfo.create')->withForupdate(false)->
-      withBookinfo($bookinfo);
+      withBookinfo($bookinfo)->withForupdate($forupdate);
   }
+
 
   // Store a newly created resource in storage.
   public function store()
@@ -38,8 +40,9 @@ class BookController extends \BaseController {
       App::abort(403);
 
     // Validation rules
-    $rules = array('isbn'=>'required','name'=>'required','author'=>'required',
-      'publisher'=>'required','type_name'=>'required|exists:booktypes,name');
+    $rules = array('isbn'=>'required','name'=>'required',
+      'author'=>'required','publisher'=>'required',
+      'type_name'=>'required|exists:booktypes,name');
 
     // Validate
     $validator = Validator::make(Input::all(), $rules);
@@ -59,7 +62,7 @@ class BookController extends \BaseController {
       //
 
       return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo);
+        withBookinfo($bookinfo)->withForupdate('false');
     }
 
     // All is good. Save bookinfo
@@ -74,7 +77,7 @@ class BookController extends \BaseController {
     if (!Auth::check())
       App::abort(403);
 
-    $bookinfo = Bookinfo::find($id);
+    $bookinfo = BookInfo::find($id);
     return View::make('bookinfo.view')->withBookinfo($bookinfo);
   }
 
@@ -87,8 +90,8 @@ class BookController extends \BaseController {
 
     $bookinfo = BookInfo::find($id);
 
-    return View::make('resource.bookinfo.create')->withBookInfo($bookinfo)->
-      withForudpate(true);
+    return View::make('bookinfo.create')->withBookinfo($bookinfo)->
+      withForupdate(true);
   }
 
   // Update the specified resource in storage.
@@ -102,8 +105,9 @@ class BookController extends \BaseController {
     $messages = array();
 
     // Validation rules
-    $rules = array('isbn'=>'required','name'=>'required','author'=>'required',
-      'publisher'=>'required','type_name'=>'required|exists:booktypes,name');
+    $rules = array('name'=>'required',
+      'author'=>'required','publisher'=>'required',
+      'type_name'=>'required|exists:booktypes,name');
 
     // Validate
     $validator = Validator::make(Input::all(), $rules);
