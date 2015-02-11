@@ -12,13 +12,10 @@
 */
 
 Route::resource('user','UserController');
-Route::get('/users','UserController@index');
 
 Route::resource('book','BookController');
-Route::get('/books','BookController@index');
 
 Route::resource('bookitem','BookItemController');
-Route::get('/bookitems','BookItemController@index');
 
 // Chooses the user homepage
 Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
