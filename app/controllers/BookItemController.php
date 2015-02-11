@@ -30,7 +30,7 @@ class BookItemController extends \BaseController {
       $bookitem->edition = Input::get('edition');
       $bookitem->save();
     }
-    return Redirect::to('/books');
+    return Redirect::to('/book');
   }
 
   /**

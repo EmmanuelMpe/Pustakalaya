@@ -100,7 +100,7 @@ class UserController extends \BaseController {
       $verinfo->user_id = $user->id;
       $verinfo->save();
     }
-    return Redirect::to('/users');
+    return Redirect::to('/user');
   }
 
   /**
@@ -207,7 +207,7 @@ public function home()
     $user->push();
     $user->save();
 
-    return Redirect::to('/users');
+    return Redirect::to('/user');
   }
 
 

@@ -2,20 +2,28 @@
 @section('content')
 
 <div class="row">
-  <div class="col-lg-6 col-md-7 col-sm-6">
+  <div class="col-lg-4">
+    <h2>
     @if ($user->isStudent())
-    <h2>{{$stdinfo->rollnumber}}</h2>
+        {{$stdinfo->rollnumber}}
     @elseif ($user->isAdmin())
         @if (Auth::user()->id==$user->id)
-        <h2>Dashboard</h2>
+            Dashboard
         @else
-        <h2>Admin</h2>
+            Admin
         @endif
     @elseif ($user->isLibrarian())
-    <h2>Librarian</h2>
+        Librarian
     @elseif ($user->isVerifier())
-    <h2>Verifier</h2>
+        Verifier
     @endif
+    @if (Auth::user()->isAdmin() && Auth::user()->id!=$user->id)
+    <div class="btn-group pull-right">
+    <a href="{{URL::to('/user/'.$user->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+    <a href="{{URL::to('/user/'.$user->id.'/delete') }}" class="btn btn-sm btn-danger">Delete</a>
+    </div>
+    @endif
+    </h2>
   </div>
 </div>
 

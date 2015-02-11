@@ -68,7 +68,7 @@ class BookController extends \BaseController {
     // All is good. Save bookinfo
     $bookinfo->save();
 
-    return Redirect::to('/books');
+    return Redirect::to('/book');
   }
 
   // Display the specified resource.
@@ -124,7 +124,7 @@ class BookController extends \BaseController {
     // All is good. Save bookinfo
     $bookinfo->save();
 
-    return Redirect::to('books');
+    return Redirect::to('book');
   }
 
   // Remove the specified resource from storage.
@@ -133,7 +133,7 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
     BookInfo::find($id)->delete();
-    return Redirect::to('books');
+    return Redirect::to('book');
   }
 
 }
