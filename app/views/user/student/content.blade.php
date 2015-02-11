@@ -1,8 +1,10 @@
 <div class="lend-table">
     <div class="panel panel-default">
-        <div class="panel-heading">Books lent @if (count($books) > 0)
-            <span class="badge">
-            <b>{{ count($books) }}/7</b></span> @endif
+        <div class="panel-heading">Books lent
+        @if (count($books) > 0)
+            <span class="badge pull-right">
+            <b>{{ count($books) }}/7</b></span>
+        @endif
         </div>
 
         @if (count($books)==0)
