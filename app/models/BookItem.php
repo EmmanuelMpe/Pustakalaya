@@ -9,9 +9,13 @@ class BookItem extends Eloquent {
   // We don't need the default timestamps
   public $timestamps=false;
 
+  // book_isbn and edition should be mass assignable because
+  // we do so during bookitem creation
+  protected $fillable = array('book_isbn','edition');
+
   // Get the bookInfo of the book
-  public function bookInfo() {
-    return $this->belongsTo('Books','book_isbn','isbn');
+  public function book() {
+    return $this->belongsTo('Book','book_isbn','isbn');
   }
 
   // Get the user of this book

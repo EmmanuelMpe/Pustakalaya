@@ -7,7 +7,7 @@ class BookController extends \BaseController {
     if (!Auth::check())
       App::abort(403);
 
-    $type = 'Lendable';
+    $type = 'All';
     if (Input::has('type'))
       $type = Input::get('type');
 
@@ -28,8 +28,8 @@ class BookController extends \BaseController {
     $book = Session::get('book', new Book);
     $forupdate = Session::get('forupdate',false);
 
-    return View::make('book.create')->withForupdate(false)->
-      withBook($book)->withForupdate($forupdate);
+    return View::make('book.create')->withBook($book)->
+      withForupdate($forupdate);
   }
 
 

@@ -1,8 +1,5 @@
 @extends('layout.basic') @section('content')
 
-
-<?php $books=array( 'a', 'b', 'c', 'd'); ?>
-
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
     <h2>List</h2>
@@ -29,15 +26,13 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($books as $books)
+            @foreach ($bookitems as $bookitem)
             <tr>
-              <td>123-45-6-7890</td>
-              <td>Into the wild</td>
-              <td>Me</td>
-              <td>2010</td>
-              <td>Lending</td>
-              <td>17/25</td>
-              <td>523/207 - 523/231</td>
+              <td>{{{$bookitem->book->isbn}}}</td>
+              <td>{{{$bookitem->book->name}}}</td>
+              <td>{{{$bookitem->book->author}}}</td>
+              <td>{{{$bookitem->edition}}}</td>
+              <td>{{{$bookitem->book->type_name}}}</td>
             </tr>
             @endforeach
           </tbody>
@@ -48,7 +43,7 @@
 
   <div id="pagination-block">
     <div class="row">
-      <div class="col-lg-12">{{--$books->links()--}}</div>
+      <div class="col-lg-12">{{--$bookitems->links()--}}</div>
     </div>
   </div>
 

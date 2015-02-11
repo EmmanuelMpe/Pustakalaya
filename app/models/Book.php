@@ -13,7 +13,7 @@ class Book extends Eloquent {
   public $timestamps=false;
 
   // Get all the Books for this BookInfo
-  public function books() {
+  public function bookitems() {
     return $this->hasMany('BookItem','book_isbn','isbn');
   }
 

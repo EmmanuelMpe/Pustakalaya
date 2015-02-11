@@ -53,7 +53,8 @@
         <div class="form-group">
           <!-- <label class="control-label">Input addons</label> -->
           <div class="input-group">
-            <input class="form-control" placeholder="Search" type="text">
+            <input class="form-control" placeholder="Search"
+            type="text" name="query">
             <input class="form-control" name="type-select-topic" id="type-select-topic" type="hidden">
             <input class="form-control" name="book-select-topic" id="book-select-topic" type="hidden">
             <input class="form-control" name="user-select-topic" id="user-select-topic" type="hidden">

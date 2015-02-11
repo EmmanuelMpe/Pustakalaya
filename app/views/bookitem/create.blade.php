@@ -21,7 +21,7 @@
               ISBN</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputISBN"
-              name="isbn" type="text">
+              name="book_isbn" type="text">
             </div>
           </div>
 

@@ -20,11 +20,7 @@ Route::resource('bookitem','BookItemController');
 // Chooses the user homepage
 Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
 
-Route::post('/search', function()
-{
-    // TODO add search controller
-    return "Seaching...";
-});
+Route::controller('search','SearchController');
 
 Route::get('/contact', function()
 {

@@ -1,22 +1,25 @@
 <?php
 
-class BookController extends \BaseController {
+class BookItemController extends \BaseController {
 
   // Display a listing of the resource.
   public function index() {
     if (!Auth::check())
       App::abort(403);
+    App::abort(404);
 
-    $type = 'All';
+    /*$type = 'All';
     if (Input::has('type'))
       $type = Input::get('type');
 
     if ($type!='All')
-      $books = BookInfo::where('type_name','=',$type)->paginate(10);
+      //$bookitems = DB::table('bookitems')->groupBy('book_isbn')->get()->paginate(10);
+      $bookitems = Book::paginate(10);
     else
-      $books = BookInfo::paginate(10);
+      $bookitems = Book::paginate(10);
 
-    return View::make('bookinfo.list')->withBooks($books);
+    return View::make('bookitem.list')->withBookitems($bookitems);
+     */
   }
 
 
@@ -25,11 +28,7 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
-    $bookinfo = Session::get('bookinfo', new BookInfo);
-    $forupdate = Session::get('forupdate',false);
-
-    return View::make('bookinfo.create')->withForupdate(false)->
-      withBookinfo($bookinfo)->withForupdate($forupdate);
+    return View::make('bookitem.create');
   }
 
 
@@ -40,16 +39,11 @@ class BookController extends \BaseController {
       App::abort(403);
 
     // Validation rules
-    $rules = array('isbn'=>'required','name'=>'required',
-      'author'=>'required','publisher'=>'required',
-      'type_name'=>'required|exists:booktypes,name');
+    $rules = array('book_isbn'=>'required','edition'=>'required',
+      'quantity'=>'required|numeric|min:1');
 
     // Validate
     $validator = Validator::make(Input::all(), $rules);
-    // Create bookinfo and populate
-    $bookinfo = new BookInfo;
-    // TODO dont do this here; may try to load data of bad type
-    $bookinfo->populateFromInput();
 
     $messages = array();
 
@@ -58,17 +52,19 @@ class BookController extends \BaseController {
       foreach ($validator->messages()->all() as $mesg) {
         $messages[] = array('error',$mesg);
       }
-      // TODO load into bookinfo only data where validation failed
-      //
-
-      return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo)->withForupdate('false');
+      return Redirect::to('/bookitem/create')->withMessages($messages);
     }
 
-    // All is good. Save bookinfo
-    $bookinfo->save();
+    // All is good. Create bookitems
+    $bookitems = array();
+    for ($i=0; $i<Input::get('quantity'); $i++) {
+      $bookitem = new BookItem(array('book_isbn'=>
+        Input::get('book_isbn'),'edition'=>Input::get('edition')));
+      $bookitem->save();
+      $bookitems[] = $bookitem;
+    }
 
-    return Redirect::to('/books');
+    return View::make('bookitem.idlist')->withBookitems($bookitems);
   }
 
   // Display the specified resource.

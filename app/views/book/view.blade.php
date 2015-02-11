@@ -49,7 +49,7 @@
 
     <div class="recommendation-table">
       <div class="panel panel-default">
-        <div class="panel-heading">Books</span>
+        <div class="panel-heading">Book Items</span>
       </div>
 
       <table class="table table-hover ">
@@ -65,24 +65,14 @@
         </thead>
         <tbody>
           <!-- tr class="info | success | danger | warning | active" -->
+          @foreach ($book->bookitems as $bookitem)
           <tr>
-            <td>1038</td>
-            <td>2010</td>
-            <td>2014-12-25</td>
-            <td>2015-02-25</td>
+            <td>{{$bookitem->id}}</td>
+            <td>{{{$bookitem->edition}}}</td>
+            <td>Whenever</td>
+            <td>Never</td>
           </tr>
-          <tr>
-            <td>1038</td>
-            <td>2010</td>
-            <td>2014-12-25</td>
-            <td>2015-02-25</td>
-          </tr>
-          <tr>
-            <td>1038</td>
-            <td>2010</td>
-            <td>2014-11-15</td>
-            <td>2015-01-15</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
