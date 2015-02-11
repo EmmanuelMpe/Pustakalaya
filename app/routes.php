@@ -11,53 +11,6 @@
 |
 */
 
-// TODO
-// Admin have functions like adding a users, books, bookinfos
-//    that can be done in admin home page.
-//
-// A view similar to user can be made for book info
-// containing details, similar books, it's instances and notificaitons
-
-
-Route::get('/somebook', function()
-{
-	return View::make('bookinfo.view');
-});
-
-
-Route::get('/book/create', function()
-{
-	return View::make('bookinfo.create');
-});
-
-Route::get('/particularbook/create', function()
-{
-	return View::make('book.create');
-});
-
-Route::get('/book', function()
-{
-	return View::make('bookinfo.list');
-});
-
-
-Route::get('/particularbook', function()
-{
-	return View::make('book.list');
-});
-
-/*
-Route::get('/user/create/',function()
-{
-	return View::make('resource.user.create');
-});
-
-Route::get('/user/',function()
-{
-	return View::make('resource.user.list');
-});
- */
-
 Route::resource('user','UserController');
 Route::get('/users','UserController@index');
 
@@ -67,45 +20,25 @@ Route::get('/books','BookController@index');
 Route::resource('bookitem','BookItemController');
 Route::get('/bookitems','BookItemController@index');
 
+// Chooses the user homepage
+Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
+
+Route::post('/search', function()
+{
+    // TODO add search controller
+    return "Seaching...";
+});
+
 Route::get('/contact', function()
 {
 	return View::make('contact');
 });
 
-Route::get('/', array('before'=>'auth', function()
+Route::get('/about', function()
 {
-	return View::make('home');
-}));
-
-Route::get('/student', function()
-{
-	return View::make('user.view');
+	return View::make('about');
 });
 
-Route::get('/history', function()
-{
-	return View::make('user.history');
-});
-
-Route::get('/admin', function()
-{
-	return View::make('user.admin.home');
-});
-
-Route::get('/librarian', function()
-{
-	return View::make('user.librarian.home');
-});
-
-Route::get('/verifier', function()
-{
-	return View::make('user.verifier.home');
-});
-
-Route::get('/user/edit', function()
-{
-	return View::make('user.edit');
-});
 
 Route::get('/changepassword', function()
 {
@@ -117,39 +50,12 @@ Route::get('/resetpassword', function()
 	return View::make('reset-password');
 });
 
-
-
 Route::get('/login', 'LoginController@showLogin');
 
 Route::post('/login', 'LoginController@doLogin');
 
 Route::post('/logout', 'LoginController@doLogout');
 
-// Search is a post request to book info list
-Route::post('/search', function()
-{
-	return View::make('bookinfo.list');
-});
-
-Route::get('/advance', function()
-{
-	return View::make('advance');
-});
-
-Route::get('/booklog', function()
-{
-	return View::make('booklog');
-});
-
-Route::get('/add', function()
-{
-	return View::make('add');
-});
-
-Route::get('/remove', function()
-{
-	return View::make('remove');
-});
 
 // Handler for 404 errors
 App::missing(function($exception) {
