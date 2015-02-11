@@ -35,12 +35,12 @@
       </ul>
     </div>
 
-    @include ('bookinfo.history')
+    @include ('book.history')
   </div>
 
   <div class="col-lg-8">
 
-    @include ('bookinfo.content')
+    @include ('book.content')
 
   </div>
 </div>

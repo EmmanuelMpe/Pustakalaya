@@ -16,7 +16,7 @@ class BookController extends \BaseController {
     else
       $books = BookInfo::paginate(10);
 
-    return View::make('bookinfo.list')->withBooks($books);
+    return View::make('book.list')->withBooks($books);
   }
 
 
@@ -28,7 +28,7 @@ class BookController extends \BaseController {
     $bookinfo = Session::get('bookinfo', new BookInfo);
     $forupdate = Session::get('forupdate',false);
 
-    return View::make('bookinfo.create')->withForupdate(false)->
+    return View::make('book.create')->withForupdate(false)->
       withBookinfo($bookinfo)->withForupdate($forupdate);
   }
 
@@ -38,6 +38,7 @@ class BookController extends \BaseController {
   {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
+
 
     // Validation rules
     $rules = array('isbn'=>'required','name'=>'required',
@@ -78,7 +79,7 @@ class BookController extends \BaseController {
       App::abort(403);
 
     $bookinfo = BookInfo::find($id);
-    return View::make('bookinfo.view')->withBookinfo($bookinfo);
+    return View::make('book.view')->withBookinfo($bookinfo)->withBooks($bookinfo->books);
   }
 
 
@@ -89,8 +90,7 @@ class BookController extends \BaseController {
       App::abort(403);
 
     $bookinfo = BookInfo::find($id);
-
-    return View::make('bookinfo.create')->withBookinfo($bookinfo)->
+    return View::make('book.create')->withBookinfo($bookinfo)->
       withForupdate(true);
   }
 

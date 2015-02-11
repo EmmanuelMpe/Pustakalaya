@@ -97,14 +97,8 @@ student -->
             </div>
           </div>
           @endif
-          <div class="form-group">
-            <div class="col-lg-8 col-lg-offset-4">
-              <button type="submit" class="btn btn-primary">
-                Save</button>
-              <button class="btn btn-default pull-right">
-                Cancel</button>
-            </div>
-          </div>
+
+         @include ('layout.submitbtn')
 
         </fieldset>
       </form>

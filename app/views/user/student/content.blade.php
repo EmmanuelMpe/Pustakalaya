@@ -26,11 +26,11 @@
                 <!-- tr class="info | success | danger | warning | active" -->
                 @foreach ($books as $book)
                 <tr>
-                    <td>$book->id</td>
-                    <td>$book->bookInfo->name</td>
-                    <td>$book->bookInfo->author</td>
-                    <td>$book->edition</td>
-                    <td>$book->assigned_date</td>
+                    <td>{{$book->id}}</td>
+                    <td>{{$book->bookInfo->name}}</td>
+                    <td>{{$book->bookInfo->author}}</td>
+                    <td>{{$book->edition}}</td>
+                    <td>{{$book->assigned_date}}</td>
                     <td>Calculate the shit.</td>
                     <td>Calculate this shit too.</td>
                 </tr>
