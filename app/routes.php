@@ -14,6 +14,12 @@
 Route::resource('user','UserController');
 
 Route::resource('book','BookController');
+Route::when('book/create','admin',array('get'));
+Route::when('book/*/edit','admin',array('get'));
+Route::when('book','admin',array('put','post'));
+Route::when('book/*','admin',array('put','post'));
+Route::when('book','auth',array('get'));
+Route::when('book/*','auth',array('get'));
 
 Route::resource('bookitem','BookItemController');
 
@@ -24,23 +30,23 @@ Route::controller('search','SearchController');
 
 Route::get('/contact', function()
 {
-	return View::make('contact');
+return View::make('contact');
 });
 
 Route::get('/about', function()
 {
-	return View::make('about');
+return View::make('about');
 });
 
 
 Route::get('/changepassword', function()
 {
-	return View::make('change-password');
+return View::make('change-password');
 });
 
 Route::get('/resetpassword', function()
 {
-	return View::make('reset-password');
+return View::make('reset-password');
 });
 
 Route::get('/login', 'LoginController@showLogin');

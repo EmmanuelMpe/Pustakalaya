@@ -4,9 +4,6 @@ class BookController extends \BaseController {
 
   // Display a listing of the resource.
   public function index() {
-    if (!Auth::check())
-      App::abort(403);
-
     $type = 'All';
     if (Input::has('type'))
       $type = Input::get('type');
@@ -22,8 +19,6 @@ class BookController extends \BaseController {
 
   // Show the form for creating a new resource.
   public function create() {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
     $book = Session::get('book', new Book);
     $forupdate = Session::get('forupdate',false);
@@ -36,8 +31,6 @@ class BookController extends \BaseController {
   // Store a newly created resource in storage.
   public function store()
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
     // Validation rules
     $rules = array('isbn'=>'required','name'=>'required',
@@ -74,8 +67,6 @@ class BookController extends \BaseController {
   // Display the specified resource.
   public function show($id)
   {
-    if (!Auth::check())
-      App::abort(403);
 
     $book = Book::find($id);
     return View::make('book.view')->withBook($book);
@@ -85,8 +76,6 @@ class BookController extends \BaseController {
   // Show the form for editing the specified resource.
   public function edit($id)
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
     $book = Book::find($id);
 
@@ -97,8 +86,6 @@ class BookController extends \BaseController {
   // Update the specified resource in storage.
   public function update($id)
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
     $book = Book::find($id);
     $book->populateFromInput();
@@ -130,8 +117,6 @@ class BookController extends \BaseController {
   // Remove the specified resource from storage.
   public function destroy($id)
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
     Book::find($id)->delete();
     return Redirect::to('books');
   }

@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="row">
+@include('layout.alertbox')
   <div class="col-lg-6 col-md-7 col-sm-6">
     @if ($user->isStudent())
     <h2>{{$stdinfo->rollnumber}}</h2>
