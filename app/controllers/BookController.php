@@ -7,16 +7,16 @@ class BookController extends \BaseController {
     if (!Auth::check())
       App::abort(403);
 
-    $type = 'All';
+    $type = 'Lendable';
     if (Input::has('type'))
       $type = Input::get('type');
 
     if ($type!='All')
-      $books = BookInfo::where('type_name','=',$type)->paginate(10);
+      $books = Book::where('type_name','=',$type)->paginate(10);
     else
-      $books = BookInfo::paginate(10);
+      $books = Book::paginate(10);
 
-    return View::make('bookinfo.list')->withBooks($books);
+    return View::make('book.list')->withBooks($books);
   }
 
 
@@ -25,11 +25,11 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
-    $bookinfo = Session::get('bookinfo', new BookInfo);
+    $book = Session::get('book', new Book);
     $forupdate = Session::get('forupdate',false);
 
-    return View::make('bookinfo.create')->withForupdate(false)->
-      withBookinfo($bookinfo)->withForupdate($forupdate);
+    return View::make('book.create')->withForupdate(false)->
+      withBook($book)->withForupdate($forupdate);
   }
 
 
@@ -46,10 +46,10 @@ class BookController extends \BaseController {
 
     // Validate
     $validator = Validator::make(Input::all(), $rules);
-    // Create bookinfo and populate
-    $bookinfo = new BookInfo;
+    // Create book and populate
+    $book = new Book;
     // TODO dont do this here; may try to load data of bad type
-    $bookinfo->populateFromInput();
+    $book->populateFromInput();
 
     $messages = array();
 
@@ -58,15 +58,15 @@ class BookController extends \BaseController {
       foreach ($validator->messages()->all() as $mesg) {
         $messages[] = array('error',$mesg);
       }
-      // TODO load into bookinfo only data where validation failed
+      // TODO load into book only data where validation failed
       //
 
       return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo)->withForupdate('false');
+        withBook($book)->withForupdate('false');
     }
 
-    // All is good. Save bookinfo
-    $bookinfo->save();
+    // All is good. Save book
+    $book->save();
 
     return Redirect::to('/books');
   }
@@ -77,8 +77,8 @@ class BookController extends \BaseController {
     if (!Auth::check())
       App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
-    return View::make('bookinfo.view')->withBookinfo($bookinfo);
+    $book = Book::find($id);
+    return View::make('book.view')->withBook($book);
   }
 
 
@@ -88,9 +88,9 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
+    $book = Book::find($id);
 
-    return View::make('bookinfo.create')->withBookinfo($bookinfo)->
+    return View::make('book.create')->withBook($book)->
       withForupdate(true);
   }
 
@@ -100,8 +100,8 @@ class BookController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
-    $bookinfo->populateFromInput();
+    $book = Book::find($id);
+    $book->populateFromInput();
     $messages = array();
 
     // Validation rules
@@ -118,11 +118,11 @@ class BookController extends \BaseController {
         $messages[] = array('error',$mesg);
       }
       return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo)->withForupdate(true);
+        withBook($book)->withForupdate(true);
     }
 
-    // All is good. Save bookinfo
-    $bookinfo->save();
+    // All is good. Save book
+    $book->save();
 
     return Redirect::to('books');
   }
@@ -132,7 +132,7 @@ class BookController extends \BaseController {
   {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    BookInfo::find($id)->delete();
+    Book::find($id)->delete();
     return Redirect::to('books');
   }
 

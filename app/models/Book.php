@@ -1,41 +1,35 @@
 <?php
 
-// Model for the table books
+// Model for the table bookinfo
 class Book extends Eloquent {
 
   // Explicitly specify the table
   protected $table='books';
 
+  // Our primary key is the isbn, not id
+  protected $primaryKey = 'isbn';
+
   // We don't need the default timestamps
   public $timestamps=false;
 
-  // Get the bookInfo of the book
-  public function bookInfo() {
-    return $this->belongsTo('BookInfo','info_isbn','isbn');
+  // Get all the Books for this BookInfo
+  public function books() {
+    return $this->hasMany('BookItem','book_isbn','isbn');
   }
 
-  // Get the user of this book
-  public function user() {
-    return $this->belongsTo('User','assigned_to','id');
+  // Get the BookType for this BookInfo
+  public function bookType() {
+    return $this->belongsTo('BookType','type_name','name');
   }
 
   // Load model from input data
   public function populateFromInput() {
 
-    if (Input::has('isbn'))
-      $this->isbn = Input::get('isbn');
-
-    if (Input::has('name'))
-      $this->name = Input::get('name');
-
-    if (Input::has('author'))
-      $this->author = Input::get('author');
-
-    if (Input::has('publisher'))
-      $this->publisher = Input::get('publisher');
-
-    if (Input::has('type_name'))
-      $this->type_name = Input::get('type_name');
+    $this->isbn = Input::get('isbn','');
+    $this->name = Input::get('name','');
+    $this->author = Input::get('author','');
+    $this->publisher = Input::get('publisher','');
+    $this->type_name = Input::get('type_name','');
   }
 
 }

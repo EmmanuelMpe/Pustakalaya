@@ -12,8 +12,8 @@ class CreateBookinfoTable extends Migration {
    */
   public function up()
   {
-    if (!Schema::hasTable('bookinfo')) {
-      Schema::create('bookinfo', function(Blueprint $table) {
+    if (!Schema::hasTable('books')) {
+      Schema::create('books', function(Blueprint $table) {
         // The isbn, which is the primary key. It may have significant
         // leading zeroes, so a string format is used.
         $table->string('isbn',32);
@@ -38,7 +38,7 @@ class CreateBookinfoTable extends Migration {
    */
   public function down()
   {
-    Schema::dropIfExists('bookinfo');
+    Schema::dropIfExists('books');
   }
 
 }

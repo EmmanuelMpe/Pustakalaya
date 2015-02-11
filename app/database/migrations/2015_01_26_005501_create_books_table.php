@@ -12,19 +12,19 @@ class CreateBooksTable extends Migration {
    */
   public function up()
   {
-    if (!Schema::hasTable('books')) {
-      Schema::create('books', function(Blueprint $table) {
+    if (!Schema::hasTable('bookitems')) {
+      Schema::create('bookitems', function(Blueprint $table) {
         $table->increments('id');
         // Selector for bookinfo
-        $table->string('info_isbn',32);
+        $table->string('book_isbn',32);
         // Edition of the book
         $table->string('edition',16);
         // The user the book has been lent to and the lend date
         $table->integer('assigned_to')->unsigned()->nullable();
         $table->timestamp('assigned_date')->nullable();
         // Key constraints
-        $table->foreign('info_isbn')->references('isbn')->
-          on('bookinfo');
+        $table->foreign('book_isbn')->references('isbn')->
+          on('books');
         $table->foreign('assigned_to')->references('id')->on('users');
       });
     }
@@ -37,7 +37,7 @@ class CreateBooksTable extends Migration {
    */
   public function down()
   {
-    Schema::dropIfExists('books');
+    Schema::dropIfExists('bookitems');
   }
 
 }

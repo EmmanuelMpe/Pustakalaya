@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
-    <h2>{{ $bookinfo->type_name }}</h2>
+    <h2>{{ $book->type_name }}</h2>
   </div>
 </div>
 
@@ -13,14 +13,14 @@
       <div class="panel-heading">Basic information</div>
       <ul class="list-group">
         <li class="list-group-item lead">
-        {{{ $bookinfo->name }}}
+        {{{ $book->name }}}
 
         </li>
         <li class="list-group-item">
-        {{{ $bookinfo->author }}}
+        {{{ $book->author }}}
         </li>
         <li class="list-group-item">
-        {{{ $bookinfo->publisher }}}
+        {{{ $book->publisher }}}
         </li>
       </ul>
     </div>

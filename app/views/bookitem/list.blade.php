@@ -1,5 +1,8 @@
 @extends('layout.basic') @section('content')
 
+
+<?php $books=array( 'a', 'b', 'c', 'd'); ?>
+
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
     <h2>List</h2>
@@ -11,49 +14,43 @@
     <div class="col-lg-12">
 
       <div class="panel panel-default">
-        <div class="panel-heading"><span class="glyphicon glyphicon-book"></span> Book Info</div>
+        <div class="panel-heading"><span class="glyphicon glyphicon-book"></span> Book</div>
 
-        @if (count($books)==0) No Books to show @else
         <table class="table table-striped table-hover ">
           <thead>
             <tr>
               <th>ISBN</th>
               <th>Title</th>
               <th>Author</th>
-              <th>Publisher</th>
+              <th>Edition</th>
               <th>Type</th>
               <th>Available</th>
+              <th>Range</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($books as $book)
+            @foreach ($books as $books)
             <tr>
-              <td>{{{$book->isbn}}}</td>
-              <td>
-                <a href="{{URL::to('book').'/'.$book->isbn}}">
-                {{{$book->name}}}
-                </a>
-              </td>
-              <td>{{{$book->author}}}</td>
-              <td>{{{$book->publisher}}}</td>
-              <td>{{{$book->type_name}}}</td>
-              <td>0</td>
+              <td>123-45-6-7890</td>
+              <td>Into the wild</td>
+              <td>Me</td>
+              <td>2010</td>
+              <td>Lending</td>
+              <td>17/25</td>
+              <td>523/207 - 523/231</td>
             </tr>
             @endforeach
           </tbody>
         </table>
-        @endif
       </div>
     </div>
   </div>
 
-
   <div id="pagination-block">
     <div class="row">
-      <div class="col-lg-12">{{$books->links()}}</div>
+      <div class="col-lg-12">{{--$books->links()--}}</div>
     </div>
   </div>
 
 </div>
-
 @stop
