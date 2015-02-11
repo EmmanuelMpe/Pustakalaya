@@ -126,6 +126,18 @@ class UserController extends \BaseController {
     }
   }
 
+public function home()
+  {
+    if( Auth::user()->isStudent())
+        return $this->show(Auth::user()->id);
+    else if( Auth::user()->isVerifier())
+        return View::make('user.verifier.home');
+    else if( Auth::user()->isLibrarian())
+        return View::make('user.librarian.home');
+    else if( Auth::user()->isAdmin())
+        return $this->show(Auth::user()->id);
+  }
+
   // Show the form for editing the specified resource.
   public function edit($id)
   {
