@@ -32,6 +32,7 @@ class BookController extends \BaseController {
   public function store()
   {
 
+
     // Validation rules
     $rules = array('isbn'=>'required','name'=>'required',
       'author'=>'required','publisher'=>'required',
@@ -61,7 +62,7 @@ class BookController extends \BaseController {
     // All is good. Save book
     $book->save();
 
-    return Redirect::to('/books');
+    return Redirect::to('/book');
   }
 
   // Display the specified resource.
@@ -76,7 +77,6 @@ class BookController extends \BaseController {
   // Show the form for editing the specified resource.
   public function edit($id)
   {
-
     $book = Book::find($id);
 
     return View::make('book.create')->withBook($book)->
@@ -111,7 +111,7 @@ class BookController extends \BaseController {
     // All is good. Save book
     $book->save();
 
-    return Redirect::to('books');
+    return Redirect::to('book');
   }
 
   // Remove the specified resource from storage.
@@ -120,5 +120,4 @@ class BookController extends \BaseController {
     Book::find($id)->delete();
     return Redirect::to('books');
   }
-
 }

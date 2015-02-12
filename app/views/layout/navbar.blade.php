@@ -27,7 +27,7 @@
             <li>
               <a href="{{{ URL::to('/user/' . Auth::user()->id) }}}"> Profile </a>
               <li>
-                <a href="{{{ URL::to('/user/edit/'. Auth::user()->id) }}}"> Edit Profile </a>
+                <a href="{{{ URL::to('/user/'. Auth::user()->id.'/edit') }}}"> Edit Profile </a>
               </li>
               <li>
                 <a href="{{{ URL::to('/changepassword') }}}"> Change Password</a>

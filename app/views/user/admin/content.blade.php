@@ -41,9 +41,9 @@
 
 
         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <a href="{{URL::to('bookinfo/create')}}" class="btn btn-lg  btn-block">
+            <a href="{{URL::to('bookitem/create')}}" class="btn btn-lg  btn-block">
                 <h2><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></h2>
-                <h4>Book Info</h4>
+                <h4>Book Item</h4>
             </a>
         </div>
         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">

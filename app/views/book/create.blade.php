@@ -1,15 +1,17 @@
-@extends('layout.basic') @section('content')
+@extends('layout.basic')
+@section('content')
 
 <div class="row">
   <div class="col-lg-6">
+    <h2>
     @if ($forupdate)
-    <h2>Edit book</h2>
+    Edit a book
     @else
-    <h2>Add a Book</h2>
+    Add a Book
     @endif
+    </h2>
   </div>
 </div>
-
 <hr>
 <div class="create-form">
   <div class="row">
@@ -55,6 +57,7 @@
             </div>
           </div>
 
+          @if (!$forupdate)
           <div class="form-group">
             <label for="inputPublisher"
               class="col-lg-4 control-label">Publisher</label>
@@ -66,44 +69,33 @@
           </div>
 
           <div class="form-group">
-            <label for="inputEdition"
-              class="col-lg-4 control-label">Edition</label>
+            <label for="inputEdition" class="col-lg-4 control-label">Edition</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputEdition"
-              name="edition" type="text" required>
+              <input class="form-control" id="inputEdition" name="edition" type="text" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputQty"
-              class="col-lg-4 control-label">Quantity</label>
+            <label for="inputQty" class="col-lg-4 control-label">Quantity</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputQty"
-              name="quantity" type="number">
+              <input class="form-control" id="inputQty" name="quantity" type="number">
             </div>
           </div>
+          @endif
 
           <div class="form-group">
-          <label for="inputType" class="col-lg-4 control-label">
+            <label for="inputType" class="col-lg-4 control-label">
               Type</label>
-          <div class="col-lg-8">
-          <select class="selectpicker" data-width="auto"
-              id="inputType" name="type_name">
-              <option>Lendable</option>
-              <option>Reference</option>
-              <option>NonLendable</option>
-          </select>
-          </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-lg-8 col-lg-offset-4">
-              <button type="submit" class="btn btn-primary">Add
-              </button>
-              <button class="btn btn-default pull-right">Cancel
-              </button>
+            <div class="col-lg-8">
+              <select class="selectpicker" data-width="auto" id="inputType" name="type_name">
+                <option>Lendable</option>
+                <option>Reference</option>
+                <option>NonLendable</option>
+              </select>
             </div>
           </div>
+
+          @include ('layout.submitbtn')
 
         </fieldset>
       </form>

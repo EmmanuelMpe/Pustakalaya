@@ -1,6 +1,6 @@
-<div class="recommendation-table">
+<div class="similar-table">
   <div class="panel panel-default">
-    <div class="panel-heading">Recommendations</span>
+    <div class="panel-heading">Similar Books</span>
     </div>
 
     <table class="table table-hover ">

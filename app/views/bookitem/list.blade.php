@@ -1,5 +1,8 @@
 @extends('layout.basic') @section('content')
 
+
+<?php $books=array( 'a', 'b', 'c', 'd'); ?>
+
 <div class="row">
   <div class="col-lg-6 col-md-7 col-sm-6">
     <h2>List</h2>
@@ -33,7 +36,7 @@
               <td>{{{$bookitem->book->author}}}</td>
               <td>{{{$bookitem->edition}}}</td>
               <td>{{{$bookitem->book->type_name}}}</td>
-            </tr>
+           </tr>
             @endforeach
           </tbody>
         </table>
