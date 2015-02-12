@@ -53,12 +53,13 @@
         <div class="form-group">
           <!-- <label class="control-label">Input addons</label> -->
           <div class="input-group">
-            <input class="form-control" placeholder="Search" type="text">
-            <input class="form-control" name="type-select-topic" id="type-select-topic" type="hidden">
-            <input class="form-control" name="book-select-topic" id="book-select-topic" type="hidden">
-            <input class="form-control" name="user-select-topic" id="user-select-topic" type="hidden">
-            <input class="form-control" name="depart-select-topic" id="depart-select-topic" type="hidden">
-            <input class="form-control" name="year-select-topic" id="year-select-topic" type="hidden">
+            <input class="form-control" placeholder="Search"
+            type="text" name="query">
+            <input class="form-control" name="query_type" id="type-select-topic" type="hidden">
+            <input class="form-control" name="book_type" id="book-select-topic" type="hidden">
+            <input class="form-control" name="user_type" id="user-select-topic" type="hidden">
+            <input class="form-control" name="user_depart" id="depart-select-topic" type="hidden">
+            <input class="form-control" name="user_year" id="year-select-topic" type="hidden">
             <span class="input-group-btn">
               <button class="btn btn-primary form-control" type="button">
                 <span class="glyphicon glyphicon-search"></span>

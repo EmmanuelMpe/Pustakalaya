@@ -34,7 +34,7 @@ class User extends Eloquent
 
   // Get the books of this user
   public function books() {
-    return $this->hasMany('Book','assigned_to','id');
+    return $this->hasMany('BookItem','assigned_to','id');
   }
 
   // Get the *Info object associated to this User

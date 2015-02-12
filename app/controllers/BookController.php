@@ -4,17 +4,14 @@ class BookController extends \BaseController {
 
   // Display a listing of the resource.
   public function index() {
-    if (!Auth::check())
-      App::abort(403);
-
     $type = 'All';
     if (Input::has('type'))
       $type = Input::get('type');
 
     if ($type!='All')
-      $books = BookInfo::where('type_name','=',$type)->paginate(10);
+      $books = Book::where('type_name','=',$type)->paginate(10);
     else
-      $books = BookInfo::paginate(10);
+      $books = Book::paginate(10);
 
     return View::make('book.list')->withBooks($books);
   }
@@ -22,22 +19,18 @@ class BookController extends \BaseController {
 
   // Show the form for creating a new resource.
   public function create() {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
-    $bookinfo = Session::get('bookinfo', new BookInfo);
+    $book = Session::get('book', new Book);
     $forupdate = Session::get('forupdate',false);
 
-    return View::make('book.create')->withForupdate(false)->
-      withBookinfo($bookinfo)->withForupdate($forupdate);
+    return View::make('book.create')->withBook($book)->
+      withForupdate($forupdate);
   }
 
 
   // Store a newly created resource in storage.
   public function store()
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
 
     // Validation rules
@@ -47,10 +40,10 @@ class BookController extends \BaseController {
 
     // Validate
     $validator = Validator::make(Input::all(), $rules);
-    // Create bookinfo and populate
-    $bookinfo = new BookInfo;
+    // Create book and populate
+    $book = new Book;
     // TODO dont do this here; may try to load data of bad type
-    $bookinfo->populateFromInput();
+    $book->populateFromInput();
 
     $messages = array();
 
@@ -59,15 +52,15 @@ class BookController extends \BaseController {
       foreach ($validator->messages()->all() as $mesg) {
         $messages[] = array('error',$mesg);
       }
-      // TODO load into bookinfo only data where validation failed
+      // TODO load into book only data where validation failed
       //
 
       return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo)->withForupdate('false');
+        withBook($book)->withForupdate('false');
     }
 
-    // All is good. Save bookinfo
-    $bookinfo->save();
+    // All is good. Save book
+    $book->save();
 
     return Redirect::to('/book');
   }
@@ -75,33 +68,27 @@ class BookController extends \BaseController {
   // Display the specified resource.
   public function show($id)
   {
-    if (!Auth::check())
-      App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
-    return View::make('book.view')->withBookinfo($bookinfo)->withBooks($bookinfo->books);
+    $book = Book::find($id);
+    return View::make('book.view')->withBook($book);
   }
 
 
   // Show the form for editing the specified resource.
   public function edit($id)
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
+    $book = Book::find($id);
 
-    $bookinfo = BookInfo::find($id);
-    return View::make('book.create')->withBookinfo($bookinfo)->
+    return View::make('book.create')->withBook($book)->
       withForupdate(true);
   }
 
   // Update the specified resource in storage.
   public function update($id)
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
-    $bookinfo->populateFromInput();
+    $book = Book::find($id);
+    $book->populateFromInput();
     $messages = array();
 
     // Validation rules
@@ -118,11 +105,11 @@ class BookController extends \BaseController {
         $messages[] = array('error',$mesg);
       }
       return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo)->withForupdate(true);
+        withBook($book)->withForupdate(true);
     }
 
-    // All is good. Save bookinfo
-    $bookinfo->save();
+    // All is good. Save book
+    $book->save();
 
     return Redirect::to('book');
   }
@@ -130,10 +117,7 @@ class BookController extends \BaseController {
   // Remove the specified resource from storage.
   public function destroy($id)
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
-    BookInfo::find($id)->delete();
-    return Redirect::to('book');
+    Book::find($id)->delete();
+    return Redirect::to('books');
   }
-
 }

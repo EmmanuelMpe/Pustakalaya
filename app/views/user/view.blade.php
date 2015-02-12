@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="row">
+  @include ('layout.alertbox')
   <div class="col-lg-4">
     <h2>
     @if ($user->isStudent())

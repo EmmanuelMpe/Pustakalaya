@@ -1,15 +1,17 @@
-@extends('layout.basic')
-@section('content')
+@extends('layout.basic') @section('content')
 
 <div class="row">
   <div class="col-lg-4">
     <h2>
-    {{ $bookinfo->type_name }}
+    {{ $book->type_name }}
     @if (Auth::user()->isAdmin())
     <div class="btn-group pull-right">
-    <a href="{{URL::to('/bookitem/create?isbn='.$bookinfo->isbn) }}" class="btn btn-xs btn-primary">Add</a>
-    <a href="{{URL::to('/book/'.$bookinfo->isbn.'/edit') }}" class="btn btn-xs btn-warning">Edit</a>
-    <a href="{{URL::to('/book/'.$bookinfo->isbn.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>
+    <a href="{{URL::to('bookitem/create?isbn='.$book->isbn) }}" class="btn
+    btn-xs btn-primary">Add</a>
+    <a href="{{URL::to('book/'.$book->isbn.'/edit') }}" class="btn
+    btn-xs btn-warning">Edit</a>
+    <a href="{{URL::to('book/'.$book->isbn.'/delete') }}" class="btn
+    btn-xs btn-danger">Delete</a>
     </div>
     @endif
     </h2>
@@ -22,28 +24,22 @@
       <div class="panel-heading">Basic information</div>
       <ul class="list-group">
         <li class="list-group-item lead">
-          {{{ $bookinfo->name }}}
+          {{{ $book->name }}}
+
         </li>
         <li class="list-group-item">
-          {{{ $bookinfo->isbn }}}
+          {{{ $book->author }}}
         </li>
         <li class="list-group-item">
-          {{{ $bookinfo->author }}}
-        </li>
-        <li class="list-group-item">
-          {{{ $bookinfo->publisher }}}
+          {{{ $book->publisher }}}
         </li>
       </ul>
     </div>
-
     @include ('book.history')
   </div>
-
   <div class="col-lg-8">
-
-    @include ('book.content')
-    @include ('book.similar')
-
+  @include ('book.content')
+  @include ('book.similar')
   </div>
 </div>
 @stop

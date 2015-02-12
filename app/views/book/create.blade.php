@@ -13,18 +13,16 @@
   </div>
 </div>
 <hr>
-
 <div class="create-form">
   <div class="row">
     <div class="col-lg-8">
       <form class="form-horizontal" method="POST"
         @if ($forupdate)
-            action="{{URL::to('/book').'/'.$bookinfo->isbn}}"
+        action="{{URL::to('/book').'/'.$book->isbn}}"
         @else
-            action="{{URL::to('/book')}}"
+        action="{{URL::to('/book')}}"
         @endif
         >
-
         @if ($forupdate)
         <input type="hidden" name="_method" value="put">
         @endif
@@ -32,28 +30,43 @@
         <fieldset>
           <!--<legend>Add New Book</legend> -->
           <div class="form-group">
-            <label for="inputISBN" class="col-lg-4 control-label">ISBN</label>
+            <label for="inputISBN"
+              class="col-lg-4 control-label">ISBN</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputISBN" name="isbn" type="text" required value="{{$bookinfo->isbn}}">
+              <input class="form-control" id="inputISBN"
+              name="isbn" type="text" required
+              value="{{$book->isbn}}">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputTitle" class="col-lg-4 control-label">Title</label>
+            <label for="inputTitle"
+              class="col-lg-4 control-label">Title</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputTitle" name="name" type="text" required value="{{$bookinfo->name}}">
+              <input class="form-control" id="inputTitle"
+              name="name" type="text" required
+              value="{{$book->name}}">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputAuthor" class="col-lg-4 control-label">Author</label>
+            <label for="inputAuthor"
+              class="col-lg-4 control-label">Author</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputAuthor" name="author" type="text" required value="{{$bookinfo->author}}">
+              <input class="form-control" id="inputAuthor"
+              name="author" type="text" required
+              value="{{$book->author}}">
             </div>
           </div>
 
+          <!-- the publisher data is under book unlike the ones listed
+            below, we may need to change the publiser if there was a typo
+            or misunderstanding during entry -->
           <div class="form-group">
-            <label for="inputPublisher" class="col-lg-4 control-label">Publisher</label>
+            <label for="inputPublisher"
+              class="col-lg-4 control-label">Publisher</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputPublisher" name="publisher" type="text" required value="{{$bookinfo->publisher}}">
+              <input class="form-control" id="inputPublisher"
+              name="publisher" type="text" required
+              value="{{$book->publisher}}">
             </div>
           </div>
 

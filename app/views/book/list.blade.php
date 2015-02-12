@@ -37,7 +37,8 @@
               <td>{{{$book->author}}}</td>
               <td>{{{$book->publisher}}}</td>
               <td>{{{$book->type_name}}}</td>
-              <td>0</td>
+              <!-- Maybe get total books and books available here -->
+              <td>{{$book->bookitems->count()}}</td>
             </tr>
             @endforeach
           </tbody>

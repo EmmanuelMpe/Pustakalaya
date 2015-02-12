@@ -116,11 +116,12 @@ class UserController extends \BaseController {
       App::abort(404);
     }
 
+
     if ($user->role->name=='Student') {
       $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
       return View::make('user.view')->withUser($user)->
-        withBooks($user->books)->withStdinfo($stdinfo)->
-        withStudent(true);
+        withStudent(true)->withStdinfo($stdinfo)
+        ->withBooks($user->books);
     } else {
       return View::make('user.view')->withUser($user);
     }
