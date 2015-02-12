@@ -49,7 +49,8 @@
       @if (Auth::check())
       <!-- Search Text -->
       <!-- Get data from hidden fields -->
-      <form class="navbar-form navbar-left" action="search" method="POST">
+      <form class="navbar-form navbar-left" action="/search"
+      method="GET">
         <div class="form-group">
           <!-- <label class="control-label">Input addons</label> -->
           <div class="input-group">

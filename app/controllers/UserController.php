@@ -51,8 +51,10 @@ class UserController extends \BaseController {
       'phone'=>'required|numeric', 'address'=>'required');
 
     if ($usertype=='Student') {
-      $rules['rollnumber'] = 'required';
-      $rules['department_sname'] = 'required|exists:departments,shortname';
+      $rules['rollnumber'] = 'required|numeric';
+      $rules['department_sname'] =
+        'required|exists:departments,shortname';
+      $rules['batch'] = 'required|numeric';
     }
 
     $validator = Validator::make(Input::all(),$rules);
@@ -82,6 +84,7 @@ class UserController extends \BaseController {
     if ($user->isStudent()) {
       $stdinfo = new StudentInfo;
       $stdinfo->rollnumber = Input::get('rollnumber');
+      $stdinfo->batch = Input::get('batch');
       $stdinfo->user_id = $user->id;
       $stdinfo->department_sname = Input::get('department_sname');
       $stdinfo->fineacc = 0.0;

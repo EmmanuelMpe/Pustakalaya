@@ -1,0 +1,7 @@
+- Separate roll number to batch,department,roll
+- Implement User search
+- Good Access control
+- BookItems CRUD improve
+- Logging System
+- Links everywhere + Data Integrity
+- Notification System

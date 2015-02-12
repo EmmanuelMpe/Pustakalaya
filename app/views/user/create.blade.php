@@ -78,7 +78,7 @@ student -->
           @if ($type=="Student")
           <div class="form-group">
             <label for="inputRoll"
-              class="col-lg-4 control-label">Roll Number</label>
+              class="col-lg-4 control-label">RollNumber</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputRoll"
               name="rollnumber" type="text"
@@ -93,6 +93,17 @@ student -->
               <input class="form-control" id="inputDepart"
               name="department_sname" type="text"
               value="{{Input::old('department_sname')}}"
+              required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputBatch"
+              class="col-lg-4 control-label">Department</label>
+            <div class="col-lg-8">
+              <input class="form-control" id="inputBatch"
+              name="batch" type="text"
+              value="{{Input::old('batch')}}"
               required>
             </div>
           </div>
