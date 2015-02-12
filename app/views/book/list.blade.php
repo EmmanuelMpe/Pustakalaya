@@ -11,9 +11,13 @@
     <div class="col-lg-12">
 
       <div class="panel panel-default">
-        <div class="panel-heading"><span class="glyphicon glyphicon-book"></span> Book Info</div>
+        <div class="panel-heading"><span class="glyphicon glyphicon-book"></span> Books </div>
 
-        @if (count($books)==0) No Books to show @else
+        @if (count($books)==0)
+        <div class="panel-body text-center">
+            None
+        </div>
+        @else
         <table class="table table-striped table-hover ">
           <thead>
             <tr>
@@ -37,6 +41,7 @@
               <td>{{{$book->author}}}</td>
               <td>{{{$book->publisher}}}</td>
               <td>{{{$book->type_name}}}</td>
+              <!-- Maybe get total books and books available here -->
               <td>{{$book->bookitems->count()}}</td>
             </tr>
             @endforeach

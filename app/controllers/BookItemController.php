@@ -1,5 +1,6 @@
 <?php
 
+
 class BookItemController extends \BaseController {
 
   // Display a listing of the resource.
@@ -63,7 +64,7 @@ class BookItemController extends \BaseController {
       $bookitems[] = $bookitem;
     }
 
-    return View::make('bookitem.idlist')->withBookitems($bookitems);
+    return View::make('bookitem.list')->withBookitems($bookitems);
   }
 
   // Display the specified resource.
@@ -72,8 +73,10 @@ class BookItemController extends \BaseController {
     if (!Auth::check())
       App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
-    return View::make('bookinfo.view')->withBookinfo($bookinfo);
+    $bookinfo = Book::find($id);
+    // Put a checking if bookinfo is null or not
+    // giving problems
+    return View::make('book.view')->withBook($bookinfo);
   }
 
 
@@ -83,9 +86,9 @@ class BookItemController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
+    $bookinfo = Book::find($id);
 
-    return View::make('bookinfo.create')->withBookinfo($bookinfo)->
+    return View::make('book.create')->withBook($bookinfo)->
       withForupdate(true);
   }
 
@@ -95,7 +98,7 @@ class BookItemController extends \BaseController {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
 
-    $bookinfo = BookInfo::find($id);
+    $bookinfo = Book::find($id);
     $bookinfo->populateFromInput();
     $messages = array();
 
@@ -113,7 +116,7 @@ class BookItemController extends \BaseController {
         $messages[] = array('error',$mesg);
       }
       return Redirect::to('/book/create')->withMessages($messages)->
-        withBookinfo($bookinfo)->withForupdate(true);
+        withBook($bookinfo)->withForupdate(true);
     }
 
     // All is good. Save bookinfo
@@ -127,7 +130,7 @@ class BookItemController extends \BaseController {
   {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    BookInfo::find($id)->delete();
+    Book::find($id)->delete();
     return Redirect::to('books');
   }
 

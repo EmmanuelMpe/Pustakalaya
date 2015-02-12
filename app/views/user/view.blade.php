@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="row">
-@include('layout.alertbox')
+  @include ('layout.alertbox')
   <div class="col-lg-4">
     <h2>
     @if ($user->isStudent())
@@ -31,20 +31,27 @@
 <div class="row">
   <div class="col-lg-4">
     <div class="panel panel-default">
-      <div class="panel-heading">Basic information</div>
+      <div class="panel-heading">Basic information
+
+      </div>
       <ul class="list-group">
         <li class="list-group-item lead">
           {{{$user->name}}}
-          @if ($user->isStudent() && $stdinfo->fineacc - $stdinfo->finepaid > 0)
+
+        @if ($user->isStudent() && $stdinfo->fineacc - $stdinfo->finepaid > 0)
           <span class="badge">
-            <b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b>
-            @if ( !Auth::user()->isStudent() )
-            <a href="#" class="badge">Clear</a>
-            @endif
+                @if ( !Auth::user()->isStudent() )
+                    <a href="#" class="badge">
+                        Clear <b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b>
+                    </a>
+                    @else
+                        <b> रु {{$stdinfo->fineacc - $stdinfo->finepaid}} </b>
+                    @endif
+
          </span>
         @endif
-        </li>
-        @if ($user->email != "")
+
+       @if ($user->email != "")
         <li class="list-group-item">
           {{{$user->email}}}
         </li>

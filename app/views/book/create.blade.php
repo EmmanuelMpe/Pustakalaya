@@ -57,7 +57,9 @@
             </div>
           </div>
 
-          @if (!$forupdate)
+          <!-- the publisher data is under book unlike the ones listed
+            below, we may need to change the publiser if there was a typo
+            or misunderstanding during entry -->
           <div class="form-group">
             <label for="inputPublisher"
               class="col-lg-4 control-label">Publisher</label>
@@ -68,6 +70,7 @@
             </div>
           </div>
 
+          @if (!$forupdate)
           <div class="form-group">
             <label for="inputEdition" class="col-lg-4 control-label">Edition</label>
             <div class="col-lg-8">

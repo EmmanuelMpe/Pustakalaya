@@ -19,8 +19,10 @@
           <div class="form-group">
             <label for="inputISBN" class="col-lg-4 control-label">
               ISBN</label>
+            <!-- Used Input::get('isbn') to get data from get -->
             <div class="col-lg-8">
               <input class="form-control" id="inputISBN"
+              value="{{{Input::get('isbn')}}}"
               name="book_isbn" type="text">
             </div>
           </div>
