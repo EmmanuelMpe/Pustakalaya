@@ -64,7 +64,7 @@ class BookItemController extends \BaseController {
       $bookitems[] = $bookitem;
     }
 
-    return View::make('bookitem.idlist')->withBookitems($bookitems);
+    return View::make('bookitem.list')->withBookitems($bookitems);
   }
 
   // Display the specified resource.

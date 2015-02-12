@@ -61,7 +61,7 @@
             <input class="form-control" name="user_depart" id="depart-select-topic" type="hidden">
             <input class="form-control" name="user_year" id="year-select-topic" type="hidden">
             <span class="input-group-btn">
-              <button class="btn btn-primary form-control" type="button">
+              <button class="btn btn-primary form-control" type="submit">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
             </span>
