@@ -18,9 +18,9 @@
 // Set route for the user resource and set its access controls
 Route::resource('user','UserController');
 Route::when('user/create','admin',array('get'));
-Route::when('user/*/edit','admin',array('get'));
+Route::when('user/*/edit','admin_orSelf',array('get'));
 Route::when('user','admin',array('put','post'));
-Route::when('user/*','admin',array('put','post'));
+Route::when('user/*','admin_orSelf',array('put','post'));
 Route::when('user','auth',array('get'));
 Route::when('user/*','auth',array('get'));
 
