@@ -4,26 +4,26 @@
   </div>
   <div class="panel-body">
     <a href="{{URL::to('/book')}}" class="btn btn-lg">
+      <h3>234</h3>
       <h4><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span></small> Book </h4>
-      <span>234</span>
     </a>
 
     <a href="{{URL::to('/user')}}" class="btn btn-lg">
+      <h3>34</h3>
       <h4><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span></small> User </h4>
-      <span>34</span>
     </a>
 
     <a href="#" class="btn btn-lg">
+      <h3>29</h3>
       <h4><small><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></small> Notification </h4>
-      <span>29</span>
     </a>
     <a href="{{URL::to('/query')}}" class="btn btn-lg">
+      <h3>10</h3>
       <h4><small><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></small> Query </h4>
-      <span>10</span>
     </a>
     <a href="#" class="btn btn-lg">
+      <h3>110</h3>
       <h4><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span></small> Request </h4>
-      <span>110</span>
     </a>
   </div>
 </div>

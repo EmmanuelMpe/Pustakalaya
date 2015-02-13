@@ -99,7 +99,7 @@ student -->
 
           <div class="form-group">
             <label for="inputBatch"
-              class="col-lg-4 control-label">Department</label>
+              class="col-lg-4 control-label">Batch</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputBatch"
               name="batch" type="text"

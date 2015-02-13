@@ -47,10 +47,10 @@
 
 
       @if (Auth::check())
-      <!-- Search Text -->
+      <!-- /earch Text -->
       <!-- Get data from hidden fields -->
       <form class="navbar-form navbar-left" action="/search"
-      method="GET">
+      method="POST">
         <div class="form-group">
           <!-- <label class="control-label">Input addons</label> -->
           <div class="input-group">
@@ -61,7 +61,7 @@
             <input class="form-control" name="user_type" id="user-select-topic" type="hidden">
             <input class="form-control" name="user_depart" id="depart-select-topic" type="hidden">
             <input class="form-control" name="user_year" id="year-select-topic" type="hidden">
-            <input class="form-control" name="query_type" id="query-select-topic" type="hidden">
+            <input class="form-control" name="query2_type" id="query-select-topic" type="hidden">
             <span class="input-group-btn">
               <button class="btn btn-primary form-control" type="submit">
                 <span class="glyphicon glyphicon-search"></span>

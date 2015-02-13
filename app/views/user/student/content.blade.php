@@ -29,7 +29,11 @@
                 @foreach ($books as $book)
                 <tr>
                     <td>{{$book->id}}</td>
-                    <td>{{$book->book->name}}</td>
+                    <td>
+                        <a href="{{ URL::to('book/'.$book->book->isbn) }}">
+                        {{$book->book->name}}
+                        </a>
+                    </td>
                     <td>{{$book->book->author}}</td>
                     <td>{{$book->edition}}</td>
                     <td>{{$book->assigned_date}}</td>
