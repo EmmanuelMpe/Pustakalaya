@@ -18,12 +18,6 @@
     @elseif ($user->isVerifier())
         Verifier
     @endif
-    @if (Auth::user()->isAdmin() && Auth::user()->id!=$user->id)
-    <div class="btn-group pull-right">
-    <a href="{{URL::to('/user/'.$user->id.'/edit') }}" class="btn btn-xs btn-warning">Edit</a>
-    <a href="{{URL::to('/user/'.$user->id.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>
-    </div>
-    @endif
     </h2>
   </div>
 </div>
@@ -32,6 +26,20 @@
   <div class="col-lg-4">
     <div class="panel panel-default">
       <div class="panel-heading">Basic information
+
+    @if (Auth::user()->isAdmin() && Auth::user()->id!=$user->id)
+        <div class="bs-component pull-right">
+          <a href="{{URL::to('/user/'.$user->id.'/edit') }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Edit">
+            <span class="glyphicon glyphicon-edit"> </span>
+          </a>
+          <a href="{{URL::to('/user/'.$user->id.'/delete') }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete">
+            <span class="glyphicon glyphicon-trash"> </span>
+          </a>
+        </div>
+
+        @endif
+
+
 
       </div>
       <ul class="list-group">

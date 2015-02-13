@@ -60,6 +60,7 @@
             <input class="form-control" name="user_type" id="user-select-topic" type="hidden">
             <input class="form-control" name="user_depart" id="depart-select-topic" type="hidden">
             <input class="form-control" name="user_year" id="year-select-topic" type="hidden">
+            <input class="form-control" name="query_type" id="query-select-topic" type="hidden">
             <span class="input-group-btn">
               <button class="btn btn-primary form-control" type="submit">
                 <span class="glyphicon glyphicon-search"></span>
@@ -93,6 +94,24 @@
             </li>
           </ul>
         </div>
+
+        <div class="select-sub" id="query-select-sub">
+          <ul class="nav navbar-nav">
+            <li class="dropdown interchange">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> All <b class="caret"></b></a>
+              <ul class="dropdown-menu" id="book-select">
+                <li><a href="#" id="refernce-select">Read</a>
+                </li>
+                <li><a href="#" id="lendable-select">Unread</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="#">All</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
 
         <div class="select-sub" id="book-select-sub">
           <ul class="nav navbar-nav">

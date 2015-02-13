@@ -42,6 +42,18 @@ Route::get('/about', function()
 return View::make('about');
 });
 
+Route::get('/notification/create', function()
+{
+return View::make('notification.create');
+});
+
+
+// options for  not-read queries only //
+Route::get('/query', function()
+{
+return View::make('query.list');
+});
+
 
 Route::get('/changepassword', function()
 {

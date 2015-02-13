@@ -21,23 +21,22 @@
             @if (isset($bookitem->assigned_to))
             <a href="{{URL::to('user/'.$bookitem->user['id'])}}">
             {{$bookitem->user['name']}}
-            </a>
-            @else
-            -
-            @endif
+            </a> @else - @endif
           </td>
           <td>
-          @if (isset($bookitem->assigned_date))
-          {{$bookitem->assigned_date}}
-          @else
-           -
-          @endif
+            @if (isset($bookitem->assigned_date)) {{$bookitem->assigned_date}} @else - @endif
           </td>
           <td>
             Calculate this shit
           </td>
           <td>
-            <a href="#" >Delete</a>
+
+            <div class="bs-component">
+              <a href="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </div>
+
           </td>
         </tr>
         @endforeach

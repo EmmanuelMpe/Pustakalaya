@@ -17,7 +17,7 @@
           <div class="form-group">
             <label for="textArea" class="col-lg-2 control-label">Comment</label>
             <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="inputComments" placeholder="Place your comment here..."></textarea>
+              <textarea class="form-control" rows="3" id="inputComments" placeholder="Your comment"></textarea>
             </div>
           </div>
           <div class="form-group">
@@ -29,7 +29,7 @@
           <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputEmail" placeholder="Email" type="text">
+              <input class="form-control" id="inputEmail" placeholder="Email" type="email">
             </div>
           </div>
 

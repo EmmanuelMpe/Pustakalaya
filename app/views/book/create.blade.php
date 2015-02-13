@@ -81,7 +81,7 @@
           <div class="form-group">
             <label for="inputQty" class="col-lg-4 control-label">Quantity</label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputQty" name="quantity" type="number">
+              <input class="form-control" id="inputQty" name="quantity" type="number" min="0">
             </div>
           </div>
           @endif
