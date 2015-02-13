@@ -1,9 +1,9 @@
 <?php if (Session::has('messages'))
   $messages = Session::get('messages');
 ?>
-
 @if (isset($messages))
-<div class="col-lg-8">
+<div class="row">
+<div class="col-lg-12">
   @foreach ($messages as $msg)
   @if ($msg[0]=='notice')
   <div class="alert alert-dismissable alert-success">
@@ -14,5 +14,6 @@
     {{$msg[1]}}
   </div>
   @endforeach
+</div>
 </div>
 @endif

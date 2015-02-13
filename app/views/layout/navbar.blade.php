@@ -69,52 +69,26 @@
           </div>
         </div>
       </form>
-
-<!-- HEAD
-      <div class="select-sub" id="type-select-sub">
-        <ul class="nav navbar-nav">
-          <li class="dropdown interchange">
-          <a href="#" class="dropdown-toggle"
-            data-toggle="dropdown">Select<b class="caret"></b></a>
-            <ul class="dropdown-menu" id="type-select">
-              <li><a href="#" id="book-select">Book</a>
-              </li>
-              <li><a href="#" id="user-select">User</a>
-              </li>
-              <li><a href="#" id="notification-select">Notification</a>
-              </li>
-              <li><a href="#" id="message-select">Message</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-=======-->
       <div class="form-selection">
         <div class="select-sub" id="type-select-sub">
           <ul class="nav navbar-nav">
             <li class="dropdown interchange">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select <b class="caret"></b></a>
               <ul class="dropdown-menu" id="type-select">
-<!-- a70e52e6df4fe471d3eb91cf521f8f17d0ae1a8b -->
-
                 <li><a href="#" id="book-select">Book</a>
                 </li>
-
                 @if (!Auth::user()->isStudent())
                 <li><a href="#" id="user-select">User</a>
                 @endif
-
                 @if (Auth::user()->isAdmin())
                 </li>
                 <li><a href="#" id="notification-select">Notification</a>
                 </li>
-                <li><a href="#" id="message-select">Message</a>
+                <li><a href="#" id="query-select">Query</a>
                 </li>
                 <li><a href="#" id="request-select">Request</a>
                 </li>
                 @endif
-
               </ul>
             </li>
           </ul>

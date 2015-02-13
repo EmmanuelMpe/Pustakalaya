@@ -33,28 +33,14 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button class="btn btn-default pull-right">Cancel</button>
-            </div>
-          </div>
+            @include ('layout.submitbtn')
 
         </fieldset>
       </form>
     </div>
-    <div class="col-lg-4">
-      <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        Your <strong>comment</strong> has been submitted successfully.</a>
-      </div>
 
-      <div class="alert alert-dismissable alert-danger">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        Unable to submit your <strong>comment.</strong> </a>
-      </div>
+    @include ('layout.alertbox')
 
-    </div>
   </div>
 </div>
 

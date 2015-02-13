@@ -1,0 +1,8 @@
+TODO
+(A) Search functionality is unusable except in dashboard
+(C) Check message passing in all pages
+(B) Add message passing to almost all actions
+
+
+BUGS
+(A) User that isn't admin can't edit their own profile

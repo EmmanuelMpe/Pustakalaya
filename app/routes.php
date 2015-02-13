@@ -34,7 +34,7 @@ Route::controller('search','SearchController');
 
 Route::get('/contact', function()
 {
-return View::make('contact');
+return View::make('query.create');
 });
 
 Route::get('/about', function()

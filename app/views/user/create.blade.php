@@ -103,7 +103,11 @@ student -->
         </fieldset>
       </form>
     </div>
-    @include('layout.alertbox')
+
+    <div class="col-lg-4">
+    @include ('layout.alertbox')
+    </div>
+
   </div>
 </div>
 
