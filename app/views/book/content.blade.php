@@ -9,7 +9,9 @@
           <th>Assigned To</th>
           <th>Issue Date</th>
           <th>Expiry Date</th>
+            @if (Auth::user()->isAdmin())
           <th></th>
+            @endif
         </tr>
       </thead>
       <tbody>
@@ -29,15 +31,17 @@
           <td>
             Calculate this shit
           </td>
-          <td>
 
+            @if (Auth::user()->isAdmin())
+          <td>
             <div class="bs-component">
               <a href="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete">
                 <span class="glyphicon glyphicon-trash"></span>
               </a>
             </div>
-
           </td>
+            @endif
+
         </tr>
         @endforeach
       </tbody>

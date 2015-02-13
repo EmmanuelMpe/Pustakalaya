@@ -17,13 +17,13 @@
           <div class="form-group">
             <label for="inputPasswordNew" class="col-lg-4 control-label"> New Password </label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputPasswordNew" placeholder="Set New Password" type="password">
+              <input class="form-control" id="inputPasswordNew" placeholder="New Password" type="password">
             </div>
           </div>
           <div class="form-group">
             <label for="inputPasswordConfirm" class="col-lg-4 control-label"> Confirm Password </label>
             <div class="col-lg-8">
-              <input class="form-control" id="inputPasswordConfirm" placeholder="Confirm New Password" type="password">
+              <input class="form-control" id="inputPasswordConfirm" placeholder="New Password" type="password">
             </div>
           </div>
 

@@ -73,7 +73,7 @@
     </div>
 
     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-      <a href="#" class="btn btn-block">
+      <a href="{{URL::to('notification/create')}}" class="btn btn-block">
         <h2><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></h2>
         <h4>Notification</h4>
       </a>
