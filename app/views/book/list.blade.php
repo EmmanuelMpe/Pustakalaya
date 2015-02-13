@@ -7,6 +7,9 @@
 </div>
 
 <div class="list-table ">
+
+  @include ('layout.alertbox')
+
   <div class="row">
     <div class="col-lg-12">
 

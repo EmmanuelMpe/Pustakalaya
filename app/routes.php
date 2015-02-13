@@ -43,7 +43,7 @@ Route::when('search','auth',array('get','post'));
 
 Route::get('/contact', function()
 {
-return View::make('contact');
+return View::make('query.create');
 });
 
 Route::get('/about', function()

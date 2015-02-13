@@ -1,4 +1,5 @@
 - BookItems CRUD improve
+- Use message passing in all pages and actions
 - Logging System
 - Links everywhere + Data Integrity
 - Notification System
@@ -6,3 +7,6 @@
 - Improve Access control [done]
 - Implement User search [done]
 - Separate roll number to batch,department,roll [done]
+
+BUGS
+- User that isn't admin can't edit their own profile

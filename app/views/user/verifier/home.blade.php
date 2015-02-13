@@ -24,10 +24,10 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Books</label>
+            <label for="textArea" class="col-lg-2 control-label">Bookitems</label>
             <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="inputBook" placeholder="Place book IDs here..."></textarea>
-              <span class="help-block">Enter book ids seperated by a semicolon.</span>
+              <textarea class="form-control" rows="3" id="inputBook" placeholder="Ids"></textarea>
+              <span class="help-block">Enter id seperated by a semicolon.</span>
             </div>
           </div>
 
@@ -42,7 +42,7 @@
       </form>
     </div>
 
-    @include('layout.alertbox')
+    @include ('layout.alertbox')
   </div>
 </div>
 

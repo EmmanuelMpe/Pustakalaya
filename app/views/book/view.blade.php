@@ -38,6 +38,7 @@
     @include ('book.history')
   </div>
   <div class="col-lg-8">
+  @include ('layout.alertbox')
   @include ('book.content')
   @include ('book.similar')
   </div>

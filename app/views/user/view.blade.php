@@ -1,8 +1,8 @@
 @extends('layout.basic')
 @section('content')
 
+
 <div class="row">
-  @include ('layout.alertbox')
   <div class="col-lg-4">
     <h2>
     @if ($user->isStudent())
@@ -72,6 +72,9 @@
   </div>
 
   <div class="col-lg-8">
+
+    @include ('layout.alertbox')
+
     @if ($user->isStudent())
         @include ('user.student.content')
         @include ('user.recommendation')
