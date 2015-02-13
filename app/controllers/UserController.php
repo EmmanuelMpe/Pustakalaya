@@ -5,8 +5,6 @@ class UserController extends \BaseController {
   // Display a listing of the resource.
   public function index()
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
     $userlist = User::paginate(10);
     return View::make('user.list')->withUsers($userlist)->
       withIndex(true);
@@ -15,8 +13,6 @@ class UserController extends \BaseController {
   // Show the form for creating a new resource.
   public function create()
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
     $usertype = 'Student';
     if (Input::has('type')) {
       if (Input::get('type')=='admin')
@@ -39,8 +35,6 @@ class UserController extends \BaseController {
   // Store a newly created resource in storage.
   public function store()
   {
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
     $messages = array();
     $usertype = Session::get('usertype');
 
@@ -119,7 +113,6 @@ class UserController extends \BaseController {
       App::abort(404);
     }
 
-
     if ($user->role->name=='Student') {
       $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
       return View::make('user.view')->withUser($user)->
@@ -145,10 +138,6 @@ public function home()
   // Show the form for editing the specified resource.
   public function edit($id)
   {
-    // Authorization check
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
-
     $user = User::find($id);
     // 404 if not found
     if ($user==NULL)
@@ -164,9 +153,6 @@ public function home()
   // Update the specified resource in storage.
   public function update($id)
   {
-    // Authorization check
-    if (!Auth::check() || !Auth::user()->isAdmin())
-      App::abort(403);
 
     $user = User::find($id);
 
