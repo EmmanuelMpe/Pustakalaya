@@ -13,7 +13,7 @@
       <h4><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span></small> User </h4>
     </a>
 
-    <a href="#" class="btn btn-lg">
+    <a href="{{URL::to('/notification')}}" class="btn btn-lg">
       <h3>29</h3>
       <h4><small><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></small> Notification </h4>
     </a>

@@ -54,7 +54,6 @@ return View::make('notification.create');
 });
 
 
-// options for  not-read queries only //
 Route::get('/contact', function()
 {
 return View::make('query.create');
@@ -64,6 +63,18 @@ Route::get('/request-a-book', function()
 {
 return View::make('request.create');
 });
+
+Route::get('/notification/create', function()
+{
+return View::make('notification.create');
+});
+
+Route::get('/notification', function()
+{
+return View::make('notification.list');
+});
+
+
 
 Route::get('/query', function()
 {

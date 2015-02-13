@@ -15,13 +15,13 @@
       <form class="form-horizontal">
         <fieldset>
           <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Name</label>
+            <label for="inputName" class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
               <input class="form-control" rows="3" id="inputName" placeholder="Book Name">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputName" class="col-lg-2 control-label">Author</label>
+            <label for="inputAuthor" class="col-lg-2 control-label">Author</label>
             <div class="col-lg-10">
               <input class="form-control" id="inputName" placeholder="Author name" type="text">
             </div>
