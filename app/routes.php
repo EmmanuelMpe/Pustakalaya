@@ -41,10 +41,7 @@ Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
 Route::controller('search','SearchController');
 Route::when('search','auth',array('get','post'));
 
-Route::get('/contact', function()
-{
-return View::make('query.create');
-});
+
 
 Route::get('/about', function()
 {
@@ -58,10 +55,26 @@ return View::make('notification.create');
 
 
 // options for  not-read queries only //
+Route::get('/contact', function()
+{
+return View::make('query.create');
+});
+
+Route::get('/request-a-book', function()
+{
+return View::make('request.create');
+});
+
 Route::get('/query', function()
 {
 return View::make('query.list');
 });
+
+Route::get('/request', function()
+{
+return View::make('request.list');
+});
+
 
 
 Route::get('/changepassword', function()

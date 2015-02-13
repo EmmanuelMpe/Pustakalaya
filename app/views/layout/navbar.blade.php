@@ -20,6 +20,13 @@
           <a href="{{URL::to('/login')}}">Login</a>
         </li>
         @else
+
+        @if (Auth::user()->isStudent())
+        <li>
+          <a href="{{{ URL::to('/request-a-book') }}}">Request a Book</a>
+        </li>
+        @endif
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">{{{Auth::user()->name}}}
             <span class="caret"></span></a>

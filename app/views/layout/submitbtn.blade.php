@@ -4,10 +4,10 @@
       <button type="submit" class="btn btn-primary">
       @if (isset($forupdate))
       @if ( $forupdate )
-            <span class="glyphicon glyphicon-plus"> </span>
+            <span class="glyphicon glyphicon-ok"> </span>
             Save
         @else
-            <span class="glyphicon glyphicon-ok"> </span>
+            <span class="glyphicon glyphicon-plus"> </span>
             Add
         @endif
       @else

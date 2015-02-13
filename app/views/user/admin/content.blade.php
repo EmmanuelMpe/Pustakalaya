@@ -21,9 +21,9 @@
       <h3>10</h3>
       <h4><small><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></small> Query </h4>
     </a>
-    <a href="#" class="btn btn-lg">
+    <a href="{{URL::to('/request')}}" class="btn btn-lg">
       <h3>110</h3>
-      <h4><small><span class="glyphicon glyphicon-user " aria-hidden="true"></span></small> Request </h4>
+      <h4><small><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></small> Request </h4>
     </a>
   </div>
 </div>
