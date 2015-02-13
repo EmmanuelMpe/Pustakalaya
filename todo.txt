@@ -1,8 +1,12 @@
-TODO
-(A) Search functionality is unusable except in dashboard
-(C) Check message passing in all pages
-(B) Add message passing to almost all actions
+- BookItems CRUD improve
+- Use message passing in all pages and actions
+- Logging System
+- Links everywhere + Data Integrity
+- Notification System
 
+- Improve Access control [done]
+- Implement User search [done]
+- Separate roll number to batch,department,roll [done]
 
 BUGS
-(A) User that isn't admin can't edit their own profile
+- User that isn't admin can't edit their own profile

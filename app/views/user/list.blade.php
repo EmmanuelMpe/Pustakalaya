@@ -39,18 +39,18 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($users as $user)
+            @foreach ($users as $usr)
             <tr>
-              <td>{{$user->id}}</td>
+              <td>{{$usr->id}}</td>
               <td>
-                <a href="{{URL::to('user').'/'.$user->id}}">
-                {{$user->name}}
+                <a href="{{URL::to('user').'/'.$usr->id}}">
+                {{$usr->name}}
                 </a>
               </td>
-              <td>{{$user->role_name}}</td>
-              <td>{{$user->email}}</td>
-              <td>{{$user->phone}}</td>
-              <td>{{$user->address}}</td>
+              <td>{{$usr->role_name}}</td>
+              <td>{{$usr->email}}</td>
+              <td>{{$usr->phone}}</td>
+              <td>{{$usr->address}}</td>
             </tr>
             @endforeach
           </tbody>

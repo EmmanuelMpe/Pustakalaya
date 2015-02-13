@@ -14,17 +14,19 @@ class CreateStudentinfoTable extends Migration {
   {
     if (!Schema::hasTable('studentinfo')) {
       Schema::create('studentinfo', function(Blueprint $table) {
-        // This is the full roll number of the student, which
-        // uniquely identifies a student
-        $table->string('rollnumber',16);
         $table->integer('user_id')->unsigned();
+        // The full rollnumber of a student is composed of 3 parts:
+        // Batch number, department shortname and the rollnumber
+        $table->tinyInteger('batch')->unsigned();
         $table->string('department_sname',3);
+        $table->smallInteger('rollnumber')->unsigned();
         // The accumulated (outstanding) fine to be paid
         $table->decimal('fineacc',7,2)->unsigned();
         // Total fine that has been paid since the beginning
         $table->decimal('finepaid',7,2)->unsigned();
         // Key constraints
-        $table->primary('rollnumber');
+        $table->primary(array('batch','department_sname',
+          'rollnumber'));
         $table->foreign('user_id')->references('id')->on('users');
         $table->foreign('department_sname')->references('shortname')->
           on('departments');

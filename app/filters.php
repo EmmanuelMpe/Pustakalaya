@@ -51,6 +51,14 @@ Route::filter('admin', function()
     return Response::make('Unauthorized', 401);
 });
 
+Route::filter('admin_orSelf', function()
+{
+  if (Auth::guest() || (!Auth::user()->isAdmin() &&
+    Auth::user()->id!=Request::segment(2))) {
+    return Response::make('Unauthorized', 401);
+  }
+});
+
 Route::filter('auth.basic', function()
 {
   return Auth::basic();

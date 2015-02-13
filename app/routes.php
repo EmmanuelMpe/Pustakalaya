@@ -15,8 +15,16 @@
 // should there quantity/edition in book(info) edit
 // Pagination in book/view
 
+// Set route for the user resource and set its access controls
 Route::resource('user','UserController');
+Route::when('user/create','admin',array('get'));
+Route::when('user/*/edit','admin_orSelf',array('get'));
+Route::when('user','admin',array('put','post'));
+Route::when('user/*','admin_orSelf',array('put','post'));
+Route::when('user','auth',array('get'));
+Route::when('user/*','auth',array('get'));
 
+// Set route for the book resource and set its access controls
 Route::resource('book','BookController');
 Route::when('book/create','admin',array('get'));
 Route::when('book/*/edit','admin',array('get'));
@@ -31,6 +39,7 @@ Route::resource('bookitem','BookItemController');
 Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
 
 Route::controller('search','SearchController');
+Route::when('search','auth',array('get','post'));
 
 Route::get('/contact', function()
 {
