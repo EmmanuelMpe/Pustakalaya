@@ -62,7 +62,7 @@ class UserController extends \BaseController {
         Input::flash($failure);
       }
       //Session::flash('messages',$messages);*/
-      return Redirect::to('/user/create?type='.$usertype)->
+      return Redirect::to('/user/create?type='.strToLower($usertype))->
         withMessages($messages)->withInput();
     }
 
@@ -181,7 +181,7 @@ public function home()
         $messages[] = array('error',$mesg);
       }
       $user = new User; $user->populateFromInput();
-      return Redirect::to('/user/create?type='.$usertype)->
+      return Redirect::to('/user/create?type='.strtoLower($usertype))->
         withMessages($messages)->withUser($user);
     }
 

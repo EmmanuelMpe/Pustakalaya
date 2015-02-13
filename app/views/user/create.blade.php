@@ -10,10 +10,6 @@
   </div>
 </div>
 
-<!-- Type of user must be inferred by the link or something and
-additional information should be passed for creating users like
-student -->
-
 <hr>
 <div class="contact-form">
   <div class="row">
@@ -30,7 +26,7 @@ student -->
           @if ($forupdate)
           <input type="hidden" name="_method" value="put">
           @else
-          <input type="hidden" name="role" value="{{$type}}">
+          <input type="hidden" name="role_name" value="{{$type}}">
           @endif
 
           <div class="form-group">
@@ -54,27 +50,44 @@ student -->
             <div class="col-lg-8">
               <input class="form-control" id="inputEmail"
               name="email" type="email" required
-              value="{{$user->email}}">
+              @if ($forupdate)
+              value="{{$user->email}}"
+              @else
+              value="{{Input::old('email')}}"
+              @endif
+            >
             </div>
           </div>
+
           <div class="form-group">
             <label for="inputAddress"
               class="col-lg-4 control-label">Address</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputAddress"
               name="address" type="text" required
-              value="{{$user->address}}">
-            </div>
+              @if ($forupdate)
+              value="{{$user->address}}"
+              @else
+              value="{{Input::old('address')}}"
+              @endif
+            >
           </div>
+        </div>
           <div class="form-group">
             <label for="inputContact"
               class="col-lg-4 control-label">Phone</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputContact"
               name="phone" type="tel" required
-              value="{{$user->phone}}">
+              @if ($forupdate)
+              value="{{$user->phone}}"
+              @else
+              value="{{Input::old('phone')}}"
+              @endif
+              >
             </div>
           </div>
+
           @if ($type=="Student")
           <div class="form-group">
             <label for="inputRoll"

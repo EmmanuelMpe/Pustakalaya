@@ -12,5 +12,4 @@ BUGS
 - User that isn't admin can't edit their own profile
 - The rollnumber field of user isn't autofilled during edit
 - Can't create users "roll name field is required"
-- After failure of creating the user, redirected to "Add Stduent"
 - When first creating a book, the bookitems isn't populated, ie Zero bookitems
