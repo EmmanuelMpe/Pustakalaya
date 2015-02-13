@@ -1,6 +1,13 @@
 <div class="books-table">
   <div class="panel panel-default">
     <div class="panel-heading"> Books </div>
+
+        @if (count($book->bookitems)==0)
+        <div class="panel-body text-center">
+            None
+        </div>
+        @else
+
     <table class="table table-hover ">
       <thead>
         <tr>
@@ -15,6 +22,8 @@
         </tr>
       </thead>
       <tbody>
+
+
         @foreach ($book->bookitems as $bookitem)
         <tr>
           <td>{{$bookitem->id}}</td>
@@ -46,5 +55,6 @@
         @endforeach
       </tbody>
     </table>
+        @endif
   </div>
 </div>

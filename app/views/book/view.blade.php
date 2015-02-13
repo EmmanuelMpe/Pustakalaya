@@ -14,7 +14,6 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">Basic information
-
       @if (Auth::user()->isAdmin())
         <div class="bs-component pull-right">
           <a href="{{URL::to('bookitem/create?isbn='.$book->isbn) }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Add">
@@ -27,13 +26,8 @@
             <span class="glyphicon glyphicon-trash"> </span>
           </a>
         </div>
-
         @endif
-
-
       </div>
-
-
 
       <ul class="list-group">
         <li class="list-group-item lead">

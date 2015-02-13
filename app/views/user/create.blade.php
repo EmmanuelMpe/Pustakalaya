@@ -81,7 +81,7 @@ student -->
               class="col-lg-4 control-label">RollNumber</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputRoll"
-              name="rollnumber" type="text"
+              name="rollnumber" type="number" min="0"
               value="{{Input::old('rollnumber')}}" required>
             </div>
           </div>
