@@ -1,12 +1,18 @@
+TODO
 - BookItems CRUD improve
+    * remove bookitem views
+    * add/remove/etc from book view
 - Use message passing in all pages and actions
 - Logging System
 - Links everywhere + Data Integrity
 - Notification System
 
-- Improve Access control [done]
-- Implement User search [done]
-- Separate roll number to batch,department,roll [done]
+DONE
+- Improve Access control
+- Implement User search
+- Separate roll number to batch,department,roll
 
 BUGS
+
+FIXED
 - User that isn't admin can't edit their own profile
