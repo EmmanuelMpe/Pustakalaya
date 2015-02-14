@@ -2,10 +2,11 @@
     <div class="container">
       <ul class="list-unstyled list-inline">
         <li>
-          <a href="{{{ URL::to('/about') }}}">About</a>
-        <li>
           <a href="{{{ URL::to('/contact') }}}">Contact Us</a>
         </li>
+        <li>
+          <a href="{{{ URL::to('/about') }}}">About</a>
+        <li>
         <li><a href="#">Support</a>
         </li>
       </ul>

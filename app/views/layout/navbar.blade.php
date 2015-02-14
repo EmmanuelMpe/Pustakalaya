@@ -20,6 +20,13 @@
           <a href="{{URL::to('/login')}}">Login</a>
         </li>
         @else
+
+        @if (Auth::user()->isStudent())
+        <li>
+          <a href="{{{ URL::to('/request-a-book') }}}">Request a Book</a>
+        </li>
+        @endif
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">{{{Auth::user()->name}}}
             <span class="caret"></span></a>
@@ -47,10 +54,10 @@
 
 
       @if (Auth::check())
-      <!-- Search Text -->
+      <!-- /earch Text -->
       <!-- Get data from hidden fields -->
       <form class="navbar-form navbar-left" action="/search"
-      method="GET">
+      method="POST">
         <div class="form-group">
           <!-- <label class="control-label">Input addons</label> -->
           <div class="input-group">
@@ -61,6 +68,7 @@
             <input class="form-control" name="user_type" id="user-select-topic" type="hidden">
             <input class="form-control" name="user_depart" id="depart-select-topic" type="hidden">
             <input class="form-control" name="user_year" id="year-select-topic" type="hidden">
+            <input class="form-control" name="query2_type" id="query-select-topic" type="hidden">
             <span class="input-group-btn">
               <button class="btn btn-primary form-control" type="submit">
                 <span class="glyphicon glyphicon-search"></span>
@@ -94,6 +102,24 @@
             </li>
           </ul>
         </div>
+
+        <div class="select-sub" id="query-select-sub">
+          <ul class="nav navbar-nav">
+            <li class="dropdown interchange">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> All <b class="caret"></b></a>
+              <ul class="dropdown-menu" id="book-select">
+                <li><a href="#" id="refernce-select">Read</a>
+                </li>
+                <li><a href="#" id="lendable-select">Unread</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="#">All</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
 
         <div class="select-sub" id="book-select-sub">
           <ul class="nav navbar-nav">

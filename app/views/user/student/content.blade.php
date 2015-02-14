@@ -29,8 +29,12 @@
                 @foreach ($books as $book)
                 <tr>
                     <td>{{$book->id}}</td>
-                    <td>{{$book->bookInfo->name}}</td>
-                    <td>{{$book->bookInfo->author}}</td>
+                    <td>
+                        <a href="{{ URL::to('book/'.$book->book->isbn) }}">
+                        {{$book->book->name}}
+                        </a>
+                    </td>
+                    <td>{{$book->book->author}}</td>
                     <td>{{$book->edition}}</td>
                     <td>{{$book->assigned_date}}</td>
                     <td>Calculate.</td>

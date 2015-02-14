@@ -919,7 +919,7 @@ a {
 a:hover,
 a:focus {
   color: #00526e;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;

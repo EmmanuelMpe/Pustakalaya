@@ -41,15 +41,51 @@ Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
 Route::controller('search','SearchController');
 Route::when('search','auth',array('get','post'));
 
-Route::get('/contact', function()
-{
-return View::make('query.create');
-});
+
 
 Route::get('/about', function()
 {
 return View::make('about');
 });
+
+Route::get('/notification/create', function()
+{
+return View::make('notification.create');
+});
+
+
+Route::get('/contact', function()
+{
+return View::make('query.create');
+});
+
+Route::get('/request-a-book', function()
+{
+return View::make('request.create');
+});
+
+Route::get('/notification/create', function()
+{
+return View::make('notification.create');
+});
+
+Route::get('/notification', function()
+{
+return View::make('notification.list');
+});
+
+
+
+Route::get('/query', function()
+{
+return View::make('query.list');
+});
+
+Route::get('/request', function()
+{
+return View::make('request.list');
+});
+
 
 
 Route::get('/changepassword', function()

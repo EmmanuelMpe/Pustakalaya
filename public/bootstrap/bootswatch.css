@@ -1,7 +1,6 @@
 html,
 body {
   height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
 }
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -60,6 +59,7 @@ body {
 .bs-component {
   position: relative
 }
+/*
 .bs-component .modal {
   position: relative;
   top: auto;
@@ -72,12 +72,14 @@ body {
 .bs-component .modal-dialog {
   width: 90%
 }
+*/
 .bs-component .popover {
   position: relative;
   display: inline-block;
   width: 220px;
   margin: 20px
 }
+/*
 #source-button {
   position: absolute;
   top: 0;
@@ -185,6 +187,7 @@ body {
     text-align: center
   }
 }
+*/
 
 /* for file upload button */
 .btn-file {

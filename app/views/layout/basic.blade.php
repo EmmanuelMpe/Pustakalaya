@@ -8,8 +8,10 @@
   <meta name="description" content="Pustakalaya, Library Management System." />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="icon" href="4.png" type="image/x-icon" /> -->
-  {{ HTML::style('bootstrap/bootstrap.css') }} {{ HTML::style('bootstrap/bootswatch.css') }} {{ HTML::style('bootstrap-select/bootstrap-select.css') }}
 
+  {{ HTML::style('bootstrap/bootstrap.css') }}
+  {{ HTML::style('bootstrap/bootswatch.css') }}
+  {{-- HTML::style('bootstrap-select/bootstrap-select.css') --}}
 
 </head>
 
@@ -22,10 +24,12 @@
   </div>
   @include('layout.footer')
 
-  {{ HTML::script('bootstrap/jquery-1.js') }}
+  {{ HTML::script('//code.jquery.com/jquery-1.11.2.min.js') }}
+  {{-- HTML::script('bootstrap/jquery-1.js') --}}
   {{ HTML::script('bootstrap/bootstrap.js') }}
   {{ HTML::script('bootstrap/bootswatch.js') }}
-  {{ HTML::script('bootstrap-select/bootstrap-select.js') }}
+  {{-- HTML::script('bootstrap-select/bootstrap-select.js') --}}
+
   <script>
     $(document).ready(function() {
 

@@ -41,7 +41,7 @@
               Quantity</label>
             <div class="col-lg-8">
               <input class="form-control" id="inputQty"
-              name="quantity" type="number">
+              name="quantity" type="number" min="1">
             </div>
           </div>
 

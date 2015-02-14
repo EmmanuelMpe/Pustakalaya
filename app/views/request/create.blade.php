@@ -4,8 +4,8 @@
 
 <div class="row">
   <div class="col-lg-8 col-md-7 col-sm-6">
-    <h2>Contact Us</h2>
-    <p class="lead">Send us your queries here.</p>
+    <h2>Request a Book</h2>
+    <p class="lead">Something you would</p>
   </div>
 </div>
 
@@ -15,21 +15,15 @@
       <form class="form-horizontal">
         <fieldset>
           <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Comment</label>
-            <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="inputComments" placeholder="Your comment"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
             <label for="inputName" class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputName" placeholder="Name" type="text">
+              <input class="form-control" rows="3" id="inputName" placeholder="Book Name">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+            <label for="inputAuthor" class="col-lg-2 control-label">Author</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputEmail" placeholder="Email" type="email">
+              <input class="form-control" id="inputName" placeholder="Author name" type="text">
             </div>
           </div>
 

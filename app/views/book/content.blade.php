@@ -1,6 +1,13 @@
 <div class="books-table">
   <div class="panel panel-default">
     <div class="panel-heading"> Books </div>
+
+        @if (count($book->bookitems)==0)
+        <div class="panel-body text-center">
+            None
+        </div>
+        @else
+
     <table class="table table-hover ">
       <thead>
         <tr>
@@ -9,10 +16,14 @@
           <th>Assigned To</th>
           <th>Issue Date</th>
           <th>Expiry Date</th>
+            @if (Auth::user()->isAdmin())
           <th></th>
+            @endif
         </tr>
       </thead>
       <tbody>
+
+
         @foreach ($book->bookitems as $bookitem)
         <tr>
           <td>{{$bookitem->id}}</td>
@@ -21,27 +32,29 @@
             @if (isset($bookitem->assigned_to))
             <a href="{{URL::to('user/'.$bookitem->user['id'])}}">
             {{$bookitem->user['name']}}
-            </a>
-            @else
-            -
-            @endif
+            </a> @else - @endif
           </td>
           <td>
-          @if (isset($bookitem->assigned_date))
-          {{$bookitem->assigned_date}}
-          @else
-           -
-          @endif
+            @if (isset($bookitem->assigned_date)) {{$bookitem->assigned_date}} @else - @endif
           </td>
           <td>
             Calculate this shit
           </td>
+
+            @if (Auth::user()->isAdmin())
           <td>
-            <a href="#" >Delete</a>
+            <div class="bs-component">
+              <a href="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </div>
           </td>
+            @endif
+
         </tr>
         @endforeach
       </tbody>
     </table>
+        @endif
   </div>
 </div>

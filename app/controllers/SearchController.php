@@ -13,7 +13,7 @@ class SearchController extends \BaseController {
     // Build validation rules
     $rules = array('query_type'=>'required|in:User,Book',
       'book_type'=>'in:Lendable,NonLendable,Reference,All',
-      'user_type'=>'in:Student,Verifier,Admin,All');
+      'user_type'=>'in:Student,Librarian,Verifier,Admin,All');
     //return Input::all();
 
     // Validate

@@ -16,7 +16,8 @@ class BookItemController extends \BaseController {
   public function create() {
     if (!Auth::check() || !Auth::user()->isAdmin())
       App::abort(403);
-    return View::make('bookitem.create');
+    $forupdate = Session::get('forupdate',false);
+    return View::make('bookitem.create')->withForupdate($forupdate);
   }
 
 
