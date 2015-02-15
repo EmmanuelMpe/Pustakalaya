@@ -28,9 +28,9 @@ class CreateTableLogs extends Migration {
         $table->integer('actor_id')->unsigned()->nullable();
 
         // Set foreign key constraints
-        //$table->foreign('user_id')->references('id')->on('users');
+        $table->foreign('user_id')->references('id')->on('users');
         $table->foreign('actor_id')->references('id')->on('users');
-        //$table->foreign('book_isbn')->references('isbn')->on('books');
+        $table->foreign('book_isbn')->references('isbn')->on('books');
       });
     }
   }

@@ -13,7 +13,6 @@ class BookController extends \BaseController {
     else
       $books = Book::paginate(10);
 
-    Event::fire('pustak.book.view');
     return View::make('book.list')->withBooks($books);
   }
 
@@ -60,8 +59,11 @@ class BookController extends \BaseController {
         withBook($book)->withForupdate('false');
     }
 
+    $isbn = $book->isbn;
     // All is good. Save book
     $book->save();
+    Event::fire('pustak.book.create',array(Auth::user()->id,$isbn,
+      NULL));
 
     return Redirect::to('/book');
   }
@@ -69,7 +71,6 @@ class BookController extends \BaseController {
   // Display the specified resource.
   public function show($id)
   {
-
     $book = Book::find($id);
     return View::make('book.view')->withBook($book);
   }
@@ -87,7 +88,6 @@ class BookController extends \BaseController {
   // Update the specified resource in storage.
   public function update($id)
   {
-
     $book = Book::find($id);
     $book->populateFromInput();
     $messages = array();
@@ -109,9 +109,12 @@ class BookController extends \BaseController {
         withBook($book)->withForupdate(true);
     }
 
+    $isbn = $book->isbn;
     // All is good. Save book
     $book->save();
 
+    Event::fire('pustak.book.edit',array(Auth::user()->id,$isbn,
+      NULL));
     return Redirect::to('book');
   }
 
@@ -119,6 +122,8 @@ class BookController extends \BaseController {
   public function destroy($id)
   {
     Book::find($id)->delete();
-    return Redirect::to('books');
+    Event::fire('pustak.book.delete',array(Auth::user()->id,$id,
+      NULL));
+    return Redirect::to('book');
   }
 }

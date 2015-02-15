@@ -68,7 +68,7 @@ class UserController extends \BaseController {
 
     $user = new User;
     $user->name = Input::get('name');
-    $user->role = Input::get('role_name');
+    $user->role_name = Input::get('role_name');
     $user->email = Input::get('email');
     $user->phone = Input::get('phone');
     $user->address = Input::get('address');
@@ -97,6 +97,9 @@ class UserController extends \BaseController {
       $verinfo->user_id = $user->id;
       $verinfo->save();
     }
+
+    Event::fire('pustak.user.create',array($user->id,NULL,
+      Auth::user()->id));
     return Redirect::to('/user');
   }
 
@@ -195,13 +198,19 @@ public function home()
     }
 
     $user->push();
+    $id = $user->id;
     $user->save();
 
+    Event::fire('pustak.user.edit',array($id,NULL, Auth::user()->id));
     return Redirect::to('/user');
   }
 
 
   // Remove the specified resource from storage.
   public function destroy($id)
-  { }
+  {
+    User::find($id)->delete();
+    Event::fire('pustak.user.delete',array($id,NULL, Auth::user()->id));
+    return Redirect::to('user');
+  }
 }
