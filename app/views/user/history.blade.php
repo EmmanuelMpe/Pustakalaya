@@ -18,10 +18,14 @@ if (Auth::user()->isAdmin()) {
 <div class="panel panel-default">
   <div class="panel-heading">History</div>
   <ul class="list-group">
-    @foreach ($events as $event)
-    <li class="list-group-item">
-      {{ $event->pretty() }}
-    </li>
-    @endforeach
+    @if (count($events)==0)
+    <br><center>Nothing to show</center><br>
+    @else
+      @foreach ($events as $event)
+      <li class="list-group-item">
+        {{ $event->pretty() }}
+      </li>
+      @endforeach
+    @endif
   </ul>
 </div>

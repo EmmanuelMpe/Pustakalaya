@@ -126,7 +126,7 @@ class UserController extends \BaseController {
     }
   }
 
-public function home()
+  public function home()
   {
     if( Auth::user()->isStudent())
         return $this->show(Auth::user()->id);
@@ -145,6 +145,7 @@ public function home()
     // 404 if not found
     if ($user==NULL)
       App::abort(404);
+
     $userinfo = $user->info();
 
     Session::flash('name',$user->name);
@@ -209,7 +210,12 @@ public function home()
   // Remove the specified resource from storage.
   public function destroy($id)
   {
-    User::find($id)->delete();
+    $user = User::find($id);
+    // 404 if user not found
+    if ($user==NULL)
+      App::abort(404);
+
+    $user->delete();
     Event::fire('pustak.user.delete',array($id,NULL, Auth::user()->id));
     return Redirect::to('user');
   }

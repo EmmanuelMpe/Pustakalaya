@@ -72,6 +72,10 @@ class BookController extends \BaseController {
   public function show($id)
   {
     $book = Book::find($id);
+    // 404 if book not found
+    if ($book==NULL)
+      App::abort(404);
+
     return View::make('book.view')->withBook($book);
   }
 
@@ -80,6 +84,9 @@ class BookController extends \BaseController {
   public function edit($id)
   {
     $book = Book::find($id);
+    // 404 if book not found
+    if ($book==NULL)
+      App::abort(404);
 
     return View::make('book.create')->withBook($book)->
       withForupdate(true);
@@ -89,6 +96,10 @@ class BookController extends \BaseController {
   public function update($id)
   {
     $book = Book::find($id);
+    // 404 if book not found
+    if ($book==NULL)
+      App::abort(404);
+
     $book->populateFromInput();
     $messages = array();
 
@@ -121,7 +132,12 @@ class BookController extends \BaseController {
   // Remove the specified resource from storage.
   public function destroy($id)
   {
-    Book::find($id)->delete();
+    $book = Book::find($id);
+    // 404 if book not found
+    if ($book==NULL)
+      App::abort(404);
+
+    $book->delete();
     Event::fire('pustak.book.delete',array(Auth::user()->id,$id,
       NULL));
     return Redirect::to('book');
