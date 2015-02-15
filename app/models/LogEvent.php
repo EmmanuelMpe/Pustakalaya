@@ -23,4 +23,15 @@ class LogEvent extends Eloquent {
   public function actor() {
     return $this->belongsTo('User','actor_id','id');
   }
+
+  // Event handler for all events
+  public static function handle() {
+    $event = Event::firing();
+    $event_str = implode('.',(array_slice(explode(".",$event),1)));
+    $logevent = new LogEvent;
+    $logevent->time = new DateTime;
+    $logevent->type = $event_str;
+    $logevent->user_id = Auth::user()->id;
+    $logevent->save();
+  }
 }

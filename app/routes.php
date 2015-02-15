@@ -122,6 +122,9 @@ App::error(function(Exception $exception, $code) {
     return 'Not allowed';
 });
 
+// Event handler
+Event::listen('pustak.*','LogEvent');
+
 // Test route
 Route::get('/test', function() {
   $validator = Validator::make(

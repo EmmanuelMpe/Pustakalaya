@@ -1,7 +1,13 @@
 <?php
 
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
 // Model for the table bookitems
 class BookItem extends Eloquent {
+
+  use SoftDeletingTrait;
+
+  protected $dates = ['deleted_at'];
 
   // Explicitly specify the table
   protected $table='bookitems';

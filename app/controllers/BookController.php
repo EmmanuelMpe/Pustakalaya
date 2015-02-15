@@ -13,6 +13,7 @@ class BookController extends \BaseController {
     else
       $books = Book::paginate(10);
 
+    Event::fire('pustak.book.view');
     return View::make('book.list')->withBooks($books);
   }
 

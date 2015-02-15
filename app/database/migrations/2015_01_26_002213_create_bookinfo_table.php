@@ -23,6 +23,9 @@ class CreateBookinfoTable extends Migration {
         $table->string('author',256);
         $table->string('publisher',256);
         $table->string('type_name',32);
+        // A timestamp for softdeleting
+        $table->softDeletes();
+
         // Set the key constraints
         $table->primary('isbn');
         $table->foreign('type_name')->references('name')->

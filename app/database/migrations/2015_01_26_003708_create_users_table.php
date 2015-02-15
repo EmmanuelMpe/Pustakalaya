@@ -32,6 +32,8 @@ class CreateUsersTable extends Migration {
         $table->string('phone',16)->nullable();
         // Address (IRL) of the user
         $table->string('address',128)->nullable();
+        // A timestamp for softdeleting
+        $table->softDeletes();
 
         // Key constraints for the fields
         $table->unique('email');

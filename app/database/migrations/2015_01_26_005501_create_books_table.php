@@ -22,6 +22,9 @@ class CreateBooksTable extends Migration {
         // The user the book has been lent to and the lend date
         $table->integer('assigned_to')->unsigned()->nullable();
         $table->timestamp('assigned_date')->nullable();
+        // A timestamp for softdeleting
+        $table->softDeletes();
+
         // Key constraints
         $table->foreign('book_isbn')->references('isbn')->
           on('books');
