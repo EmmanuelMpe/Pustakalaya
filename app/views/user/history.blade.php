@@ -10,7 +10,7 @@ if (Auth::user()->isAdmin()) {
 
 } elseif (Auth::user()->isStudent()) {
   $events = LogEvent::where('user_id','=',Auth::user()->id)->
-    where('actor_id','=',Auth::user()->id)->get();
+    orWhere('actor_id','=',Auth::user()->id)->get();
 }
 
 ?>

@@ -17,9 +17,9 @@ DONE
 - Separate roll number to batch,department,roll
 
 BUGS
+- When first creating a book, the bookitems isn't populated, ie Zero bookitems
 
 FIXED
 - User that isn't admin can't edit their own profile
 - The rollnumber field of user isn't autofilled during edit
 - Can't create users "roll name field is required"
-- When first creating a book, the bookitems isn't populated, ie Zero bookitems
