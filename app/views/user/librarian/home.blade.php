@@ -31,7 +31,8 @@
             <div class="col-lg-10">
               <textarea class="form-control" rows="3" id="inputBook"
                 name="bookitem_ids" placeholder="Ids"></textarea>
-              <span class="help-block">Enter id seperated by a semicolon.</span>
+              <span class="help-block">
+                Enter id seperated by a semicolon.</span>
             </div>
           </div>
 

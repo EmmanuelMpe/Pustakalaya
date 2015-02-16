@@ -4,7 +4,6 @@ TODO
     * add/remove/etc from book view
 - Use message passing in all pages and actions
 - Links everywhere + Data Integrity
-- Improvise Issue/Return/Renew
 - Implement Reset/Change password
 - Implement request/query
 - Implement contact/about
