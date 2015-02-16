@@ -22,14 +22,14 @@
           <a href="{{URL::to('book/'.$book->isbn.'/edit') }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Edit">
             <span class="glyphicon glyphicon-edit"> </span>
           </a>
-          <form action="/book/{{$book->isbn}}" method="POST" name="df">
-            <input type="hidden" name="_method" value="delete">
-          </form>
           <a href="#" class="" data-toggle="tooltip"
             data-placement="bottom" title=""
             data-original-title="Delete" onclick="document.df.submit()">
             <span class="glyphicon glyphicon-trash"> </span>
           </a>
+          <form action="/book/{{$book->isbn}}" method="POST" name="df">
+            <input type="hidden" name="_method" value="delete">
+          </form>
         </div>
         @endif
       </div>

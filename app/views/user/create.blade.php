@@ -95,7 +95,12 @@
             <div class="col-lg-8">
               <input class="form-control" id="inputRoll"
               name="rollnumber" type="number" min="0"
-              value="{{Input::old('rollnumber')}}" required>
+              @if ($forupdate)
+              value="{{$userinfo->rollnumber}}"
+              @else
+              value="{{Input::old('rollnumber')}}"
+              @endif
+                 required>
             </div>
           </div>
 
@@ -105,7 +110,11 @@
             <div class="col-lg-8">
               <input class="form-control" id="inputDepart"
               name="department_sname" type="text"
+              @if ($forupdate)
+              value="{{$userinfo->department_sname}}"
+              @else
               value="{{Input::old('department_sname')}}"
+              @endif
               required>
             </div>
           </div>
@@ -116,7 +125,11 @@
             <div class="col-lg-8">
               <input class="form-control" id="inputBatch"
               name="batch" type="text"
+              @if ($forupdate)
+              value="{{$userinfo->batch}}"
+              @else
               value="{{Input::old('batch')}}"
+              @endif
               required>
             </div>
           </div>
