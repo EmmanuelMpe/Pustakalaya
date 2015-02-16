@@ -34,6 +34,10 @@ Route::when('book','auth',array('get'));
 Route::when('book/*','auth',array('get'));
 
 Route::resource('bookitem','BookItemController');
+/*
+ * Route::resource('bookitem','BookItemController',
+ *   array('except'=>array('index','show','edit','update' )));
+ */
 
 // Chooses the user homepage
 Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
