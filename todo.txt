@@ -3,11 +3,16 @@ TODO
     * remove bookitem views
     * add/remove/etc from book view
 - Use message passing in all pages and actions
-- Logging System
 - Links everywhere + Data Integrity
-- Notification System
+- Improvise Issue/Return/Renew
+- Implement Reset/Change password
+- Implement request/query
+- Implement contact/about
 
 DONE
+- Implement Issue/Return/Renew
+- Notification System
+- Logging System
 - Improve Access control
 - Implement User search
 - Separate roll number to batch,department,roll

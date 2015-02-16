@@ -16,7 +16,6 @@ class BookController extends \BaseController {
     return View::make('book.list')->withBooks($books);
   }
 
-
   // Show the form for creating a new resource.
   public function create() {
 
@@ -31,8 +30,6 @@ class BookController extends \BaseController {
   // Store a newly created resource in storage.
   public function store()
   {
-
-
     // Validation rules
     $rules = array('isbn'=>'required','name'=>'required',
       'author'=>'required','publisher'=>'required',

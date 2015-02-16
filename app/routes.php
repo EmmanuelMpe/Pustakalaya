@@ -40,16 +40,20 @@ Route::resource('bookitem','BookItemController');
  */
 
 Route::resource('notification','NotificationController');
+Route::when('notification/create','admin',array('get'));
+Route::when('notification/*/edit','admin',array('get'));
+Route::when('notification','admin',array('put','post'));
+Route::when('notification/*','admin',array('put','post'));
+Route::when('notification','admin',array('get'));
+Route::when('notification/*','admin',array('get'));
 
-Route::get('blah','NotificationController@getCurrentAsMessages');
+Route::controller('action','ActionController');
 
 // Chooses the user homepage
 Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
 
 Route::controller('search','SearchController');
 Route::when('search','auth',array('get','post'));
-
-
 
 Route::get('/about', function()
 {
@@ -90,9 +94,7 @@ return View::make('reset-password');
 });
 
 Route::get('/login', 'LoginController@showLogin');
-
 Route::post('/login', 'LoginController@doLogin');
-
 Route::post('/logout', 'LoginController@doLogout');
 
 
