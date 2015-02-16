@@ -1,5 +1,6 @@
-<?php if (Session::has('messages'))
-  $messages = Session::get('messages');
+<?php
+$messages = array_merge(Session::get('messages',array()),
+  NotificationController::getCurrentAsMessages());
 ?>
 @if (isset($messages))
 <div class="row">

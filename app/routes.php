@@ -35,6 +35,10 @@ Route::when('book/*','auth',array('get'));
 
 Route::resource('bookitem','BookItemController');
 
+Route::resource('notification','NotificationController');
+
+Route::get('blah','NotificationController@getCurrentAsMessages');
+
 // Chooses the user homepage
 Route::get('/', array('before'=>'auth','uses'=>'UserController@home'));
 
@@ -48,11 +52,6 @@ Route::get('/about', function()
 return View::make('about');
 });
 
-Route::get('/notification/create', function()
-{
-return View::make('notification.create');
-});
-
 
 Route::get('/contact', function()
 {
@@ -63,18 +62,6 @@ Route::get('/request-a-book', function()
 {
 return View::make('request.create');
 });
-
-Route::get('/notification/create', function()
-{
-return View::make('notification.create');
-});
-
-Route::get('/notification', function()
-{
-return View::make('notification.list');
-});
-
-
 
 Route::get('/query', function()
 {

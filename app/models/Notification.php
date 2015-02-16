@@ -4,7 +4,7 @@
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 // Model for the table notifications
-class Book extends Eloquent {
+class Notification extends Eloquent {
 
   use SoftDeletingTrait;
 
@@ -16,4 +16,8 @@ class Book extends Eloquent {
   // We don't need the default timestamps
   public $timestamps=false;
 
- }
+  // Get the author of this notification
+  public function author() {
+    return $this->belongsTo('User','author_id','id');
+  }
+}

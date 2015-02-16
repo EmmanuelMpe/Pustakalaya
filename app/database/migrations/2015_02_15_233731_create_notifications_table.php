@@ -21,9 +21,9 @@ class CreateNotificationsTable extends Migration {
         // Content
         $table->string('content',256);
         // Start datetime
-        $table->timestamp('start');
+        $table->date('start');
         // End datetime
-        $table->timestamp('end');
+        $table->date('end');
         // A timestamp for softdeleting
         $table->softDeletes();
       });
