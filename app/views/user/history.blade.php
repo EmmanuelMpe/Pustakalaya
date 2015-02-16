@@ -8,7 +8,7 @@ if (Auth::user()->isAdmin()) {
   $events = LogEvent::where('user_id','=',Auth::user()->id)->
     orWhere('actor_id','=',Auth::user()->id)->get();
 
-} elseif (Auth::user()->isStudet()) {
+} elseif (Auth::user()->isStudent()) {
   $events = LogEvent::where('user_id','=',Auth::user()->id)->
     where('actor_id','=',Auth::user()->id)->get();
 }
@@ -17,15 +17,17 @@ if (Auth::user()->isAdmin()) {
 
 <div class="panel panel-default">
   <div class="panel-heading">History</div>
-  <ul class="list-group">
-    @if (count($events)==0)
-    <br><center>Nothing to show</center><br>
+   @if ($events->count() ==0)
+    <div class="panel-body text-center">
+        None
+    </div>
     @else
-      @foreach ($events as $event)
-      <li class="list-group-item">
-        {{ $event->pretty() }}
-      </li>
-      @endforeach
+    <ul class="list-group">
+        @foreach ($events as $event)
+        <li class="list-group-item">
+          {{ $event->pretty() }}
+        </li>
+        @endforeach
+      </ul>
     @endif
-  </ul>
 </div>

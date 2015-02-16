@@ -217,6 +217,6 @@ class UserController extends \BaseController {
 
     $user->delete();
     Event::fire('pustak.user.delete',array($id,NULL, Auth::user()->id));
-    return Redirect::to('user');
+    return Redirect::to('/user');
   }
 }

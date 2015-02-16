@@ -47,7 +47,8 @@ class LogEvent extends Eloquent {
     } elseif ($what=='edit') {
       return "User <a href='/user/$user->id'>$user->name</a> was
         updated by <a href='/user/$actor->id'>$actor->name</a>";
-    }
+    } else
+        return 'Some user methods are missing';
   }
 
   public function prettyBook() {
@@ -63,7 +64,8 @@ class LogEvent extends Eloquent {
     } elseif ($what=='edit') {
       return "Book <a href='/book/$book->isbn'>$book->name</a> was
         updated by <a href='/user/$user->id'>$user->name</a>";
-    }
+    } else
+        return 'Some book methods are missing';
   }
 
   public function prettyBookitem() {

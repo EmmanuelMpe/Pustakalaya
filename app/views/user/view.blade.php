@@ -6,7 +6,9 @@
   <div class="col-lg-4">
     <h2>
     @if ($user->isStudent())
-        {{$stdinfo->rollnumber}}
+        {{$stdinfo->batch.
+        $stdinfo->department_sname.
+        $stdinfo->rollnumber}}
     @elseif ($user->isAdmin())
         @if (Auth::user()->id==$user->id)
             Dashboard
@@ -32,11 +34,16 @@
           <a href="{{URL::to('/user/'.$user->id.'/edit') }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Edit">
             <span class="glyphicon glyphicon-edit"> </span>
           </a>
-          <a href="{{URL::to('/user/'.$user->id.'/delete') }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete">
+          <a href="#" class="" data-toggle="tooltip"
+             data-placement="bottom" title="" data-original-title="Delete"
+            onclick="document.df.submit()"
+            >
             <span class="glyphicon glyphicon-trash"> </span>
           </a>
         </div>
-
+          <form action="/user/{{$user->id}}" method="POST" name="df">
+            <input type="hidden" name="_method" value="delete">
+          </form>
         @endif
 
       </div>
