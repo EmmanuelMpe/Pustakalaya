@@ -18,6 +18,10 @@ DONE
 - Separate roll number to batch,department,roll
 
 BUGS
+- Notification is to be shown only in User's homepage
+  be it student/admin
+  It is also being shown in login page :v
+- Logging history about notification
 
 FIXED
 - User that isn't admin can't edit their own profile

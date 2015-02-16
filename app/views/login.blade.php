@@ -48,6 +48,11 @@
 
           </div>
 
+
+    <div class="col-lg-10">
+      @include('layout.alertbox')
+    </div>
+
           <div class="form-group">
             <div class="col-lg-10">
               <button type="submit" class="btn btn-primary pull-right">
@@ -58,7 +63,8 @@
 
         </fieldset>
       </form>
-      @include('layout.alertbox')
+
+
     </div>
   </div>
 </div>

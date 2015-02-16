@@ -42,7 +42,10 @@
       </form>
     </div>
 
+    <div class="col-lg-4">
     @include ('layout.alertbox')
+    </div>
+
   </div>
 </div>
 

@@ -20,7 +20,34 @@
     <div class="col-lg-12">
 
       <div class="panel panel-default">
-        <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Users</div>
+        <div class="panel-heading">
+        <span class="glyphicon glyphicon-user"></span>
+         Users
+
+        @if (Auth::user()->isAdmin())
+
+    <div class="btn-group pull-right">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+         <span class="glyphicon glyphicon-plus"> </span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="{{URL::to('user/create?type=student')}}">Student</a>
+        </li>
+        <li><a href="{{URL::to('user/create?type=admin')}}">Admin</a>
+        </li>
+        <li><a href="{{URL::to('user/create?type=librarian')}}">Librarian</a>
+        </li>
+        <li><a href="{{URL::to('user/create?type=verifier')}}">Verifier</a>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+        @endif
+
+        </div>
 
         @if (count($users)==0)
         <div class="panel-body text-center">
