@@ -14,7 +14,19 @@
     <div class="col-lg-12">
 
       <div class="panel panel-default">
-        <div class="panel-heading"><span class="glyphicon glyphicon-bell"></span> Notifications </div>
+        <div class="panel-heading">
+        <span class="glyphicon glyphicon-bell"></span>
+        Notifications
+        @if (Auth::user()->isAdmin())
+        <div class="bs-component pull-right">
+          <a href="{{URL::to('notification/create')}}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Add a notification">
+            <span class="glyphicon glyphicon-plus"> </span>
+          </a>
+        </div>
+        @endif
+        </div>
+
+
 
         @if (count($notifications)==0)
         <div class="panel-body text-center">
@@ -50,12 +62,22 @@
                 method="POST" name="delete{{$notification->id}}">
                 <input type="hidden" name="_method" value="delete">
           </form>
+
+        <a href="{{'/notification/'.$notification->id.'/edit'}}" class="" data-toggle="tooltip"
+            data-placement="bottom" title=""
+            data-original-title="Edit"
+            >
+            <span class="glyphicon glyphicon-edit"> </span>
+          </a>
+
+
           <a href="#" class="" data-toggle="tooltip"
             data-placement="bottom" title=""
             data-original-title="Delete"
             onClick="document.delete{{$notification->id}}.submit()">
             <span class="glyphicon glyphicon-trash"> </span>
           </a>
+
         </div>
 
            </td>

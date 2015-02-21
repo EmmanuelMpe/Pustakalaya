@@ -18,6 +18,10 @@ DONE
 
 BUGS
 - When first creating a book, the bookitems isn't populated, ie Zero bookitems
+- Notification is to be shown only in User's homepage
+  be it student/admin
+  It is also being shown in login page :v
+- Logging history about notification
 
 FIXED
 - User that isn't admin can't edit their own profile

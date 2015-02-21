@@ -54,11 +54,14 @@
       </form>
     </div>
 
+    <div class="col-lg-4">
     @include ('layout.alertbox')
+    </div>
 
   </div>
 </div>
 <script>
+
 function submitIssue() {
   document.actionform.action = "/action/issue";
   return document.actionform.submit();
