@@ -1,11 +1,17 @@
 <?php
-  $events = LogEvent::where('user_id','=',Auth::user()->id)->orWhere(
-    'actor_id','=',Auth::user()->id)->get();
+  $itemtype = Request::segment(1);
+  $itemid = Request::segment(2);
+  if ($itemtype=='book') {
+    $events = LogEvent::where('book_id','=',$itemid)->get();
+  } elseif ($itemtype=='user') {
+    $events = LogEvent::where('user_id','=',$itemid)->orWhere(
+      'actor_id','=',$itemid)->get();
+  }
 ?>
 
 <div class="panel panel-default">
   <div class="panel-heading">History</div>
-   @if ($events->count() ==0)
+   @if (!isset($events) || $events->count()==0)
     <div class="panel-body text-center">
         None
     </div>

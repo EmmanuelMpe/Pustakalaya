@@ -58,6 +58,11 @@ class ActionController extends \BaseController {
           already issued to user with id $bookitem->assigned_to");
         continue;
       }
+      if ($bookitem->book->booktype->name=='NonLendable') {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          a Non-Lendable book.");
+        continue;
+      }
       $bookitem->assigned_to = $user_id;
       $bookitem->assigned_date = new DateTime;
       Event::fire('pustak.bookitem.issue',array($user_id,
@@ -98,6 +103,11 @@ class ActionController extends \BaseController {
           issued to user with id $bookitem->assigned_to");
         continue;
       }
+      if ($bookitem->book->booktype->name=='NonLendable') {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          a Non-Lendable book.");
+        continue;
+      }
       $bookitem->assigned_to = NULL;
       $bookitem->assigned_date = NULL;
       Event::fire('pustak.bookitem.return',array($user_id,
@@ -136,6 +146,11 @@ class ActionController extends \BaseController {
       if ($bookitem->assigned_to!=$user_id) {
         $messages[] = array('warning',"The book with id $bookitem_id
           issued to user with id $bookitem->assigned_to");
+        continue;
+      }
+      if ($bookitem->book->booktype->name=='NonLendable') {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          a Non-Lendable book.");
         continue;
       }
 
