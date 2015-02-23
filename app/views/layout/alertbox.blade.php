@@ -1,6 +1,10 @@
 <?php
-$messages = array_merge(Session::get('messages',array()),
-  NotificationController::getCurrentAsMessages());
+if (Request::is('/')) {
+  $messages = array_merge(Session::get('messages',array()),
+    NotificationController::getCurrentAsMessages());
+} else {
+  $messages = Session::get('messages',array());
+}
 ?>
 @if (isset($messages))
 <div class="row">

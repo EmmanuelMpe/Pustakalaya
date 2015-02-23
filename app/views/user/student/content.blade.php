@@ -33,15 +33,9 @@
 
                         $today = strtotime( date("Y-m-d H:i:s"));
 
+                        // Converting to day
                         $days = floor(($today - $expired)/(60*60*24));
-                        $fine = 0;
-                        if($days>0)
-                          $fine = $days * 2;
-                        /*
-                        $years = floor($diff / (365*60*60*24));
-                        $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-                        $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
-                         */
+                        $fine = $days>0 ? $days : 0;
                       ?>
                 <tr @if ($fine) class="warning" @endif >
                     <td>{{$book->id}}</td>
