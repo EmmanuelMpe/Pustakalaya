@@ -38,18 +38,22 @@ class SearchController extends \BaseController {
       $type = Input::get('book_type');
 
       // If the Book type is any, run the search
-      if ($type=='' | $type=='All') {
-        $books = Book::where('name','like',"%".$query."%")->
-          orWhere('author','like',"%".$query."%")->
-          orWhere('publisher','like',"%".$query."%")->
-          paginate(10);
+      if ($type=='' || $type=='All') {
+        $books = Book::whereNull('deleted_at')->where(
+          function($condition) use ($query) {
+            $condition->where('name','like',"%".$query."%")->
+            orWhere('author','like',"%".$query."%")->
+            orWhere('publisher','like',"%".$query."%");
+          })->paginate(10);
       } else {
       // Else, run the search with specified booktype
-        $books = Book::where('type_name','=',$type)->
-          where('name','like',"%".$query."%")->
-          orWhere('author','like',"%".$query."%")->
-          orWhere('publisher','like',"%".$query."%")->
-          paginate(10);
+        $books = Book::whereNull('deleted_at')->where(
+          function($condition) use ($query) {
+            $condition->where('type_name','=',$type)->
+            where('name','like',"%".$query."%")->
+            orWhere('author','like',"%".$query."%")->
+            orWhere('publisher','like',"%".$query."%");
+          })->paginate(10);
       }
 
       // Return view with results
@@ -70,7 +74,9 @@ class SearchController extends \BaseController {
         $batch = Input::get('user_year','');
 
         // Create a collection of 'Student's
-        $users_coll = User::where('role_name','=','Student');
+        $users_coll = User::whereNull('deleted_at')->
+          where('role_name','=','Student');
+
 
         // If department is specified, select only students of that
         // department.
@@ -78,7 +84,8 @@ class SearchController extends \BaseController {
           $stdinfos = StudentInfo::where('department_sname','=',
             $depart);
           foreach ($stdinfos as $stdinfo) {
-            $users_coll=$users_coll->where('id','=',$stdinfo->user_id);
+            $users_coll=$users_coll->where('id','=',
+              $stdinfo->user_id);
           }
         }
 
@@ -87,21 +94,24 @@ class SearchController extends \BaseController {
         if (!($batch=='' || $batch=='All')) {
           $stdinfos = StudentInfo::where('batch','=',$batch);
           foreach ($stdinfos as $stdinfo) {
-            $users_coll=$users_coll->where('id','=',$stdinfo->user_id);
+            $users_coll=$users_coll->where('id','=',
+              $stdinfo->user_id);
           }
         }
 
       } else {
       // If the user type is something else, collect them
-        $users_coll = User::where('role_name','=',$type);
+        $users_coll = User::where('role_name','=',$type)->
+          whereNull('deleted_at');
       }
 
       // Run the search query on the uesr collection, and paginate
-      $users = $users_coll->where('name','like','%'.$query.'%')
-        ->orWhere('email','like','%'.$query.'%')
-        ->orWhere('phone','like','%'.$query.'%')
-        ->orWhere('address','like','%'.$query.'%')
-        ->paginate(10);
+      $users = $users_coll->where(function ($condition) use ($query)
+        { $condition->where('name','like','%'.$query.'%')
+          ->orWhere('email','like','%'.$query.'%')
+          ->orWhere('phone','like','%'.$query.'%')
+          ->orWhere('address','like','%'.$query.'%');
+        })->paginate(10);
 
       // Return view with the search results
       return View::make('user.list')->withUsers($users);

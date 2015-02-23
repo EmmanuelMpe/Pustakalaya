@@ -58,6 +58,11 @@ class ActionController extends \BaseController {
           already issued to user with id $bookitem->assigned_to");
         continue;
       }
+      if ($bookitem->book->booktype->name=='NonLendable') {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          a Non-Lendable book.");
+        continue;
+      }
       $bookitem->assigned_to = $user_id;
       $bookitem->assigned_date = new DateTime;
       Event::fire('pustak.bookitem.issue',array($user_id,
@@ -66,7 +71,11 @@ class ActionController extends \BaseController {
       $issued += 1;
     }
 
-    $messages[] = array('notice',"$issued books were issued");
+    if ($issued==1) {
+      $messages[] = array('notice',"One book was issued");
+    } elseif ($issued>1) {
+      $messages[] = array('notice',"$issued books were issued");
+    }
     return Redirect::to('/')->withMessages($messages);
   }
 
@@ -94,6 +103,11 @@ class ActionController extends \BaseController {
           issued to user with id $bookitem->assigned_to");
         continue;
       }
+      if ($bookitem->book->booktype->name=='NonLendable') {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          a Non-Lendable book.");
+        continue;
+      }
       $bookitem->assigned_to = NULL;
       $bookitem->assigned_date = NULL;
       Event::fire('pustak.bookitem.return',array($user_id,
@@ -102,7 +116,11 @@ class ActionController extends \BaseController {
       $returned += 1;
     }
 
-    $messages[] = array('notice',"$returned books were returned");
+    if ($returned>1) {
+      $messages[] = array('notice',"$returned books were returned");
+    } elseif ($returned==1) {
+      $messages[] = array('notice',"One book was returned");
+    }
     return Redirect::to('/')->withMessages($messages);
   }
 
@@ -130,6 +148,11 @@ class ActionController extends \BaseController {
           issued to user with id $bookitem->assigned_to");
         continue;
       }
+      if ($bookitem->book->booktype->name=='NonLendable') {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          a Non-Lendable book.");
+        continue;
+      }
 
       $bookitem->assigned_date = new DateTime;
       Event::fire('pustak.bookitem.renew',array($user_id,
@@ -138,7 +161,11 @@ class ActionController extends \BaseController {
       $renewed += 1;
     }
 
-    $messages[] = array('notice',"$renewed books were renewed");
+    if ($renewed>1) {
+      $messages[] = array('notice',"$renewed books were renewed");
+    } elseif ($renewed==1) {
+      $messages[] = array('notice',"One book was renewed");
+    }
     return Redirect::to('/')->withMessages($messages);
   }
 }
