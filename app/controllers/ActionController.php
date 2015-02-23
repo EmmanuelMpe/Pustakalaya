@@ -42,7 +42,7 @@ class ActionController extends \BaseController {
 
     $validity = $this->isValid();
     if (!$validity[0]) {
-      return Redirect::to('/')->withMessages($validity[1]);
+      return Redirect::to('user/'.Input::get('user_id'))->withMessages($validity[1]);
     }
 
     $bookitem_ids = $validity[2];
@@ -67,13 +67,13 @@ class ActionController extends \BaseController {
     }
 
     $messages[] = array('notice',"$issued books were issued");
-    return Redirect::to('/')->withMessages($messages);
+    return Redirect::to("user/$user_id")->withMessages($messages);
   }
 
   public function postReturn() {
     $validity = $this->isValid();
     if (!$validity[0]) {
-      return Redirect::to('/')->withMessages($validity[1]);
+      return Redirect::to('user/'.Input::get('user_id'))->withMessages($validity[1]);
     }
 
     $bookitem_ids = $validity[2];
@@ -103,13 +103,13 @@ class ActionController extends \BaseController {
     }
 
     $messages[] = array('notice',"$returned books were returned");
-    return Redirect::to('/')->withMessages($messages);
+    return Redirect::to("user/$user_id")->withMessages($messages);
   }
 
   public function postRenew() {
     $validity = $this->isValid();
     if (!$validity[0]) {
-      return Redirect::to('/')->withMessages($validity[1]);
+      return Redirect::to('user/'.Input::get('user_id'))->withMessages($validity[1]);
     }
 
     $bookitem_ids = $validity[2];
@@ -139,6 +139,6 @@ class ActionController extends \BaseController {
     }
 
     $messages[] = array('notice',"$renewed books were renewed");
-    return Redirect::to('/')->withMessages($messages);
+    return Redirect::to("user/$user_id")->withMessages($messages);
   }
 }
