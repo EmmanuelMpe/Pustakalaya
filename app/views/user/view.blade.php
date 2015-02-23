@@ -25,6 +25,7 @@
 </div>
 
 <div class="row">
+
   <div class="col-lg-4">
     <div class="panel panel-default">
       <div class="panel-heading">Basic information
@@ -75,7 +76,54 @@
         </li>
         @endif
       </ul>
+   </div>
+
+
+
+@if (Auth::user()->isLibrarian())
+<div class="panel panel-default">
+  <div class="panel-heading">History</div>
+    <div class="panel-body">
+
+<div class="transaction-form">
+  <div class="row">
+    <div class="col-lg-12">
+      <form class="form-horizontal" name="actionform"
+        method="POST" action="">
+        <fieldset>
+            <div class="form-group">
+            <div class="col-lg-12">
+              <textarea class="form-control" rows="2" id="inputBook"
+                name="bookitem_ids" placeholder="Ids"></textarea>
+              <span class="help-block">Enter id seperated by a semicolon.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-12">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-sm btn-primary"
+                  onClick="submitIssue()">Issue</button>
+                <button type="submit" class="btn btn-sm btn-warning"
+                  onClick="submitRenew()">Renew</button>
+              </div>
+              <button type="submit" class="btn btn-sm btn-success"
+                onClick="submitReturn()">Return</button>
+              <button class="btn btn-default btn-sm pull-right">Cancel</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
     </div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+@endif
 
     @if ($user->isStudent())
         @include ('user.history')
@@ -83,6 +131,8 @@
         @include ('user.history')
     @endif
   </div>
+
+
 
   <div class="col-lg-8">
 
