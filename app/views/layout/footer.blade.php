@@ -1,5 +1,5 @@
 <footer id="footer">
-    <div class="container">
+    <div class="container blockquote-reverse">
       <ul class="list-unstyled list-inline">
         <li>
           <a href="{{{ URL::to('/contact') }}}">Contact Us</a>
