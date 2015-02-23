@@ -72,12 +72,8 @@ class LogEvent extends Eloquent {
     $what = implode('.',array_slice(explode('.',$this->type),1));
     $book = Book::find($this->book_isbn);
     $actor = User::find($this->actor_id);
-    if ($what=='issue') {
-      return "$book->name was issued.";
-    } elseif ($what=='return') {
-      return "$book->name was returned.";
-    } elseif ($what=='renew') {
-      return "$book->name was renewed.";
+    if ($what=='issue' || $what=='return' || $what=='renew') {
+      return "$book->name was {$what}ed.";
     }
     return "Something was done";
   }

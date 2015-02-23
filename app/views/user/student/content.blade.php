@@ -27,7 +27,17 @@
             <tbody>
                 <!-- tr class="info | success | danger | warning | active" -->
                 @foreach ($books as $book)
-                <tr>
+                      <?php
+                        $assigned = strtotime( $book->assigned_date );
+                        $expired = strtotime( $book->assigned_date . " + {$book->book->booktype->expiry} days");
+
+                        $today = strtotime( date("Y-m-d H:i:s"));
+
+                        // Converting to day
+                        $days = floor(($today - $expired)/(60*60*24));
+                        $fine = $days>0 ? $days : 0;
+                      ?>
+                <tr @if ($fine) class="warning" @endif >
                     <td>{{$book->id}}</td>
                     <td>
                         <a href="{{ URL::to('book/'.$book->book->isbn) }}">
@@ -36,9 +46,9 @@
                     </td>
                     <td>{{$book->book->author}}</td>
                     <td>{{$book->edition}}</td>
-                    <td>{{$book->assigned_date}}</td>
-                    <td>Calculate.</td>
-                    <td>Calculate.</td>
+                    <td>{{ date("Y.m.d",$assigned) }}</td>
+                    <td> {{ date("Y.m.d",$expired) }}</td>
+                    <td> {{ $fine }} </td>
                 </tr>
                 @endforeach
             </tbody>

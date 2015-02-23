@@ -31,6 +31,7 @@
     </h2>
   </div>
 
+@if ( Request::is('/') )
   <div class="col-lg-8">
     <h4>
       <ul class="nav nav-pills" role="tablist">
@@ -42,6 +43,7 @@
     </ul>
     </h4>
   </div>
+@endif
 
 
 </div>
@@ -65,19 +67,20 @@
 
   @if ($user->isStudent())
     @include ('user.student.content')
-  @elseif ($user->isAdmin() && Auth::user()->id==$user->id)
-    @include ('user.recommendation')
+  @elseif ($user->isAdmin())
     @include ('user.admin.content')
   @endif
 
-  @if (!$user->isAdmin())
+  @if ( Request::is('/') )
     @include ('user.recommendation')
   @endif
+
   </div>
 </div>
 @stop
 
 @section('scriptcontent')
+@if ( Auth::user()->isLibrarian())
 function submitIssue() {
   document.actionform.action = "/action/issue";
   return document.actionform.submit();
@@ -92,17 +95,19 @@ function submitReturn() {
   document.actionform.action = "/action/return";
   return document.actionform.submit();
 }
-
+@elseif ( Auth::user()->isVerifier())
 function submitVerify() {
   document.actionform.action = "/action/issue";
   return document.actionform.submit();
 }
-
+@endif
 @stop
 
 @section ('scripts')
+@if ( Request::is('/') )
 {{ HTML::script('js/plugins/morris/morris-data.js') }}
 {{ HTML::script('js/plugins/morris/morris.min.js') }}
 {{ HTML::script('js/plugins/morris/morris.js') }}
 {{ HTML::script('js/plugins/morris/raphael.min.js') }}
+@endif
 @stop
