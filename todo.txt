@@ -24,6 +24,9 @@ BUGS
   be it student/admin
   It is also being shown in login page :v
 - Logging history about notification
+- After book creation failed, edit page was shown.
+- Book creation failed, count() function failed
+
 
 FIXED
 - User that isn't admin can't edit their own profile
