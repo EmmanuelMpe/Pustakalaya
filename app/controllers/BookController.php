@@ -58,6 +58,20 @@ class BookController extends \BaseController {
     }
 
     $isbn = $book->isbn;
+    // TODO
+    if (Book::withTrashed()->find($isbn)->count()>0) {
+      $book_existing = Book::withTrashed()->find($isbn)->first();
+      if ($book_existing->deleted_at!='NULL') {
+        foreach ($book_existing->bookitems as $bookitem)
+          $bookitem->forceDelete();
+        $book_existing->forceDelete();
+      } else {
+        $messages[] = array('error',"A book with the given ISBN already
+          exists.");
+        return Redirect::to('/book/create')->withMessages($messages)->
+          withBook($book)->withForupdate('false');
+      }
+    }
     // All is good. Save book
     $book->save();
 

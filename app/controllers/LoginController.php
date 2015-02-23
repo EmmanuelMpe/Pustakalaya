@@ -20,9 +20,9 @@ class LoginController extends BaseController {
     if (Auth::attempt(array('email'=>$email,'password'=>$passwd))) {
       return Redirect::intended('/');
     } else {
-      return View::make('login')->withMessages(array(
-        array('error', '<strong>Username</strong> and/or
-        <strong>password</strong> incorrect.')));
+      return Redirect::to('login')->withMessages(array(array('error',
+        '<strong>Username</strong> and/or <strong>password</strong>
+        incorrect.')));
     }
   }
 

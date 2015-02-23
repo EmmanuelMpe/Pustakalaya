@@ -47,8 +47,6 @@
             </div>
 
           </div>
-
-
     <div class="col-lg-10">
       @include('layout.alertbox')
     </div>
@@ -63,7 +61,6 @@
 
         </fieldset>
       </form>
-
 
     </div>
   </div>

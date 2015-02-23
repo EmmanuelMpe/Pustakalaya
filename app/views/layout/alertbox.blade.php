@@ -7,6 +7,7 @@ if (Request::is('/')) {
 }
 ?>
 @if (isset($messages))
+
 <div class="row">
 <div class="col-lg-12">
   @foreach ($messages as $msg)
@@ -18,7 +19,7 @@ if (Request::is('/')) {
   <div class="alert alert-dismissable alert-warning">
   @endif
     <button type="button" class="close" data-dismiss="alert">×</button>
-    {{{$msg[1]}}}
+    {{$msg[1]}}
   </div>
   @endforeach
 </div>
