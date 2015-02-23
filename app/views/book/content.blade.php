@@ -1,6 +1,16 @@
 <div class="books-table">
   <div class="panel panel-default">
-    <div class="panel-heading"> Books </div>
+    <div class="panel-heading"> Books 
+
+      @if (Auth::user()->isAdmin())
+            <div class="bs-component pull-right">
+          <a href="{{URL::to('bookitem/create?isbn='.$book->isbn) }}"  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Add">
+            <span class="glyphicon glyphicon-plus"> </span>
+          </a>
+            </div>
+    @endif
+
+</div>
 
         @if (count($book->bookitems)==0)
         <div class="panel-body text-center">
