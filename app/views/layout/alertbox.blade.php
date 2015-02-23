@@ -10,9 +10,11 @@ $messages = array_merge(Session::get('messages',array()),
   <div class="alert alert-dismissable alert-success">
   @elseif ($msg[0]=='error')
   <div class="alert alert-dismissable alert-danger">
+  @elseif ($msg[0]=='warning')
+  <div class="alert alert-dismissable alert-warning">
   @endif
     <button type="button" class="close" data-dismiss="alert">×</button>
-    {{$msg[1]}}
+    {{{$msg[1]}}}
   </div>
   @endforeach
 </div>

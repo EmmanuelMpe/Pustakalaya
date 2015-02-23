@@ -69,16 +69,16 @@ class LogEvent extends Eloquent {
   }
 
   public function prettyBookitem() {
-    /*$what = implode('.',array_slice(explode('.',$this->type),1));
-    $book = Book::find($this->book_id);
+    $what = implode('.',array_slice(explode('.',$this->type),1));
+    $book = Book::find($this->book_isbn);
     $actor = User::find($this->actor_id);
-    if ($what=='create') {
-      return "Book $book->name was created by $actor->name";
-    } elseif ($what=='delete') {
-      return "Book $book->name was deleted by $actor->name";
-    } elseif ($what=='update') {
-      return "Book $book->name was updated by $actor->name";
-    }*/
+    if ($what=='issue') {
+      return "$book->name was issued.";
+    } elseif ($what=='return') {
+      return "$book->name was returned.";
+    } elseif ($what=='renew') {
+      return "$book->name was renewed.";
+    }
     return "Something was done";
   }
 

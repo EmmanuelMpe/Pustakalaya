@@ -45,16 +45,29 @@ class ActionController extends \BaseController {
       return Redirect::to('/')->withMessages($validity[1]);
     }
 
+    $bookitem_ids = $validity[2];
+    $user_id = $validity[1];
+    $messages = array();
+    $issued = 0;
+
     // All is good. Issue the books
-    foreach ($validity[2] as $bookitem_id) {
+    foreach ($bookitem_ids as $bookitem_id) {
       $bookitem = BookItem::find($bookitem_id);
-      $bookitem->assigned_to = $validity[1];
+      if ($bookitem->assigned_to!=NULL) {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          already issued to user with id $bookitem->assigned_to");
+        continue;
+      }
+      $bookitem->assigned_to = $user_id;
       $bookitem->assigned_date = new DateTime;
+      Event::fire('pustak.bookitem.issue',array($user_id,
+        $bookitem->book_isbn,Auth::user()->id));
       $bookitem->save();
+      $issued += 1;
     }
 
-    $goodMessage = array('notice','The books were issued');
-    return Redirect::to('/')->withMessages(array($goodMessage));
+    $messages[] = array('notice',"$issued books were issued");
+    return Redirect::to('/')->withMessages($messages);
   }
 
   public function postReturn() {
@@ -63,16 +76,34 @@ class ActionController extends \BaseController {
       return Redirect::to('/')->withMessages($validity[1]);
     }
 
+    $bookitem_ids = $validity[2];
+    $user_id = $validity[1];
+    $messages = array();
+    $returned = 0;
+
     // All is good. Continue to return
-    foreach ($validity[2] as $bookitem_id) {
+    foreach ($bookitem_ids as $bookitem_id) {
       $bookitem = BookItem::find($bookitem_id);
+      if ($bookitem->assigned_to==NULL) {
+        $messages[] = array('warning',"The book with id $bookitem_id not
+          issued to anybody");
+        continue;
+      }
+      if ($bookitem->assigned_to!=$user_id) {
+        $messages[] = array('warning',"The book with id $bookitem_id
+          issued to user with id $bookitem->assigned_to");
+        continue;
+      }
       $bookitem->assigned_to = NULL;
       $bookitem->assigned_date = NULL;
+      Event::fire('pustak.bookitem.return',array($user_id,
+        $bookitem->book_isbn,Auth::user()->id));
       $bookitem->save();
+      $returned += 1;
     }
 
-    $goodMessage = array('notice','The books were returned');
-    return Redirect::to('/')->withMessages(array($goodMessage));
+    $messages[] = array('notice',"$returned books were returned");
+    return Redirect::to('/')->withMessages($messages);
   }
 
   public function postRenew() {
@@ -81,14 +112,33 @@ class ActionController extends \BaseController {
       return Redirect::to('/')->withMessages($validity[1]);
     }
 
-    // All is good. Continue to return
-    foreach ($validity[2] as $bookitem_id) {
+    $bookitem_ids = $validity[2];
+    $user_id = $validity[1];
+    $messages = array();
+    $renewed = 0;
+
+    // All is good. Continue to renew
+    foreach ($bookitem_ids as $bookitem_id) {
       $bookitem = BookItem::find($bookitem_id);
+      if ($bookitem->assigned_to==NULL) {
+        $messages[] = array('warning',"The book with id $bookitem_id is
+          not issued to anybody");
+        continue;
+      }
+      if ($bookitem->assigned_to!=$user_id) {
+        $messages[] = array('warning',"The book with id $bookitem_id
+          issued to user with id $bookitem->assigned_to");
+        continue;
+      }
+
       $bookitem->assigned_date = new DateTime;
+      Event::fire('pustak.bookitem.renew',array($user_id,
+        $bookitem->book_isbn,Auth::user()->id));
       $bookitem->save();
+      $renewed += 1;
     }
 
-    $goodMessage = array('notice','The books were renewed');
-    return Redirect::to('/')->withMessages(array($goodMessage));
+    $messages[] = array('notice',"$renewed books were renewed");
+    return Redirect::to('/')->withMessages($messages);
   }
 }
