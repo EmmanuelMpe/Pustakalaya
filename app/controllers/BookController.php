@@ -33,7 +33,8 @@ class BookController extends \BaseController {
     // Validation rules
     $rules = array('isbn'=>'required','name'=>'required',
       'author'=>'required','publisher'=>'required',
-      'type_name'=>'required|exists:booktypes,name');
+      'type_name'=>'required|exists:booktypes,name',
+      'edition'=>'numeric','quantity'=>'required|numeric|min:0');
 
     // Validate
     $validator = Validator::make(Input::all(), $rules);
@@ -59,6 +60,13 @@ class BookController extends \BaseController {
     $isbn = $book->isbn;
     // All is good. Save book
     $book->save();
+
+    // Create the necessary bookitems
+    for ($i=0;$i<(int)Input::get('quantity');$i++) {
+      $bookitem = new BookItem;
+      $bookitem->book_isbn = $isbn;
+      $bookitem->edition = Input::get('edition');
+    }
     Event::fire('pustak.book.create',array(Auth::user()->id,$isbn,
       NULL));
 

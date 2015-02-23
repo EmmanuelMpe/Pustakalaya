@@ -4,7 +4,6 @@ TODO
     * add/remove/etc from book view
 - Use message passing in all pages and actions
 - Links everywhere + Data Integrity
-- Improvise Issue/Return/Renew
 - Implement Reset/Change password
 - Implement request/query
 - Implement contact/about
@@ -18,6 +17,7 @@ DONE
 - Separate roll number to batch,department,roll
 
 BUGS
+- When first creating a book, the bookitems isn't populated, ie Zero bookitems
 - Notification is to be shown only in User's homepage
   be it student/admin
   It is also being shown in login page :v
@@ -27,4 +27,3 @@ FIXED
 - User that isn't admin can't edit their own profile
 - The rollnumber field of user isn't autofilled during edit
 - Can't create users "roll name field is required"
-- When first creating a book, the bookitems isn't populated, ie Zero bookitems
