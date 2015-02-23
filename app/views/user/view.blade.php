@@ -22,7 +22,7 @@
     </h2>
   </div>
 
-@if ( Request::is('/') )
+@if ( Request::is('/')  && Auth::user()->isAdmin())
   <div class="col-lg-8">
     <h4>
       <ul class="nav nav-pills" role="tablist">
@@ -95,7 +95,7 @@ function submitVerify() {
 @stop
 
 @section ('scripts')
-@if ( Request::is('/') )
+@if ( Request::is('/') && Auth::user()->isAdmin())
 {{ HTML::script('js/plugins/morris/morris-data.js') }}
 {{ HTML::script('js/plugins/morris/morris.min.js') }}
 {{ HTML::script('js/plugins/morris/morris.js') }}
