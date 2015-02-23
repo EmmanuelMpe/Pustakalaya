@@ -29,6 +29,7 @@
   {{ HTML::script('bootstrap/bootstrap.js') }}
   {{ HTML::script('bootstrap/bootswatch.js') }}
   {{-- HTML::script('bootstrap-select/bootstrap-select.js') --}}
+  @yield ('scripts')
 
   <script>
     $(document).ready(function() {

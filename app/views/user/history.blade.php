@@ -1,18 +1,6 @@
 <?php
-
-if (Auth::user()->isAdmin()) {
   $events = LogEvent::where('user_id','=',Auth::user()->id)->orWhere(
     'actor_id','=',Auth::user()->id)->get();
-
-} elseif (Auth::user()->isLibrarian()) {
-  $events = LogEvent::where('user_id','=',Auth::user()->id)->
-    orWhere('actor_id','=',Auth::user()->id)->get();
-
-} elseif (Auth::user()->isStudent()) {
-  $events = LogEvent::where('user_id','=',Auth::user()->id)->
-    orWhere('actor_id','=',Auth::user()->id)->get();
-}
-
 ?>
 
 <div class="panel panel-default">
