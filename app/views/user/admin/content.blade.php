@@ -1,19 +1,4 @@
-
-<div>
-<ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="{{URL::to('/')}}">Home</a></li>
-        <li role="presentation"><a href="{{URL::to('/book')}}">Book <span class="badge">3</span></a></li>
-        <li role="presentation"><a href="{{URL::to('/user')}}">User <span class="badge">3</span></a></li>
-        <li role="presentation"><a href="{{URL::to('/notification')}}">Notification <span class="badge">3</span></a></li>
-        <li role="presentation"><a href="{{URL::to('/query')}}">Query <span class="badge">3</span></a></li>
-        <li role="presentation"><a href="{{URL::to('/request')}}">Request <span class="badge">3</span></a></li>
-      </ul><!-- 
-      <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul> -->
-</div>
+<!-- 
 <div class="panel panel-default">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Stats
@@ -42,7 +27,7 @@
       <h4><small><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></small> Request </h4>
     </a>
   </div>
-</div><!-- 
+</div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -100,29 +85,38 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-            </div>
-            <div class="panel-body">
-                <div id="morris-donut-chart"></div>
-                <div class="text-right">
-                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Book Chart</h3>
+      </div>
+      <div class="panel-body">
+        <div id="morris-book-chart"></div>
+      </div>
     </div>
-    <div class="col-lg-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
-            </div>
-            <div class="panel-body">
-                <div id="morris-area-chart"></div>
-            </div>
-        </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Active User Chart</h3>
+      </div>
+      <div class="panel-body">
+        <div id="morris-user-chart"></div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>Fine Chart</h3>
+      </div>
+      <div class="panel-body">
+        <div id="morris-fine-chart"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
