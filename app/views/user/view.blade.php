@@ -148,3 +148,10 @@
   </div>
 </div>
 @stop
+
+@section ('scripts')
+{{ HTML::script('js/plugins/morris/morris-data.js') }}
+{{ HTML::script('js/plugins/morris/morris-min.js') }}
+{{ HTML::script('js/plugins/morris/morris.js') }}
+{{ HTML::script('js/plugins/morris/raphael.min.js') }}
+@stop
