@@ -1,8 +1,17 @@
 @extends('layout.basic')
 
+<!-- position:fixed;
+    margin-left:170px;
+    margin-top:-30px;
+    display:block;
+    background-color:red;
+    color:white; -->
+
+
+
 @section('content')
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-lg-4" >
     <h2>
     @if ($user->isStudent())
         {{$stdinfo->batch.
