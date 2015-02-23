@@ -39,7 +39,7 @@
             <label for="inputStartdate" class="col-lg-2 control-label">Start Date</label>
             <div class="col-lg-10">
               <input class="form-control" id="inputStartdate"
-                placeholder="Start date" type="date" name="start"
+                placeholder="Start date (Y-m-d)" type="date" name="start"
                 value="{{$notification->start}}">
             </div>
           </div>
@@ -47,7 +47,7 @@
             <label for="inputExpirydate" class="col-lg-2 control-label">Expiry Date</label>
             <div class="col-lg-10">
               <input class="form-control" id="inputExpirydate"
-                placeholder="Expiry date" type="date" name="end"
+                placeholder="Expiry date (Y-m-d)" type="date" name="end"
                 value="{{$notification->end}}">
             </div>
           </div>
