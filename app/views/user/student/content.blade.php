@@ -46,7 +46,7 @@
                     </td>
                     <td>{{$book->book->author}}</td>
                     <td>{{$book->edition}}</td>
-                                      <td>{{ date("Y.m.d",$assigned) }}</td>
+                    <td>{{ date("Y.m.d",$assigned) }}</td>
                     <td> {{ date("Y.m.d",$expired) }}</td>
                     <td> {{ $fine }} </td>
                 </tr>

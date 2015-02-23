@@ -7,6 +7,8 @@ TODO
 - Implement Reset/Change password
 - Implement request/query
 - Implement contact/about
+- Clear Fine button
+- Move logic from view to controller
 
 DONE
 - Implement Issue/Return/Renew
