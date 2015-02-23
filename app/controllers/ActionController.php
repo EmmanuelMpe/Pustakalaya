@@ -66,7 +66,11 @@ class ActionController extends \BaseController {
       $issued += 1;
     }
 
-    $messages[] = array('notice',"$issued books were issued");
+    if ($issued==1) {
+      $messages[] = array('notice',"One book was issued");
+    } elseif ($issued>1) {
+      $messages[] = array('notice',"$issued books were issued");
+    }
     return Redirect::to('/')->withMessages($messages);
   }
 
@@ -102,7 +106,11 @@ class ActionController extends \BaseController {
       $returned += 1;
     }
 
-    $messages[] = array('notice',"$returned books were returned");
+    if ($returned>1) {
+      $messages[] = array('notice',"$returned books were returned");
+    } elseif ($returned==1) {
+      $messages[] = array('notice',"One book was returned");
+    }
     return Redirect::to('/')->withMessages($messages);
   }
 
@@ -138,7 +146,11 @@ class ActionController extends \BaseController {
       $renewed += 1;
     }
 
-    $messages[] = array('notice',"$renewed books were renewed");
+    if ($renewed>1) {
+      $messages[] = array('notice',"$renewed books were renewed");
+    } elseif ($renewed==1) {
+      $messages[] = array('notice',"One book was renewed");
+    }
     return Redirect::to('/')->withMessages($messages);
   }
 }
