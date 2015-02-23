@@ -115,7 +115,8 @@ class UserController extends \BaseController {
     if ($user==NULL) {
       App::abort(404);
     }
-
+    if (Auth::user()->role->name=='Student' && $id!=Auth::user()->id)
+      App::abort(403);
     if ($user->role->name=='Student') {
       $stdinfo = StudentInfo::where('user_id','=',$id)->firstOrFail();
       return View::make('user.view')->withUser($user)->

@@ -22,7 +22,7 @@ Route::when('user/*/edit','admin_orSelf',array('get'));
 Route::when('user','admin',array('put','post'));
 Route::when('user/*','admin_orSelf',array('put','post'));
 Route::when('user','auth',array('get'));
-Route::when('user/*','admin_orSelf',array('get'));
+Route::when('user/*','auth',array('get'));
 
 // Set route for the book resource and set its access controls
 Route::resource('book','BookController');
