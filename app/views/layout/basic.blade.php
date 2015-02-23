@@ -24,11 +24,12 @@
   </div>
   @include('layout.footer')
 
-  {{ HTML::script('//code.jquery.com/jquery-1.11.2.min.js') }}
-  {{-- HTML::script('bootstrap/jquery-1.js') --}}
+  {{-- HTML::script('//code.jquery.com/jquery-1.11.2.min.js') --}}
+  {{ HTML::script('bootstrap/jquery-1.js') }}
   {{ HTML::script('bootstrap/bootstrap.js') }}
   {{ HTML::script('bootstrap/bootswatch.js') }}
   {{-- HTML::script('bootstrap-select/bootstrap-select.js') --}}
+  @yield ('scripts')
 
   <script>
     $(document).ready(function() {
