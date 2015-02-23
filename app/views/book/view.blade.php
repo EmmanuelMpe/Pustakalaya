@@ -47,7 +47,7 @@
         </li>
       </ul>
     </div>
-    @include ('book.history')
+    @include ('user.history')
   </div>
   <div class="col-lg-8">
     @include ('layout.alertbox') @include ('book.content') @include ('book.similar')
