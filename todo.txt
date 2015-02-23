@@ -9,6 +9,7 @@ TODO
 - Implement contact/about
 - Clear Fine button
 - Move logic from view to controller
+- Add history related to notification
 
 DONE
 - Implement Issue/Return/Renew

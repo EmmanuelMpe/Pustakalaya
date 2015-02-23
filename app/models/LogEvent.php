@@ -34,27 +34,43 @@ class LogEvent extends Eloquent {
       return $this->prettyBookitem();
   }
 
+  public function pastTense($var){
+    switch($var){
+        case 'create' : return 'created';
+        case 'delete' : return 'deleted';
+        case 'edit' : return 'edited';
+        case 'renew' : return 'renewed';
+        case 'issue' : return 'issued';
+        case 'return' : return 'returned';
+        default: return $var;
+    }
+  }
+
+  public function checkActionAdmin($var){
+        return $var=='create' || $var=='delete' || $var=='edit';
+  }
+  public function checkActionLibrarian($var){
+        return $var=='renew' || $var=='issue' || $var=='return';
+  }
+
   public function prettyUser() {
     $what = implode('.',array_slice(explode('.',$this->type),1));
     $user = User::withTrashed()->find($this->user_id);
     $actor = User::withTrashed()->find($this->actor_id);
-    if ($what=='create') {
-      return "User <a href='/user/$user->id'>$user->name</a> was
-        created by <a href='/user/$actor->id'>$actor->name</a>";
-    } elseif ($what=='delete') {
-      return "User <a href='/user/$user->id'>$user->name</a> was
-        deleted by <a href='/user/$actor->id'>$actor->name</a>";
-    } elseif ($what=='edit') {
-      return "User <a href='/user/$user->id'>$user->name</a> was
-        updated by <a href='/user/$actor->id'>$actor->name</a>";
-    } else
-        return 'Some user methods are missing';
+
+    if ($this->checkActionAdmin($what)) {
+      return "<a href='/user/$actor->id'>$actor->name</a> "
+      . $this->pastTense($what) ." user <a href='/user/$user->id'>$user->name</a>.";
+    }
+    return 'Some user methods are missing';
   }
 
   public function prettyBook() {
     $what = implode('.',array_slice(explode('.',$this->type),1));
     $book = Book::withTrashed()->find($this->book_isbn);
     $user = User::withTrashed()->find($this->user_id);
+
+    /*
     if ($what=='create') {
       return "Book <a href='/book/$book->isbn'>$book->name</a> was
         created by <a href='/user/$user->id'>$user->name</a>";
@@ -66,16 +82,27 @@ class LogEvent extends Eloquent {
         updated by <a href='/user/$user->id'>$user->name</a>";
     } else
         return 'Some book methods are missing';
+     */
+
+    if ($this->checkActionAdmin($what)) {
+      return "<a href='/user/$user->id'>$user->name</a> "
+      . $this->pastTense($what) ." book <a href='/book/$book->isbn'>$book->name</a>.";
+    }
+    return 'Some user methods are missing';
+
   }
 
   public function prettyBookitem() {
     $what = implode('.',array_slice(explode('.',$this->type),1));
     $book = Book::find($this->book_isbn);
+    $user = User::find($this->user_id);
     $actor = User::find($this->actor_id);
-    if ($what=='issue' || $what=='return' || $what=='renew') {
-      return "$book->name was {$what}ed.";
+    if ($this->checkActionLibrarian($what)) {
+      return "<a href='/user/$actor->id'>$actor->name</a> "
+          .$this->pastTense($what)." instance of <a href='/book/{$book->isbn}'>$book->name</a> for 
+          <a href='/user/$user->id'>$user->name.</a>";
     }
-    return "Something was done";
+    return "Some bookitem methods are missing";
   }
 
   // Event handler for all events
