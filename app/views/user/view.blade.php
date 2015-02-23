@@ -21,6 +21,20 @@
     @endif
     </h2>
   </div>
+
+  <div class="col-lg-8">
+    <h4>
+      <ul class="nav nav-pills" role="tablist">
+      <li><a href="{{URL::to('/book')}}"><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span></small> Book </a></li>
+      <li><a href="{{URL::to('/user')}}"><small><span class="glyphicon glyphicon-user" aria-hidden="true"></span></small> User</a></li>
+      <li><a href="{{URL::to('/notification')}}"><small><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></small> Notification</a></li>
+      <li><a href="{{URL::to('/query')}}"><small><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></small> <span class="badge">3</span>Query</a></li>
+      <li><a href="{{URL::to('/request')}}"><small><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></small> <span class="badge">3</span>Request</a></li>
+    </ul>
+    </h4>
+  </div>
+
+
 </div>
 
 <div class="row">
@@ -43,10 +57,13 @@
   @if ($user->isStudent())
     @include ('user.student.content')
   @elseif ($user->isAdmin() && Auth::user()->id==$user->id)
+    @include ('user.recommendation')
     @include ('user.admin.content')
   @endif
 
-  @include ('user.recommendation')
+  @if (!$user->isAdmin())
+    @include ('user.recommendation')
+  @endif
   </div>
 </div>
 @stop
@@ -76,7 +93,7 @@ function submitVerify() {
 
 @section ('scripts')
 {{ HTML::script('js/plugins/morris/morris-data.js') }}
-{{ HTML::script('js/plugins/morris/morris-min.js') }}
+{{ HTML::script('js/plugins/morris/morris.min.js') }}
 {{ HTML::script('js/plugins/morris/morris.js') }}
 {{ HTML::script('js/plugins/morris/raphael.min.js') }}
 @stop

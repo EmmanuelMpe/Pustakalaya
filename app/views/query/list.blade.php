@@ -55,7 +55,7 @@ $queries = array($user1,$user2);
             @foreach ($queries as $query)
             <tr 
                 @if ($query->read)
-                    class="warning"
+                    class="info"
                 @endif
                 >
               <td class="">{{{$query->id}}}</td>
