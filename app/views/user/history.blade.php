@@ -2,10 +2,10 @@
   $itemtype = Request::segment(1);
   $itemid = Request::segment(2);
   if ($itemtype=='book') {
-    $events = LogEvent::where('book_id','=',$itemid)->get();
+    $events = LogEvent::where('book_isbn','=',$itemid)->orderBy('id', 'desc')->get();
   } elseif ($itemtype=='user') {
     $events = LogEvent::where('user_id','=',$itemid)->orWhere(
-      'actor_id','=',$itemid)->get();
+      'actor_id','=',$itemid)->orderBy('id', 'desc')->get();
   }
 ?>
 
