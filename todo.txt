@@ -25,6 +25,9 @@ BUGS
   It is also being shown in login page :v
 - Logging history about notification
 
+24 feb:
+- error on book search with type
+
 FIXED
 - User that isn't admin can't edit their own profile
 - The rollnumber field of user isn't autofilled during edit
