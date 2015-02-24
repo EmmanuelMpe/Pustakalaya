@@ -16,9 +16,6 @@
       <div class="panel-heading">Basic information
       @if (Auth::user()->isAdmin())
         <div class="bs-component pull-right">
-          <a href="{{URL::to('bookitem/create?isbn='.$book->isbn) }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Add">
-            <span class="glyphicon glyphicon-plus"> </span>
-          </a>
           <a href="{{URL::to('book/'.$book->isbn.'/edit') }}" class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Edit">
             <span class="glyphicon glyphicon-edit"> </span>
           </a>

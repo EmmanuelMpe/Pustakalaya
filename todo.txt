@@ -9,6 +9,7 @@ TODO
 - Implement contact/about
 - Clear Fine button
 - Move logic from view to controller
+- Add history related to notification
 
 DONE
 - Implement Issue/Return/Renew
@@ -24,6 +25,9 @@ BUGS
   be it student/admin
   It is also being shown in login page :v
 - Logging history about notification
+- After book creation failed, edit page was shown.
+- Book creation failed, count() function failed
+
 
 24 feb:
 - error on book search with type

@@ -17,6 +17,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Book</th>
+                    <th>Type</th>
                     <th>Author</th>
                     <th>Edition</th>
                     <th>Issue Date</th>
@@ -44,6 +45,7 @@
                         {{$book->book->name}}
                         </a>
                     </td>
+                    <td>{{$book->book->booktype->name}}</td>
                     <td>{{$book->book->author}}</td>
                     <td>{{$book->edition}}</td>
                     <td>{{ date("Y.m.d",$assigned) }}</td>

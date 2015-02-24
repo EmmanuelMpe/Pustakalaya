@@ -6,6 +6,10 @@
   } elseif ($itemtype=='user') {
     $events = LogEvent::where('user_id','=',$itemid)->orWhere(
       'actor_id','=',$itemid)->orderBy('id', 'desc')->get();
+  } else {
+    $itemid = Auth::user()->id;
+    $events = LogEvent::where('user_id','=',$itemid)->orWhere(
+      'actor_id','=',$itemid)->orderBy('id', 'desc')->get();
   }
 ?>
 
