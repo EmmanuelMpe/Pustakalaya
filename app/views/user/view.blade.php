@@ -14,8 +14,8 @@
   <div class="col-lg-4" >
     <h2>
     @if ($user->isStudent())
-        {{$stdinfo->batch.
-        $stdinfo->department_sname.
+        {{"0".$stdinfo->batch."-".
+        $stdinfo->department_sname."-".
         $stdinfo->rollnumber}}
     @elseif ($user->isAdmin())
         @if (Auth::user()->id==$user->id)

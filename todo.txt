@@ -31,6 +31,8 @@ BUGS
 
 24 feb:
 - error on book search with type
+- user fine isn't displayed
+- addition and edit of book & book-items is not allowed
 
 FIXED
 - User that isn't admin can't edit their own profile
