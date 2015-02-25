@@ -34,7 +34,7 @@
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
               <button type="submit" class="btn btn-primary">Verify</button>
-              <button class="btn btn-default pull-right">Cancel</button>
+              <button type="reset" class="btn btn-default pull-right">Reset</button>
             </div>
           </div>
 

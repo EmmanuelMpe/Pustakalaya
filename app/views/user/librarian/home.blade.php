@@ -46,7 +46,7 @@
               </div>
               <button type="submit" class="btn btn-success"
                 onClick="submitReturn()">Return</button>
-              <button class="btn btn-default pull-right">Cancel</button>
+              <button type="reset" sclass="btn btn-default pull-right">Reset</button>
             </div>
           </div>
 
