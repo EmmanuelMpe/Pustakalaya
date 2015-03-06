@@ -7,58 +7,48 @@ $(function() {
         element: 'morris-fine-chart',
         data: [{
             period: '2010 Q1',
-            iphone: 2666,
-            ipad: null,
-            itouch: 2647
+            FineAmounted: 2666,
+            FineCollected: 1509
         }, {
             period: '2010 Q2',
-            iphone: 2778,
-            ipad: 2294,
-            itouch: 2441
+            FineAmounted: 2778,
+            FineCollected: 2294
         }, {
             period: '2010 Q3',
-            iphone: 4912,
-            ipad: 1969,
-            itouch: 2501
+            FineAmounted: 4912,
+            FineCollected: 1969
         }, {
             period: '2010 Q4',
-            iphone: 3767,
-            ipad: 3597,
-            itouch: 5689
+            FineAmounted: 3767,
+            FineCollected: 3597
         }, {
             period: '2011 Q1',
-            iphone: 6810,
-            ipad: 1914,
-            itouch: 2293
+            FineAmounted: 6810,
+            FineCollected: 1914
         }, {
             period: '2011 Q2',
-            iphone: 5670,
-            ipad: 4293,
-            itouch: 1881
+            FineAmounted: 5670,
+            FineCollected: 4293
         }, {
             period: '2011 Q3',
-            iphone: 4820,
-            ipad: 3795,
-            itouch: 1588
+            FineAmounted: 4820,
+            FineCollected: 3795
         }, {
             period: '2011 Q4',
-            iphone: 15073,
-            ipad: 5967,
-            itouch: 5175
+            FineAmounted: 15073,
+            FineCollected: 5967
         }, {
             period: '2012 Q1',
-            iphone: 10687,
-            ipad: 4460,
-            itouch: 2028
+            FineAmounted: 10687,
+            FineCollected: 4460
         }, {
             period: '2012 Q2',
-            iphone: 8432,
-            ipad: 5713,
-            itouch: 1791
+            FineAmounted: 8432,
+            FineCollected: 5713
         }],
         xkey: 'period',
-        ykeys: ['iphone', 'ipad', 'itouch'],
-        labels: ['iPhone', 'iPad', 'iPod Touch'],
+        ykeys: ['FineAmounted', 'FineCollected'],
+        labels: ['FineAmounted', 'FineCollected'],
         pointSize: 2,
         hideHover: 'auto',
         resize: true
